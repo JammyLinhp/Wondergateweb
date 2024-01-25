@@ -1,0 +1,66 @@
+@import '@/styles/base.less';
+
+body,
+div,
+p,
+ul,
+li,
+span,
+img {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body {
+  transition: color 0.5s, background-color 0.5s;
+  font-family: Helvetica, Arial, PingFang SC, Microsoft YaHei, Tahoma,
+  sans-serif, Avenir;
+  background: @color-bg2;
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+}
+
+.app-height {
+  height: 100%;
+}
+
+input:-webkit-autofill {
+  background: transparent;
+  transition: background-color 50000s ease-in-out 0s;
+  -webkit-text-fill-color: unset;
+}
+
+.moozumi-card-bg {
+  background-color: @color-bg1;
+  box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, 0.01);
+}
+
+.font-size-14 {
+  font-size: 14px;
+}
+
+.font-size-12 {
+  font-size: 12px;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  //background-image: linear-gradient(to right, #2f80ed, #56ccf2);
+  overflow: auto;
+  background: #EDF3F9;
+}
+
+.content-wrapper {
+  background-color: @color-white;
+  border-radius: 15px;
+  padding: 15px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
