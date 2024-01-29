@@ -7,7 +7,6 @@ import App from './App.vue';
 import router, { setupRouter } from './router';
 import http from './utils/http';
 import './styles/main.less';
-import './assets/iconfont/iconfont.css';
 import { useLangStore } from './stores/lang';
 import * as Icons from '@ant-design/icons-vue';
 
@@ -38,7 +37,7 @@ export const i18n = setupI18n({
   // 关闭18n警告
   fallbackWarn: false,
   warnHtmlMessage: false,
-  missingWarn: false
+  missingWarn: false,
 });
 
 setupRouter(app);

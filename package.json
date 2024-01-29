@@ -8,6 +8,12 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead"
+  ],
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",
     "@vueuse/core": "^10.4.0",
@@ -21,6 +27,7 @@
   },
   "devDependencies": {
     "@types/qs": "^6.9.11",
+    "@types/node": "^16.18.3",
     "qs": "^6.11.2",
     "@vitejs/plugin-vue": "^3.0.0",
     "less": "^4.1.3",

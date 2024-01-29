@@ -1,11 +1,16 @@
 <template>
-  <div class="header-wrap">
-    <div class="header-inner">
-      <div class="header-logo"></div>
-      <div class="header-title">
-        <RouterLink :to="item.path" v-for="item in titleList" class="header-title-item">
+  <div class="header-wrap layout-content">
+    <div class="header-inner layout-content layout-two-side">
+      <div class="header-logo">
+        <img src="@/assets/images/logo_dark.png">
+      </div>
+      <div class="header-title layout-all-center">
+        <RouterLink :to="item.path" v-for="item in titleList" class="header-title-item layout-all-center">
           {{ $t(item.name) }}
         </RouterLink>
+        <div class="header-title-language">
+          {{ $t('language') }}
+        </div>
       </div>
     </div>
   </div>
@@ -14,15 +19,15 @@
 <script setup lang="ts">
 const titleList = [
   {
-    name: 'moozumi.home.productCenter',
+    name: 'moo.menu.productCenter',
     path: '',
   },
   {
-    name: 'moozumi.home.securityCenter',
+    name: 'moo.menu.securityCenter',
     path: '',
   },
   {
-    name: 'moozumi.home.aboutUs',
+    name: 'moo.menu.aboutUs',
     path: '',
   },
 ];
@@ -32,40 +37,50 @@ const titleList = [
 @import '@/styles/base.less';
 
 .header-wrap {
-  height: 35px;
+  position: relative;
 
   .header-inner {
     width: 100%;
-    height: 35px;
+    height: @header-height;
     position: absolute;
     top: 0;
     left: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    z-index: 100;
 
     .header-logo {
       width: 200px;
-      height: 100%;
-      background: #6b7fb8;
+      height: @header-height;
+      line-height: @header-height;
+
+      img {
+        height: 2rem;
+      }
     }
 
     .header-title {
-      width: 320px;
       height: 100%;
 
       .header-title-item {
-        display: inline-block;
-        width: 60px;
-        padding: 0 10px;
-        font-size: 8px;
-        font-family: Avenir, Avenir-Heavy;
+        padding: 0 1rem;
+        font-size: 1rem;
+        font-family: Avenir, Avenir-Heavy, serif;
         font-weight: bold;
-        text-align: center;
         color: @color-menu-default;
-        text-decoration: auto;
-        height: 35px;
-        line-height: 35px;
+        text-decoration: none;
+        height: 100%;
+        line-height: @header-height;
+      }
+
+      .header-title-language {
+        padding: .2rem 1rem;
+        margin-left: 15px;
+        line-height: 30px;
+        text-align: center;
+        font-size: .75rem;
+        background: @color-primary;
+        border-radius: 2rem;
+        color: @color-bg;
+        cursor: pointer;
       }
     }
   }

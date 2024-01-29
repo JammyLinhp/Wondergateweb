@@ -4,18 +4,17 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
 const timestamp = new Date().getTime();
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
   define: {
     __VUE_I18N_FULL_INSTALL__: true,
     __VUE_I18N_LEGACY_API__: true,
-    __INTLIFY_PROD_DEVTOOLS__: false
+    __INTLIFY_PROD_DEVTOOLS__: false,
   },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
   css: {
     preprocessorOptions: {
@@ -26,9 +25,9 @@ export default defineConfig({
           // 'text-color': '#1D2129',
           // 'success-color': '#00B42A',
         },
-        javascriptEnabled: true
-      }
-    }
+        javascriptEnabled: true,
+      },
+    },
   },
   build: {
     outDir: 'dist',
@@ -39,8 +38,8 @@ export default defineConfig({
     terserOptions: {
       compress: {
         drop_console: true,
-        drop_debugger: true
-      }
+        drop_debugger: true,
+      },
     },
     rollupOptions: {
       output: {
@@ -60,22 +59,22 @@ export default defineConfig({
           const fileName =
             facadeModuleId[facadeModuleId.length - 2] || '[name]';
           return `js/${fileName}/[name].[hash]${timestamp}.js`;
-        }
-      }
-    }
+        },
+      },
+    },
   },
   server: {
     proxy: {
       '/api': {
         target: 'http://172.20.0.14:8037',
-        changeOrigin: true
+        changeOrigin: true,
         // rewrite: (path) => {
         //   return path.replace(/^\/api/, '');
         // },
-      }
+      },
     },
-    port: 12017
-  }
+    port: 12017,
+  },
 });
 
 

@@ -10,22 +10,39 @@ img {
   padding: 0;
   margin: 0;
   list-style: none;
+  font-size: inherit;
 }
+
 
 body {
   transition: color 0.5s, background-color 0.5s;
   font-family: Helvetica, Arial, PingFang SC, Microsoft YaHei, Tahoma,
   sans-serif, Avenir;
-  background: @color-bg2;
   height: 100%;
 }
 
 #app {
   height: 100%;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: titleFont;
+  src: url('@/assets/iconfont/WorldwiseSans-Heavy.ttf')
+}
+
+@font-face {
+  font-family: textFont;
+  src: url('@/assets/iconfont/Avenir.ttc')
 }
 
 .app-height {
   height: 100%;
+}
+
+.layout-content {
+  width: 1260px;
+  margin: 0 auto;
 }
 
 input:-webkit-autofill {
@@ -34,33 +51,83 @@ input:-webkit-autofill {
   -webkit-text-fill-color: unset;
 }
 
-.moozumi-card-bg {
-  background-color: @color-bg1;
-  box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, 0.01);
+.layout-two-side {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.font-size-14 {
-  font-size: 14px;
+.layout-all-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.font-size-12 {
-  font-size: 12px;
+
+@media (min-width: 2301px) {
+  html {
+    font-size: 24px;
+  }
 }
 
-.container {
-  height: 100%;
-  width: 100%;
-  //background-image: linear-gradient(to right, #2f80ed, #56ccf2);
-  overflow: auto;
-  background: #EDF3F9;
+@media screen and (min-width: 1921px) and (max-width: 2300px) {
+  html {
+    font-size: 22px;
+  }
 }
 
-.content-wrapper {
-  background-color: @color-white;
-  border-radius: 15px;
-  padding: 15px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+@media screen and (min-width: 1681px) and (max-width: 1920px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+
+@media screen and (min-width: 1341px) and (max-width: 1680px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+
+@media screen and (min-width: 880px) and (max-width: 1340px) {
+  html {
+    font-size: 14px;
+  }
+
+  .layout-content {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+@media screen and (min-width: 761px) and (max-width: 880px) {
+  html {
+    font-size: 11px;
+  }
+
+  .layout-content {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+
+@media (max-width: 760px) {
+  html {
+    font-size: 10px;
+  }
+
+  .layout-content {
+    width: 760px;
+    padding: 0 10px;
+  }
+
+  .body {
+    width: 760px
+  }
+
+  #app {
+    width: 760px;
+  }
 }

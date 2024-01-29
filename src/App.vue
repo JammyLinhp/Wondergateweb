@@ -9,7 +9,6 @@ import 'dayjs/locale/zh-cn';
 import { useLangStore } from '@/stores/lang';
 
 const { isLongLanguage } = useLangStore();
-const { spinning } = storeToRefs(useAppStore());
 const flag = ref(new Date().getTime());
 const reload = () => {
   flag.value = new Date().getTime();
@@ -18,11 +17,9 @@ provide('reload', reload);
 </script>
 <template>
   <div :class="{en:isLongLanguage(),'app-height':true}">
-    <a-spin :spinning="spinning">
-      <a-config-provider :locale="isLongLanguage()? enUS : zhCN" :key="flag">
-        <RouterView />
-      </a-config-provider>
-    </a-spin>
+    <a-config-provider :locale="isLongLanguage()? enUS : zhCN" :key="flag">
+      <RouterView/>
+    </a-config-provider>
   </div>
 </template>
 
