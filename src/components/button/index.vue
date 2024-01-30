@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="{ 'text-align':isCenter? 'center':'left',padding: '.5rem 1.4rem' }">
     <a :class="{
    'button-bg': !isDark,
    'button-dark-bg ':isDark,
@@ -20,6 +20,10 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  isCenter: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 
@@ -30,8 +34,8 @@ defineProps({
 
 #app {
   .button {
-    border-radius: 2rem;
-    padding: .6rem 1.4rem;
+    border-radius: 1.5rem;
+    padding: .5rem 1.4rem;
     cursor: pointer;
     font-size: 1rem;
   }

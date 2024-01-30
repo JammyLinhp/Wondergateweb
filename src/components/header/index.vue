@@ -1,11 +1,12 @@
 <template>
   <div class="header-wrap layout-content">
-    <div class="header-inner layout-content layout-two-side">
+    <div class="header-inner layout-content layout-two-side-center">
       <div class="header-logo">
         <img src="@/assets/images/logo_dark.png">
       </div>
       <div class="header-title layout-all-center">
-        <RouterLink :to="item.path" v-for="item in titleList" class="header-title-item layout-all-center">
+        <RouterLink :to="item.path" v-for="item in titleList"
+                    class="header-title-item layout-all-center app-text-font">
           {{ $t(item.name) }}
         </RouterLink>
         <div class="header-title-language">
@@ -63,8 +64,7 @@ const titleList = [
       .header-title-item {
         padding: 0 1rem;
         font-size: 1rem;
-        font-family: Avenir, Avenir-Heavy, serif;
-        font-weight: bold;
+        font-weight: bolder;
         color: @color-menu-default;
         text-decoration: none;
         height: 100%;
@@ -77,7 +77,7 @@ const titleList = [
         line-height: 30px;
         text-align: center;
         font-size: .75rem;
-        background: @color-primary;
+        background: @color-bg1;
         border-radius: 2rem;
         color: @color-bg;
         cursor: pointer;

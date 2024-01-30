@@ -1,4 +1,4 @@
-@import '@/styles/base.less';
+@import '@/styles/common.less';
 
 body,
 div,
@@ -23,7 +23,10 @@ body {
 
 #app {
   height: 100%;
-  overflow: hidden;
+  overflow: hidden auto;
+  background: white;
+  width: 100%;
+  min-width: @min-width;
 }
 
 @font-face {
@@ -36,33 +39,12 @@ body {
   src: url('@/assets/iconfont/Avenir.ttc')
 }
 
-.app-height {
-  height: 100%;
-}
-
-.layout-content {
-  width: 1260px;
-  margin: 0 auto;
-}
 
 input:-webkit-autofill {
   background: transparent;
   transition: background-color 50000s ease-in-out 0s;
   -webkit-text-fill-color: unset;
 }
-
-.layout-two-side {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.layout-all-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 
 @media (min-width: 2301px) {
   html {
@@ -90,9 +72,42 @@ input:-webkit-autofill {
 }
 
 
-@media screen and (min-width: 880px) and (max-width: 1340px) {
+@media screen and (min-width: 1251px) and (max-width: 1340px) {
   html {
-    font-size: 14px;
+    font-size: 16px;
+  }
+
+  .layout-content {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1250px) {
+  html {
+    font-size: 14.5px;
+  }
+
+  .layout-content {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1120px) {
+  html {
+    font-size: 13.5px;
+  }
+
+  .layout-content {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+@media screen and (min-width: 880px) and (max-width: 1000px) {
+  html {
+    font-size: 12px;
   }
 
   .layout-content {
@@ -103,7 +118,7 @@ input:-webkit-autofill {
 
 @media screen and (min-width: 761px) and (max-width: 880px) {
   html {
-    font-size: 11px;
+    font-size: 10.5px;
   }
 
   .layout-content {
@@ -119,15 +134,8 @@ input:-webkit-autofill {
   }
 
   .layout-content {
-    width: 760px;
+    width: 100%;
     padding: 0 10px;
   }
 
-  .body {
-    width: 760px
-  }
-
-  #app {
-    width: 760px;
-  }
 }
