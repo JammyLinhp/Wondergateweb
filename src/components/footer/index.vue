@@ -1,0 +1,181 @@
+<template>
+  <div class="footer-launch-wrap footer-wrap">
+    <div class="layout-content footer-launch-content">
+      <div class="app-title-text app-title-font footer-launch-title">
+        {{ $t('moo.footer.launch') }}
+      </div>
+      <div class="app-subtitle-text app-detail-font">
+        {{ $t('moo.footer.unleash') }}
+      </div>
+    </div>
+    <Button :is-center="true" class="title-button"></Button>
+  </div>
+  <div class="footer-wrap footer-navigation-wrap">
+    <div class="layout-content">
+      <div class="footer-navigation-logo">
+        <img src="/src/assets/images/logo_light.png" alt="logo">
+      </div>
+      <div class="layout-two-side-start">
+        <div class="footer-navigation-menu" v-for="item in menuList">
+          <RouterLink :to="{ path: item.path, hash: item.hash??''}"
+                      class="footer-navigation-menu-item app-text-font app-description-text">
+            {{ $t(item.name) }}
+          </RouterLink>
+          <template v-if="item.menus">
+            <div class="footer-navigation-submenu">
+              <RouterLink :to="{ path: subItem.path, hash: subItem.hash??''}" v-for="subItem in item.menus"
+                          class="footer-navigation-submenu-item app-text-font app-description-text"
+                          style="font-size: .9rem">
+                {{ $t(item.name) }}
+              </RouterLink>
+            </div>
+          </template>
+        </div>
+        <div class="layout-two-side-start">
+          <img class="footer-navigation-connection-logo" :src="item" alt="logo"
+               v-for="item in imageList">
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-privacy-wrap">
+      <div class="app-text-font layout-content">
+        {{ $t('moo.footer.privacy') }}
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import Button from '@/components/button/index.vue';
+import { IMenu } from '@/interface/menu';
+import { createImageList } from '@/utils/tools';
+
+const menuList: IMenu[] = [
+  {
+    name: 'moo.menu.productCenter',
+    path: '/product-center',
+    menus: [
+      {
+        name: 'moo.menu.productCenter',
+        path: '/product-center',
+      },
+      {
+        name: 'moo.menu.productCenter',
+        path: '',
+      },
+      {
+        name: 'moo.menu.productCenter',
+        path: '',
+      },
+    ],
+  },
+  {
+    name: 'moo.menu.securityCenter',
+    path: '/security-center',
+    menus: [
+      {
+        name: 'moo.menu.productCenter',
+        path: '/security-center',
+      },
+      {
+        name: 'moo.menu.productCenter',
+        path: '',
+      },
+      {
+        name: 'moo.menu.productCenter',
+        path: '',
+      },
+    ],
+  },
+  {
+    name: 'moo.menu.aboutUs',
+    path: '',
+    menus: [
+      {
+        name: 'moo.menu.productCenter',
+        path: '',
+      },
+      {
+        name: 'moo.menu.productCenter',
+        path: '',
+      },
+      {
+        name: 'moo.menu.productCenter',
+        path: '',
+      },
+    ],
+  },
+];
+const imageList = createImageList('/footer/logo_connection_', 6);
+</script>
+
+<style lang="less">
+@import '@/styles/base.less';
+
+.footer-wrap {
+  width: 100%;
+  color: @color-white;
+  background-size: cover;
+}
+
+.footer-launch-wrap {
+  background-image: url("@/assets/images/footer/bg_launch.png");
+  height: 23rem;
+  text-align: center;
+
+  .footer-launch-content {
+    padding: 3.6rem 0 4.3rem;
+
+    .footer-launch-title {
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+.footer-navigation-wrap {
+  position: relative;
+  background: @color-black;
+  height: 22.5rem;
+
+  .footer-navigation-logo {
+    padding: 2.6rem 0;
+    width: 190px;
+  }
+
+  .footer-navigation-menu {
+    flex: 1;
+
+    .footer-navigation-menu-item {
+      display: inline-block;
+      margin-bottom: 1.3rem;
+      color: @color-white;
+    }
+
+    .footer-navigation-submenu {
+      display: flex;
+      flex-direction: column;
+
+      .footer-navigation-submenu-item {
+        margin-bottom: .65rem;
+        color: @color-white;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.footer-navigation-connection-logo {
+  padding: 0 .6rem;
+}
+
+
+.footer-privacy-wrap {
+  width: 100%;
+  padding-bottom: .5rem;
+  font-size: .6rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+</style>

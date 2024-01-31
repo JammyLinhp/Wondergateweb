@@ -17,6 +17,18 @@
   height: 100%;
 }
 
+.app-header-distance {
+  padding-top: @header-height;
+}
+
+.app-clean-float {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
 // 常用布局 ---------------------------------------------------------------------------------------------------------
 .layout-content {
   width: 1280px;
@@ -35,11 +47,32 @@
   align-items: flex-end;
 }
 
+.layout-two-side-start {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .layout-all-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.layout-horizontal-equalization {
+  padding: 4rem 1.5rem;
+
+  &:first-child {
+    padding-left: 0;
+    flex: 9;
+  }
+
+  &:last-child {
+    padding-right: 0;
+    flex: 10;
+  }
+}
+
 
 // 常用背景 ---------------------------------------------------------------------------------------------------------
 .layout-background-1 {
@@ -86,17 +119,17 @@
 
 // 常用颜色 ---------------------------------------------------------------------------------------------------------
 .app-color-text {
-  color: @color-text;
+  color: @color-text !important;
 }
 
 .app-color-text-dark {
-  color: @color-text-dark;
+  color: @color-text-dark !important;
 }
 
 .app-color-text-main {
-  color: @color-text-1;
+  color: @color-text-1 !important;
 }
 
 .app-color-text-grey {
-  color: @color-text-2;
+  color: @color-text-2 !important;
 }

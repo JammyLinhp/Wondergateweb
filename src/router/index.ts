@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import BaseLayout from '@/layout/base/index.vue';
-import { useLangStore } from '@/stores/lang';
-import { storeToRefs } from 'pinia';
 
 
 const router = createRouter({
@@ -21,8 +19,26 @@ const router = createRouter({
             key: 'home',
             code: 'home',
             activeMenu: '/index',
-            icon: 'icon-home',
-            breadcrumb: [{ title: 'moozumi.menu.homePage' }],
+          },
+        },
+        {
+          path: '/product-center',
+          name: 'product center',
+          component: () => import('@/views/product/index.vue'),
+          meta: {
+            key: 'product',
+            code: 'product',
+            activeMenu: '/product-center',
+          },
+        },
+        {
+          path: '/security-center',
+          name: 'security center',
+          component: () => import('@/views/security/index.vue'),
+          meta: {
+            key: 'security',
+            code: 'security',
+            activeMenu: '/security-center',
           },
         },
       ],

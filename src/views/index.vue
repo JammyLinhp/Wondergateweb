@@ -1,7 +1,7 @@
 <template>
-  <div style="padding-bottom: 500px">
-    <Header></Header>
-    <div class="home-title-wrap layout-background-1">
+  <Header></Header>
+  <div class="layout-background-1 app-header-distance">
+    <div class="home-title-wrap">
       <div class="layout-content layout-two-side-center">
         <div class="home-title-left">
           <div class="home-title-notes">
@@ -34,71 +34,73 @@
         </div>
       </div>
     </div>
-
-    <!-- 图文说明 -->
-    <div class="layout-background-3">
-      <div class="layout-content app-color-text-main app-text-font">
-        <div class="app-title-text  home-suite-title-padding ">
-          {{ $t('moo.home.suite') }}
-        </div>
-        <div class="app-description-text  home-suite-tip-padding app-detail-font"
-             v-html=" $t('moo.home.suiteDescription')">
-        </div>
-
-        <div class="home-card-wrap layout-content layout-two-side-center app-detail-font">
-          <div class="home-card-content" v-for="item in cardList">
-            <div><img :src="item.path" alt=""></div>
-            <div class="home-card-title app-subtitle-text">{{ $t(item.title) }}</div>
-            <div class="app-description-text-small">{{ $t(item.description) }}</div>
-          </div>
-        </div>
-        <div class="home-card-button">
-          <Button :is-dark="true" :is-center="true" class="title-button"></Button>
-        </div>
+  </div>
+  <!-- 图文说明 -->
+  <div class="layout-background-3">
+    <div class="layout-content app-color-text-main app-text-font">
+      <div class="app-title-text  home-suite-title-padding ">
+        {{ $t('moo.home.suite') }}
       </div>
-    </div>
-    <!-- ------ -->
-    <div>
-      <div class="layout-content app-color-text-main layout-two-side-end">
-        <div class="home-convenient-item">
-          <div class="app-title-text-small home-suite-title-padding app-text-font">
-            {{ $t('moo.home.convenientSystemTitle') }}
-          </div>
-          <div class="app-description-text-small app-detail-font"
-               v-html=" $t('moo.home.convenientSystemDescription')">
-          </div>
-        </div>
-        <div class="home-convenient-item">
-          <img src="../assets/images/home/img_convenient_system.png" alt="payment">
-        </div>
-      </div>
-      <div class="layout-all-center layout-content">
-        <img class="home-logo-organization" :src="item" alt="logo" v-for="item in organizationList">
+      <div class="app-description-text  home-suite-tip-padding app-detail-font"
+           v-html=" $t('moo.home.suiteDescription')">
       </div>
 
-      <div class="layout-content home-rapid-transaction">
-        <div class="app-subtitle-text app-text-font layout-all-center">
-          {{ $t('moo.home.rapidTransactionTitle') }}
-        </div>
-        <div class="app-description-text app-detail-font app-detail-font layout-all-center"
-             v-html=" $t('moo.home.rapidTransactionDescription')">
-        </div>
-      </div>
-
-      <div class="home-step-wrap layout-two-side-center app-detail-font">
-        <div class="layout-all-center home-step-content" v-for="(item,index) in stepList">
-          <div class="home-step-line" v-if="index!==stepList.length-1"></div>
+      <div class="home-card-wrap layout-content layout-two-side-center app-detail-font">
+        <div class="home-card-content" v-for="item in cardList">
           <div><img :src="item.path" alt=""></div>
-          <div class="app-description-text home-step-text">{{ $t(item.title) }}</div>
-          <div class="app-description-text app-color-text-main">{{ $t(item.description) }}</div>
+          <div class="home-card-title app-subtitle-text">{{ $t(item.title) }}</div>
+          <div class="app-description-text-small">{{ $t(item.description) }}</div>
         </div>
+      </div>
+      <div class="home-card-button">
+        <Button :is-dark="true" :is-center="true" class="title-button"></Button>
       </div>
     </div>
   </div>
+  <!-- ------ -->
+  <div>
+    <div class="layout-content app-color-text-main layout-two-side-end">
+      <div class="layout-horizontal-equalization">
+        <div class="app-title-text-small home-suite-title-padding app-text-font">
+          {{ $t('moo.home.convenientSystemTitle') }}
+        </div>
+        <div class="app-description-text-small app-detail-font"
+             v-html=" $t('moo.home.convenientSystemDescription')">
+        </div>
+      </div>
+      <div class="layout-horizontal-equalization">
+        <img src="../assets/images/home/img_convenient_system.png" alt="payment">
+      </div>
+    </div>
+    <div class="layout-all-center layout-content">
+      <img class="home-logo-organization" :src="item" alt="logo" v-for="item in organizationList">
+    </div>
+
+    <div class="layout-content home-rapid-transaction">
+      <div class="app-subtitle-text app-text-font layout-all-center">
+        {{ $t('moo.home.rapidTransactionTitle') }}
+      </div>
+      <div class="app-description-text app-detail-font app-detail-font layout-all-center"
+           v-html=" $t('moo.home.rapidTransactionDescription')">
+      </div>
+    </div>
+
+    <div class="home-step-wrap layout-two-side-center app-detail-font">
+      <div class="layout-all-center home-step-content" v-for="(item,index) in stepList">
+        <div class="home-step-line" v-if="index!==stepList.length-1"></div>
+        <div><img :src="item.path" alt=""></div>
+        <div class="app-description-text home-step-text">{{ $t(item.title) }}</div>
+        <div class="app-description-text app-color-text-main">{{ $t(item.description) }}</div>
+      </div>
+    </div>
+  </div>
+
+  <Footer></Footer>
 </template>
 
 <script setup lang="ts">
 import Header from '@/components/header/index.vue';
+import Footer from '@/components/footer/index.vue';
 import Button from '@/components/button/index.vue';
 import globalAcquiringImg from '@/assets/images/home/img_global_acquiring.png';
 import revenueRecognitionImg from '@/assets/images/home/img_revenue_recognition.png';
@@ -108,6 +110,7 @@ import stepTwo from '@/assets/images/home/img_step_two.png';
 import stepThree from '@/assets/images/home/img_step_three.png';
 import { ref } from 'vue';
 import { ICard } from '@/interface/home';
+import { createImageList } from '@/utils/tools';
 
 
 const dataList: ICard[] = [
@@ -164,23 +167,15 @@ const stepList: ICard[] = [
   },
 ];
 
-const organizationList = ref([] as any);
-for (let i = 0; i < 7; i++) {
-  organizationList.value.push(`/src/assets/images/home/logo_organization_${i}.png`);
-}
+const organizationList = ref(createImageList('/home/logo_organization_', 7) as any);
 
 </script>
 
 <style lang="less" scoped>
 @import '@/styles/base.less';
 
-@top-distance: @header-height+3.5rem;
+@top-distance: 3.5rem;
 @top-title-height: 25rem;
-
-
-img {
-  width: 100%;
-}
 
 .home-title-wrap {
   position: relative;
@@ -265,19 +260,6 @@ img {
   }
 }
 
-.home-convenient-item {
-  padding: 3.9rem 1.5rem 4.3rem;
-
-  &:first-child {
-    padding-left: 0;
-    flex: 9;
-  }
-
-  &:last-child {
-    padding-right: 0;
-    flex: 10;
-  }
-}
 
 .home-logo-organization {
   max-width: 10rem;
@@ -322,8 +304,8 @@ img {
       height: 3px;
       background: linear-gradient(244deg, rgba(238, 238, 238, 0.00) 17%, rgba(227, 227, 227, 0.70) 49%, rgba(216, 216, 216, 0.00));
       border-radius: 1px;
-      top: 1.75rem;
-      left: 7.2rem;
+      top: 42px;
+      left: 160px;
     }
   }
 }

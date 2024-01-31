@@ -43,13 +43,13 @@ defineProps({
   .button-bg {
     border-color: @color-bg;
     background-color: @color-bg;
-    color: @color-bg1;
+    color: @color-text-dark;
   }
 
   .button-dark-bg {
     border-color: @color-bg1;
     background-color: @color-bg1;
-    color: @color-bg;
+    color: @color-text;
   }
 }
 </style>

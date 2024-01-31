@@ -1,5 +1,5 @@
 import { message } from 'ant-design-vue';
-import { h } from 'vue';
+import { h, ref } from 'vue';
 import { CloseCircleOutlined } from '@ant-design/icons-vue';
 import { i18n } from '@/main';
 
@@ -7,7 +7,7 @@ const createElementVNode = (content: any, duration: number) => {
   const innerText = h(
     'span',
     { style: { color: 'rgba(0, 0, 0, 0.85)', fontSize: '14px' } },
-    content
+    content,
   );
   const innerIcon = h(CloseCircleOutlined, {
     style: {
@@ -29,6 +29,20 @@ const createElementVNode = (content: any, duration: number) => {
 };
 
 /**
+ * 创建一个图片地址的数组
+ * @param path 地址
+ * @param size 数组长度
+ * @param suffix 文件后缀名
+ */
+export function createImageList(path: string, size: number = 0, suffix = 'png') {
+  const array = ref([] as any);
+  for (let i = 0; i < size; i++) {
+    array.value.push(`/src/assets/images${path}${i}.${suffix}`);
+  }
+  return array;
+}
+
+/**
  *
  * @param content 内容
  * @param type success|info|error|warning
@@ -37,7 +51,7 @@ const createElementVNode = (content: any, duration: number) => {
 export function showMessage(
   content: any,
   type: string = 'success',
-  duration = 2.5
+  duration = 2.5,
 ) {
   if (type === 'success') {
     message.success(createElementVNode(content, duration), duration);
@@ -50,41 +64,6 @@ export function showMessage(
   }
 }
 
-export function getEnumLabelByValue(
-  menus: any[],
-  value: any,
-  valueKey: any = '',
-  labelName: string = ''
-) {
-  for (let i = 0; i < menus.length; i++) {
-    const item = menus[i];
-    let itemValue = '';
-    if (valueKey) {
-      itemValue = item[valueKey];
-    } else {
-      itemValue = item.value;
-    }
-    if (itemValue === value) {
-      if (labelName) {
-        return item[labelName];
-      } else {
-        return item.label;
-      }
-    }
-  }
-}
-
-export function showError(content: string, type: string = 'error') {
-  if (type === 'success') {
-    message.error(content);
-  } else if (type === 'warning') {
-    message.warning(content);
-  } else if (type === 'error') {
-    message.error(content);
-  } else {
-    message.info(content);
-  }
-}
 
 export function deepClone(obj: any) {
   let result: any = Array.isArray(obj) ? [] : {};
@@ -103,54 +82,6 @@ export function deepClone(obj: any) {
     }
   }
   return result;
-}
-
-// 初始化options数据
-export function initOptions(
-  list: any[],
-  label: string|Function,
-  value: string,
-  disabled: string = '',
-  enable: string = ''
-) {
-  const options = [];
-  for (let i = 0; i < list.length; i++) {
-    options.push({
-      label: typeof label === 'string' ? list[i][label] : label(list[i]),
-      value: list[i][value],
-      disabled: disabled
-        ? list[i][disabled]
-        : enable
-          ? !list[i][enable]
-          : false,
-    });
-  }
-  return options;
-}
-
-
-// 获取url文件名
-export function getFileNameForURL(url: any) {
-  try {
-    const urlArr = url.quotationUrl.split('?');
-    const k = urlArr[0];
-    const names = k.split('/');
-    return names[names.length - 1];
-  } catch {
-    return 'file';
-  }
-}
-
-// 提取标签内的文本内容
-export function getTagContentText(str: any) {
-  try {
-    const parser = new DOMParser();
-    const content = parser.parseFromString(str, 'text/html');
-    return content.body.innerText.trim();
-  } catch {
-    return '';
-  }
-
 }
 
 /**

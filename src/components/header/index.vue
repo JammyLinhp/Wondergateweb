@@ -1,15 +1,28 @@
 <template>
   <div class="header-wrap layout-content">
     <div class="header-inner layout-content layout-two-side-center">
-      <div class="header-logo">
-        <img src="@/assets/images/logo_dark.png">
+      <div class="header-logo" @click="onLogoClick">
+        <img :src="isDark?'/src/assets/images/logo_dark.png':'/src/assets/images/logo_light.png'" alt="logo">
       </div>
       <div class="header-title layout-all-center">
         <RouterLink :to="item.path" v-for="item in titleList"
-                    class="header-title-item layout-all-center app-text-font">
+                    :class="{
+                   'header-title-item':true,
+                  'layout-all-center':true,
+                  'app-text-font':true,
+                  'app-color-text':!isDark,
+                  'app-color-text-dark':isDark,
+
+           }">
           {{ $t(item.name) }}
         </RouterLink>
-        <div class="header-title-language">
+        <div :class="{
+                  'layout-background-1': !isDark,
+                  'layout-background-2': isDark,
+                  'app-color-text':isDark,
+                  'app-color-text-dark': !isDark,
+                  'header-title-language':true
+           }">
           {{ $t('language') }}
         </div>
       </div>
@@ -18,14 +31,26 @@
 </template>
 
 <script setup lang="ts">
+// props
+defineProps({
+  isDark: {
+    type: Boolean,
+    default: true,
+  },
+});
+
+const onLogoClick = () => {
+  window.location.href = '/';
+};
+
 const titleList = [
   {
     name: 'moo.menu.productCenter',
-    path: '',
+    path: '/product-center',
   },
   {
     name: 'moo.menu.securityCenter',
-    path: '',
+    path: '/security-center',
   },
   {
     name: 'moo.menu.aboutUs',
@@ -49,9 +74,10 @@ const titleList = [
     z-index: 100;
 
     .header-logo {
-      width: 200px;
+      width: 190px;
       height: @header-height;
       line-height: @header-height;
+      cursor: pointer;
 
       img {
         height: 2rem;
@@ -65,7 +91,6 @@ const titleList = [
         padding: 0 1rem;
         font-size: 1rem;
         font-weight: bolder;
-        color: @color-menu-default;
         text-decoration: none;
         height: 100%;
         line-height: @header-height;
@@ -77,9 +102,7 @@ const titleList = [
         line-height: 30px;
         text-align: center;
         font-size: .75rem;
-        background: @color-bg1;
         border-radius: 2rem;
-        color: @color-bg;
         cursor: pointer;
       }
     }
