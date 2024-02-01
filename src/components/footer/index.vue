@@ -45,7 +45,7 @@
 
     </div>
     <div class="footer-privacy-wrap">
-      <div class="app-text-font layout-content">
+      <div class="app-detail-font layout-content">
         {{ $t('moo.footer.privacy') }}
       </div>
     </div>

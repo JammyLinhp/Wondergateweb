@@ -74,7 +74,7 @@ const titleList = [
     z-index: 100;
 
     .header-logo {
-      width: 190px;
+      width: 160px;
       height: @header-height;
       line-height: @header-height;
       cursor: pointer;
