@@ -219,7 +219,7 @@ const organizationList = ref(createImageList('/home/logo_organization_', 7) as a
   .home-title-right {
     display: flex;
     position: absolute;
-    right: -4rem;
+    right: -1.2rem;
     top: @top-distance;
 
     img {
