@@ -55,11 +55,33 @@ export default {
     security: {
       title: 'Security Center',
       titleDescription: 'Wondergate has a mature risk control model and is constantly expanding and optimizing it according to the development of the industry.<br><br>Customize a personalized risk control strategy for each merchant based on its characteristics.<br><br>Use the risk control model to review each transaction of the merchant, and properly handle risky transactions according to the risk control strategy.<br><br>Keep detailed records of risky transactions and their disposal results to make transactions traceable.',
+      riskControl: 'Transaction Risk Control',
+      riskControlDescription: 'Wondergate has a mature risk control model and is constantly expanding and optimizing it according to the development of the industry.Customize a personalized risk control strategy for each merchant based on its characteristics.<br><br>Use the risk control model to review each transaction of the merchant, and properly handle risky transactions according to the risk control strategy.Keep detailed records of risky transactions and their disposal results to make transactions traceable.',
+      chargebackAlerts: 'Chargeback Alerts',
+      chargebackAlertsDescription: 'Wondergate will provide you with chargeback Alerts in a timely manner.<br>Wondergate will provide appropriate solutions for transactions with chargeback Alerts.',
+      customerService: 'Customer Service Platform',
+      customerServiceDescription: 'Provide a real-time dialogue platform for merchants and consumers to help merchants respond to consumer demands in a timely manner.<br>Merchants can initiate refunds directly on the dialogue platform, which is very convenient.<br><br>If merchants and consumers cannot reach an agreement, the platform will provide arbitration services.<br><br>Permanently record conversations and actions in the platform. If there is an after-sales dispute, it can be used as proof.',
+      business: 'Business Reminders',
+      businessDescription: 'When various abnormal situations occur or there are urgent matters to be handled, the system will create reminders.<br><br>Wondergate staff will promptly handle these reminders and contact the merchant when necessary.<br>For example, common reminders include: limit reached, multiple failed transactions in a row.',
+    },
+    about: {
+      title: 'About Us',
+      titleDescription: 'Connecting the global digital economy.<br>Build financial infrastructure for cross-border commerce.',
+      companyProfile: 'Company profile',
+      companyProfileDescription: 'Wondergate Co., Limited is located in Wuhan, the thoroughfare of nine provinces. Its members include financial experts, payment technology experts, and senior cross-border trade practitioners, most of them have worked for well-known domestic companies.<br><br>Wondergate has many years of experience in the cross-border payment industry, providing global acquiring and issuing services. To provide secure, compliant, efficient, convenient, and low-cost payment solutions for cross-border enterprises in China and even globally.<br><br>Wondergate is committed to simplifying the payment process of cross-border trade, providing flexible and efficient cross-border payment services, helping customers expand their international business, and establishing strong international competitiveness.',
+      provide: 'Wondergate can provide',
+      provideDescription: 'cross-border payment services for stores opened on SHOPLINE and Shoplazza',
     },
     footer: {
       launch: 'LAUNCH WITH WONDERGATE',
       unleash: 'Unleash your potential now. Simple setup, powerful results.',
       privacy: 'Privacy - Cookies - Disclaimer - ©2024 WONDERGATE Payments Limited 2023',
+      address: 'Company Office Address :<br> FLAT/RM 121 1/F LIVEN HOUSE NOS. 61-63 KING YIP STREET KWUN TONG KL HONG KONG',
+      email: 'Email',
+      copyEmail: 'Copy Email',
+    },
+    common: {
+      copySuccessfully: 'Copy successfully',
     },
   },
 };

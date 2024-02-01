@@ -1,7 +1,7 @@
 <template>
   <div class="header-wrap layout-content">
     <div class="header-inner layout-content layout-two-side-center">
-      <div class="header-logo" @click="onLogoClick">
+      <div id="header" class="header-logo" @click="onLogoClick">
         <img :src="isDark?'/src/assets/images/logo_dark.png':'/src/assets/images/logo_light.png'" alt="logo">
       </div>
       <div class="header-title layout-all-center">
@@ -16,15 +16,15 @@
            }">
           {{ $t(item.name) }}
         </RouterLink>
-        <div :class="{
-                  'layout-background-1': !isDark,
-                  'layout-background-2': isDark,
-                  'app-color-text':isDark,
-                  'app-color-text-dark': !isDark,
-                  'header-title-language':true
-           }">
-          {{ $t('language') }}
-        </div>
+        <!--        <div :class="{-->
+        <!--                  'layout-background-1': !isDark,-->
+        <!--                  'layout-background-2': isDark,-->
+        <!--                  'app-color-text':isDark,-->
+        <!--                  'app-color-text-dark': !isDark,-->
+        <!--                  'header-title-language':true-->
+        <!--           }">-->
+        <!--          {{ $t('language') }}-->
+        <!--        </div>-->
       </div>
     </div>
   </div>
@@ -54,7 +54,7 @@ const titleList = [
   },
   {
     name: 'moo.menu.aboutUs',
-    path: '',
+    path: '/about-us',
   },
 ];
 </script>

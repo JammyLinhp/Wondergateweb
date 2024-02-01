@@ -3,7 +3,7 @@
   <div class="layout-background-2 app-header-distance">
     <div class="product-title-wrap">
       <div class="layout-content">
-        <div class="app-title-text app-title-font app-color-text">
+        <div  class="app-title-text app-title-font app-color-text">
           {{ $t('moo.product.title') }}
         </div>
         <div class="app-description-text app-detail-font app-text-font app-color-text product-title-description">

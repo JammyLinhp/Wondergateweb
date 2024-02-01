@@ -26,14 +26,20 @@
               <RouterLink :to="{ path: subItem.path, hash: subItem.hash??''}" v-for="subItem in item.menus"
                           class="footer-navigation-submenu-item app-text-font app-description-text"
                           style="font-size: .9rem">
-                {{ $t(item.name) }}
+                {{ $t(subItem.name) }}
               </RouterLink>
             </div>
           </template>
         </div>
-        <div class="layout-two-side-start">
-          <img class="footer-navigation-connection-logo" :src="item" alt="logo"
-               v-for="item in imageList">
+
+        <!--        <div class="layout-two-side-start">-->
+        <!--          <img class="footer-navigation-connection-logo" :src="item" alt="logo"-->
+        <!--               v-for="item in imageList">-->
+        <!--        </div>-->
+        <div class="footer-navigation-menu">
+          <div class="app-description-text-small app-detail-font about-company-profile-description"
+               v-html="$t('moo.footer.address')">
+          </div>
         </div>
       </div>
 
@@ -50,64 +56,91 @@
 import Button from '@/components/button/index.vue';
 import { IMenu } from '@/interface/menu';
 import { createImageList } from '@/utils/tools';
+import { useRoute, useRouter } from 'vue-router';
+import { nextTick, watch } from 'vue';
+
+const route = useRoute();
+const router = useRouter();
 
 const menuList: IMenu[] = [
   {
     name: 'moo.menu.productCenter',
     path: '/product-center',
+    hash: '#header',
     menus: [
       {
-        name: 'moo.menu.productCenter',
-        path: '/product-center',
+        name: 'moo.home.globalAcquiring',
+        path: '/index',
+        hash: '#globalAcquiring',
       },
       {
-        name: 'moo.menu.productCenter',
-        path: '',
-      },
-      {
-        name: 'moo.menu.productCenter',
-        path: '',
+        name: 'moo.home.globalIssuing',
+        path: '/index',
+        hash: '#globalAcquiring',
       },
     ],
   },
   {
     name: 'moo.menu.securityCenter',
     path: '/security-center',
+    hash: '#header',
     menus: [
       {
-        name: 'moo.menu.productCenter',
+        name: 'moo.security.riskControl',
         path: '/security-center',
+        hash: '#riskControl',
       },
       {
-        name: 'moo.menu.productCenter',
-        path: '',
+        name: 'moo.security.chargebackAlerts',
+        path: '/security-center',
+        hash: '#chargebackAlerts',
       },
       {
-        name: 'moo.menu.productCenter',
-        path: '',
+        name: 'moo.security.customerService',
+        path: '/security-center',
+        hash: '#customerService',
+      },
+      {
+        name: 'moo.security.business',
+        path: '/security-center',
+        hash: '#business',
       },
     ],
   },
   {
     name: 'moo.menu.aboutUs',
-    path: '',
+    path: '/about-us',
+    hash: '#header',
     menus: [
       {
-        name: 'moo.menu.productCenter',
-        path: '',
+        name: 'moo.about.companyProfile',
+        path: '/about-us',
+        hash: '#companyProfile',
       },
       {
-        name: 'moo.menu.productCenter',
-        path: '',
-      },
-      {
-        name: 'moo.menu.productCenter',
-        path: '',
+        name: 'moo.about.provide',
+        path: '/about-us',
+        hash: '#provide',
       },
     ],
   },
 ];
 const imageList = createImageList('/footer/logo_connection_', 6);
+const onLinkClick = () => {
+  if (route.hash) {
+    nextTick(() => {
+      const id = route.hash.replaceAll('#', '');
+      document.getElementById(id)?.scrollIntoView();
+    });
+  }
+};
+watch(
+  () => router.currentRoute.value,
+  (newValue: any) => {
+    onLinkClick();
+  },
+  { immediate: true },
+);
 </script>
 
 <style lang="less">

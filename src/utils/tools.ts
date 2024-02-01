@@ -100,5 +100,5 @@ export const copyString = (val: any): any => {
   document.body.removeChild(input);
   // window.scrollTo(0, 0);
   // @ts-ignore
-  showMessage(i18n.global.t('moozumi.salesperson.copySuccessfully'));
+  showMessage(i18n.global.t('moo.common.copySuccessfully'));
 };

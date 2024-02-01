@@ -14,8 +14,9 @@
           <div class="app-description-text app-detail-font app-color-text app-color-text-dark">
             {{ $t('moo.home.titleDescription') }}
           </div>
-
-          <Button :is-dark="true" class="title-button"></Button>
+          <div class="title-button">
+            <Button :is-dark="true"></Button>
+          </div>
         </div>
         <div class="home-title-right">
           <img src="../assets/images/home/img_title_amount_detail.png" alt="amount">
@@ -45,7 +46,7 @@
            v-html=" $t('moo.home.suiteDescription')">
       </div>
 
-      <div class="home-card-wrap layout-content layout-two-side-center app-detail-font">
+      <div id="globalAcquiring" class="home-card-wrap layout-content layout-two-side-center app-detail-font">
         <div class="home-card-content" v-for="item in cardList">
           <div><img :src="item.path" alt=""></div>
           <div class="home-card-title app-subtitle-text">{{ $t(item.title) }}</div>
