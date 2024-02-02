@@ -50,11 +50,9 @@
   <Footer></Footer>
 </template>
 
-<script setup>
-
+<script setup lang="ts">
 import Header from '@/components/header/index.vue';
 import Footer from '@/components/footer/index.vue';
-
 </script>
 
 <style lang="less" scoped>

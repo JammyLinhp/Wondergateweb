@@ -26,10 +26,10 @@
 
       <div class="data-item-wrap layout-content layout-two-side-center">
         <div v-for="item in dataList">
-          <div class="app-title-font app-subtitle-text app-color-text-dark">{{ $t(item.title) }}</div>
+          <div class="app-title-font app-subtitle-text app-color-text-dark">{{ $t(String(item.title)) }}</div>
           <div class="app-description-text-small app-text-font app-color-text-dark">
             {{
-              $t(item.description)
+              $t(String(item.description))
             }}
           </div>
         </div>
@@ -49,8 +49,8 @@
       <div id="globalAcquiring" class="home-card-wrap layout-content layout-two-side-center app-detail-font">
         <div class="home-card-content" v-for="item in cardList">
           <div><img :src="item.path" alt=""></div>
-          <div class="home-card-title app-subtitle-text">{{ $t(item.title) }}</div>
-          <div class="app-description-text-small">{{ $t(item.description) }}</div>
+          <div class="home-card-title app-subtitle-text">{{ $t(String(item.title)) }}</div>
+          <div class="app-description-text-small">{{ $t(String(item.description)) }}</div>
         </div>
       </div>
       <div class="home-card-button">
@@ -90,8 +90,8 @@
       <div class="layout-all-center home-step-content" v-for="(item,index) in stepList">
         <div class="home-step-line" v-if="index!==stepList.length-1"></div>
         <div><img :src="item.path" alt=""></div>
-        <div class="app-description-text home-step-text">{{ $t(item.title) }}</div>
-        <div class="app-description-text app-color-text-main">{{ $t(item.description) }}</div>
+        <div class="app-description-text home-step-text">{{ $t(String(item.title)) }}</div>
+        <div class="app-description-text app-color-text-main">{{ $t(String(item.description)) }}</div>
       </div>
     </div>
   </div>

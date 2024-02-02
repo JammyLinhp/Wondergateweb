@@ -19,14 +19,15 @@
         <div class="footer-navigation-menu" v-for="item in menuList">
           <RouterLink :to="{ path: item.path, hash: item.hash??''}"
                       class="footer-navigation-menu-item app-text-font app-description-text">
-            {{ $t(item.name) }}
+            {{ $t(String(item.name)) }}
           </RouterLink>
           <template v-if="item.menus">
             <div class="footer-navigation-submenu">
               <RouterLink :to="{ path: subItem.path, hash: subItem.hash??''}" v-for="subItem in item.menus"
                           class="footer-navigation-submenu-item app-text-font app-description-text"
+                          @click="onLinkClick"
                           style="font-size: .9rem">
-                {{ $t(subItem.name) }}
+                {{ $t(String(subItem.name)) }}
               </RouterLink>
             </div>
           </template>
