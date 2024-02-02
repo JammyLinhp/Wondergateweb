@@ -13,7 +13,7 @@
   <div class="footer-wrap footer-navigation-wrap">
     <div class="layout-content">
       <div class="footer-navigation-logo">
-        <img src="/src/assets/images/logo_light.png" alt="logo">
+        <img src="@/assets/images/logo_light.png" alt="logo">
       </div>
       <div class="layout-two-side-start">
         <div class="footer-navigation-menu" v-for="item in menuList">

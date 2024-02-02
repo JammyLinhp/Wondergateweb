@@ -2,7 +2,8 @@
   <div class="header-wrap layout-content">
     <div class="header-inner layout-content layout-two-side-center">
       <div id="header" class="header-logo" @click="onLogoClick">
-        <img :src="isDark?'/src/assets/images/logo_dark.png':'/src/assets/images/logo_light.png'" alt="logo">
+        <img v-if="isDark" src="../../assets/images/logo_dark.png" alt="logo">
+        <img v-if="!isDark" src="../../assets/images/logo_light.png" alt="logo">
       </div>
       <div class="header-title layout-all-center">
         <RouterLink :to="item.path" v-for="item in titleList"

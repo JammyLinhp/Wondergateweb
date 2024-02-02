@@ -37,7 +37,9 @@ const createElementVNode = (content: any, duration: number) => {
 export function createImageList(path: string, size: number = 0, suffix = 'png') {
   const array = ref([] as any);
   for (let i = 0; i < size; i++) {
-    array.value.push(`/src/assets/images${path}${i}.${suffix}`);
+    import(`/src/assets/images${path}${i}.${suffix}`).then((urlModel: any) => {
+      array.value.push(urlModel.default);
+    });
   }
   return array;
 }
@@ -100,5 +102,5 @@ export const copyString = (val: any): any => {
   document.body.removeChild(input);
   // window.scrollTo(0, 0);
   // @ts-ignore
-  showMessage(i18n.global.t('moo.common.copySuccessfully'));
+  // showMessage(i18n.global.t('moo.common.copySuccessfully'));
 };
