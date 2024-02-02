@@ -24,7 +24,9 @@
           <template v-if="item.menus">
             <div class="footer-navigation-submenu">
               <RouterLink :to="{ path: subItem.path, hash: subItem.hash??''}" v-for="subItem in item.menus"
-                          class="footer-navigation-submenu-item app-text-font app-description-text"
+                          class="footer-navigation-submenu-item app-text-font
+                          app-description-text-small
+                           app-description-text app-detail-font"
                           @click="onLinkClick"
                           style="font-size: .9rem">
                 {{ $t(String(subItem.name)) }}
