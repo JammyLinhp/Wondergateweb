@@ -169,7 +169,6 @@ const stepList: ICard[] = [
 ];
 
 const organizationList = ref(createImageList('/home/logo_organization_', 7) as any);
-console.log(organizationList);
 </script>
 
 <style lang="less" scoped>

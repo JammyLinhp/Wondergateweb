@@ -36,13 +36,9 @@ const createElementVNode = (content: any, duration: number) => {
 export function createImageList(path: string, size: number = 0, suffix = 'png') {
   const array = [] as any;
   for (let i = 0; i < size; i++) {
-    const url: string = `../assets/images${path}${i}.${suffix}`;
-    // import(new URL(url, import.meta.url).pathname).then((res: any) => {
-    //   array.push(res.default);
-    // });
-    array.push(new URL(url, import.meta.url).pathname);
+    const url: string = new URL(`../assets/images${path}${i}.${suffix}`, import.meta.url).href;
+    array.push(url);
   }
-
   return array;
 }
 
