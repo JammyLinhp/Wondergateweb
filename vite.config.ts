@@ -60,7 +60,6 @@ export default defineConfig({
             facadeModuleId[facadeModuleId.length - 2] || '[name]';
           return `js/${fileName}/[name].[hash]${timestamp}.js`;
         },
-        assetFileNames: `assets/[name].[ext]`,
       },
     },
   },
