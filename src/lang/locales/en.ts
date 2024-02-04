@@ -4,6 +4,7 @@ export default {
   language: 'Language Zh',
   moo: {
     menu: {
+      home: 'Home Page',
       productCenter: 'Product Center',
       securityCenter: 'Security Center',
       aboutUs: 'About Us',
@@ -79,6 +80,7 @@ export default {
       address: 'Company Office Address :<br> FLAT/RM 121 1/F LIVEN HOUSE NOS. 61-63 KING YIP STREET KWUN TONG KL HONG KONG',
       email: 'Email',
       copyEmail: 'Copy Email',
+      companyInformation: 'Company Information',
     },
     common: {
       copySuccessfully: 'Copy successfully',

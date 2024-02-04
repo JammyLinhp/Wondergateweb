@@ -293,6 +293,7 @@ const organizationList = ref(createImageList('/home/logo_organization_', 7) as a
     position: relative;
     flex-direction: column;
     width: 240px;
+    text-align: center;
 
     .home-step-text {
       padding: 1.1rem 0;

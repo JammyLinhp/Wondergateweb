@@ -7,7 +7,7 @@
     }" @click="onButtonClick">{{ $t(text) }}
     </a>
   </div>
-  <a-modal v-model:visible="visible" :title="$t('moo.footer.email')"
+  <a-modal v-model:visible="visible" :title="$t('moo.footer.companyInformation')"
            :ok-button-props="{
               class:{'button-dark-bg':true}
            }"
@@ -15,11 +15,11 @@
              style:{display:'none'}
            }"
            @ok="handleOk" :ok-text="$t('moo.footer.copyEmail')">
-    <div class="app-description-text-small app-detail-font about-company-profile-description">
+    <div class=" app-detail-font">
       {{ $t('moo.footer.email') }} : <br> {{ email }}
     </div>
     <a-divider/>
-    <div class="app-description-text-small app-detail-font about-company-profile-description"
+    <div class="app-detail-font"
          v-html="$t('moo.footer.address')">
     </div>
   </a-modal>

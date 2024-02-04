@@ -4,6 +4,7 @@ export default {
   language: 'Language Zh',
   moo: {
     menu: {
+      home: 'Home Page',
       productCenter: 'Product Center',
       securityCenter: 'Security Center',
       aboutUs: 'About Us',
@@ -30,7 +31,7 @@ export default {
       globalIssuing: 'Global Issuing',
       globalIssuingDescription: 'Intuitive platforms that resonate with both crypto enthusiasts and fiat users alike',
       convenientSystemTitle: 'Convenient system to take your startup further and faster',
-      convenientSystemDescription: 'We can launch faster, scale with growth, and automate workflows to do more with less.<br>Build your own API-based integrations or use our low-code or no-code solutions that are simple enough to implement and powerful enough to quickly scale with your needsSave engineering time with unified payments. We specialize in gateways, payment rails and financial institutions in the world\'s complex economic landscape, allowing your team to focus on building everything your business needs on a single platform.',
+      convenientSystemDescription: 'We can launch faster, scale with growth, and automate workflows to do more with less.Build your own API-based integrations or use our low-code or no-code solutions that are simple enough to implement and powerful enough to quickly scale with your needs<br><br>Save engineering time with unified payments. We specialize in gateways, payment rails and financial institutions in the world\'s complex economic landscape, allowing your team to focus on building everything your business needs on a single platform.',
       rapidTransactionTitle: 'Rapid Transaction Processing',
       rapidTransactionDescription: 'Experience the market’s quickest settlements,enhancing your cash flow.',
       stepOne: '1 step',

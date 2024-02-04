@@ -65,8 +65,8 @@ const router = useRouter();
 
 const menuList: IMenu[] = [
   {
-    name: 'moo.menu.productCenter',
-    path: '/product-center',
+    name: 'moo.menu.home',
+    path: '/index',
     hash: '#header',
     menus: [
       {
@@ -80,6 +80,23 @@ const menuList: IMenu[] = [
         hash: '#globalAcquiring',
       },
     ],
+  },
+  {
+    name: 'moo.menu.productCenter',
+    path: '/product-center',
+    hash: '#header',
+    // menus: [
+    //   {
+    //     name: 'moo.home.globalAcquiring',
+    //     path: '/index',
+    //     hash: '#globalAcquiring',
+    //   },
+    //   {
+    //     name: 'moo.home.globalIssuing',
+    //     path: '/index',
+    //     hash: '#globalAcquiring',
+    //   },
+    // ],
   },
   {
     name: 'moo.menu.securityCenter',
