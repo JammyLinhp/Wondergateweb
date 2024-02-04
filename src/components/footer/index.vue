@@ -39,11 +39,9 @@
         <!--          <img class="footer-navigation-connection-logo" :src="item" alt="logo"-->
         <!--               v-for="item in imageList">-->
         <!--        </div>-->
-        <div class="footer-navigation-menu">
-          <div class="app-description-text-small app-detail-font about-company-profile-description"
-               v-html="$t('moo.footer.address')">
-          </div>
-        </div>
+        <!--        <div class="footer-navigation-menu">-->
+        <!--         -->
+        <!--        </div>-->
       </div>
 
     </div>
@@ -128,7 +126,7 @@ const menuList: IMenu[] = [
     ],
   },
 ];
-const imageList = createImageList('/footer/logo_connection_', 6);
+// const imageList = createImageList('/footer/logo_connection_', 6);
 const onLinkClick = () => {
   if (route.hash) {
     nextTick(() => {

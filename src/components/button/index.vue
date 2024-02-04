@@ -15,7 +15,13 @@
              style:{display:'none'}
            }"
            @ok="handleOk" :ok-text="$t('moo.footer.copyEmail')">
-    <p>{{ email }} </p>
+    <div class="app-description-text-small app-detail-font about-company-profile-description">
+      {{ $t('moo.footer.email') }} : <br> {{ email }}
+    </div>
+    <a-divider/>
+    <div class="app-description-text-small app-detail-font about-company-profile-description"
+         v-html="$t('moo.footer.address')">
+    </div>
   </a-modal>
 </template>
 
@@ -66,8 +72,6 @@ const handleOk = () => {
     cursor: pointer;
     font-size: 1rem;
   }
-
-
 }
 
 .button-bg {
@@ -80,5 +84,23 @@ const handleOk = () => {
   border-color: @color-bg1 !important;
   background-color: @color-bg1 !important;
   color: @color-text;
+}
+
+.ant-modal-wrap {
+  .ant-modal-content {
+    border-radius: 25px;
+
+    .ant-modal-header {
+      border-radius: 25px 25px 0 0;
+    }
+
+    .ant-modal-footer {
+      border-radius: 0 0 25px 25px;
+    }
+
+    .ant-btn {
+      border-radius: 25px;
+    }
+  }
 }
 </style>

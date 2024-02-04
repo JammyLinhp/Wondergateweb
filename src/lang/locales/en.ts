@@ -1,7 +1,7 @@
 export default {
   undefined: '',
   null: '',
-  language: 'Language En',
+  language: 'Language Zh',
   moo: {
     menu: {
       productCenter: 'Product Center',
@@ -30,7 +30,7 @@ export default {
       globalIssuing: 'Global Issuing',
       globalIssuingDescription: 'Intuitive platforms that resonate with both crypto enthusiasts and fiat users alike',
       convenientSystemTitle: 'Convenient system to take your startup further and faster',
-      convenientSystemDescription: 'We can launch faster, scale with growth, and automate workflows to do more with less.<br>Build your own API-based integrations or use our low-code or no-code solutions that are simple enough to implement and powerful enough to quickly scale with your needsSave engineering time with unified payments. We specialize in gateways, payment rails and financial institutions in the world\'s complex economic landscape, allowing your team to focus on building everything your business needs on a single platform.',
+      convenientSystemDescription: 'We can launch faster, scale with growth, and automate workflows to do more with less.Build your own API-based integrations or use our low-code or no-code solutions that are simple enough to implement and powerful enough to quickly scale with your needs<br><br>Save engineering time with unified payments. We specialize in gateways, payment rails and financial institutions in the world\'s complex economic landscape, allowing your team to focus on building everything your business needs on a single platform.',
       rapidTransactionTitle: 'Rapid Transaction Processing',
       rapidTransactionDescription: 'Experience the market’s quickest settlements,enhancing your cash flow.',
       stepOne: '1 step',
@@ -56,7 +56,7 @@ export default {
       title: 'Security Center',
       titleDescription: 'Wondergate has a mature risk control model and is constantly expanding and optimizing it according to the development of the industry.<br><br>Customize a personalized risk control strategy for each merchant based on its characteristics.<br><br>Use the risk control model to review each transaction of the merchant, and properly handle risky transactions according to the risk control strategy.<br><br>Keep detailed records of risky transactions and their disposal results to make transactions traceable.',
       riskControl: 'Transaction Risk Control',
-      riskControlDescription: 'Wondergate has a mature risk control model and is constantly expanding and optimizing it according to the development of the industry.Customize a personalized risk control strategy for each merchant based on its characteristics.<br><br>Use the risk control model to review each transaction of the merchant, and properly handle risky transactions according to the risk control strategy.Keep detailed records of risky transactions and their disposal results to make transactions traceable.',
+      riskControlDescription: 'Wondergate has a mature risk control model and is constantly expanding and optimizing it according to the development of the industry.<br>Customize a personalized risk control strategy for each merchant based on its characteristics.<br><br>Use the risk control model to review each transaction of the merchant, and properly handle risky transactions according to the risk control strategy.<br>Keep detailed records of risky transactions and their disposal results to make transactions traceable.',
       chargebackAlerts: 'Chargeback Alerts',
       chargebackAlertsDescription: 'Wondergate will provide you with chargeback Alerts in a timely manner.<br>Wondergate will provide appropriate solutions for transactions with chargeback Alerts.',
       customerService: 'Customer Service Platform',
@@ -68,7 +68,7 @@ export default {
       title: 'About Us',
       titleDescription: 'Connecting the global digital economy.<br>Build financial infrastructure for cross-border commerce.',
       companyProfile: 'Company profile',
-      companyProfileDescription: 'Wondergate Co., Limited is located in Wuhan, the thoroughfare of nine provinces. Its members include financial experts, payment technology experts, and senior cross-border trade practitioners, most of them have worked for well-known domestic companies.<br><br>Wondergate has many years of experience in the cross-border payment industry, providing global acquiring and issuing services. To provide secure, compliant, efficient, convenient, and low-cost payment solutions for cross-border enterprises in China and even globally.<br><br>Wondergate is committed to simplifying the payment process of cross-border trade, providing flexible and efficient cross-border payment services, helping customers expand their international business, and establishing strong international competitiveness.',
+      companyProfileDescription: 'Wondergate Co., Limited is located in Hong Kong. Its members include financial experts, payment technology experts, and senior cross-border trade practitioners, most of them have worked for well-known domestic companies.<br><br>Wondergate has many years of experience in the cross-border payment industry, providing global acquiring and issuing services. To provide secure, compliant, efficient, convenient, and low-cost payment solutions for cross-border enterprises in China and even globally.<br><br>Wondergate is committed to simplifying the payment process of cross-border trade, providing flexible and efficient cross-border payment services, helping customers expand their international business, and establishing strong international competitiveness.',
       provide: 'Wondergate can provide',
       provideDescription: 'cross-border payment services for stores opened on SHOPLINE and Shoplazza',
     },
