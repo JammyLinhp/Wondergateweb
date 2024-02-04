@@ -56,7 +56,6 @@
 <script setup lang="ts">
 import Button from '@/components/button/index.vue';
 import { IMenu } from '@/interface/menu';
-import { createImageList } from '@/utils/tools';
 import { useRoute, useRouter } from 'vue-router';
 import { nextTick, watch } from 'vue';
 

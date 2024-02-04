@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue';
 
 const timestamp = new Date().getTime();
 export default defineConfig({
+  base: './',
   plugins: [vue()],
   define: {
     __VUE_I18N_FULL_INSTALL__: true,
