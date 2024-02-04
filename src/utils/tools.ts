@@ -33,11 +33,16 @@ const createElementVNode = (content: any, duration: number) => {
  * @param size 数组长度
  * @param suffix 文件后缀名
  */
-export function createImageList(path: string, size: number = 0, suffix = 'png') {
+export function createImageList(path: string, size: number = 0, suffix = '.png') {
+  const getAssetsFile = (path: string, i: number, suffix: any) => {
+    const url = `@/assets/images/${path}${i}${suffix}`;
+    return new URL(url, import.meta.url).href;
+  };
   const array = [] as any;
   for (let i = 0; i < size; i++) {
-    const url: string = new URL(`../assets/images${path}${i}.${suffix}`, import.meta.url).href;
-    array.push(url);
+    const url1 = getAssetsFile(path, i, suffix);
+    array.push(url1);
+    console.log(url1);
   }
   return array;
 }

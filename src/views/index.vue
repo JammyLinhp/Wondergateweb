@@ -73,9 +73,9 @@
         <img src="../assets/images/home/img_convenient_system.png" alt="payment">
       </div>
     </div>
-    <div class="layout-all-center layout-content" v-if="organizationList.length!=0">
-      <img class="home-logo-organization" :src="item" alt="logo" v-for="item in organizationList">
-    </div>
+<!--    <div class="layout-all-center layout-content" v-if="organizationList.length!=0">-->
+<!--      <img class="home-logo-organization" :src="item" alt="logo" v-for="item in organizationList">-->
+<!--    </div>-->
 
     <div class="layout-content home-rapid-transaction">
       <div class="app-subtitle-text app-text-font layout-all-center">
@@ -85,6 +85,7 @@
            v-html=" $t('moo.home.rapidTransactionDescription')">
       </div>
     </div>
+    <img :src="logo_organization_0" alt="">
 
     <div class="home-step-wrap layout-two-side-center app-detail-font">
       <div class="layout-all-center home-step-content" v-for="(item,index) in stepList">
@@ -109,11 +110,12 @@ import globalIssuingImg from '@/assets/images/home/img_global_issuing.png';
 import stepOne from '@/assets/images/home/img_step_one.png';
 import stepTwo from '@/assets/images/home/img_step_two.png';
 import stepThree from '@/assets/images/home/img_step_three.png';
+import logo_organization_0 from '@/assets/images/home/logo_organization.png';
 import { ref } from 'vue';
 import { ICard } from '@/interface/home';
 import { createImageList } from '@/utils/tools';
 
-
+console.log(logo_organization_0);
 const dataList: ICard[] = [
   {
     title: 'moo.home.globalPaymentData',
@@ -168,7 +170,7 @@ const stepList: ICard[] = [
   },
 ];
 
-const organizationList = ref(createImageList('/home/logo_organization_', 7) as any);
+// const organizationList = ref(createImageList('/home/logo_organization_', 7) as any);
 </script>
 
 <style lang="less" scoped>
