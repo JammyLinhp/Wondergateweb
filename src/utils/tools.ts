@@ -1,7 +1,6 @@
 import { message } from 'ant-design-vue';
-import { h, ref } from 'vue';
+import { h } from 'vue';
 import { CloseCircleOutlined } from '@ant-design/icons-vue';
-import { i18n } from '@/main';
 
 const createElementVNode = (content: any, duration: number) => {
   const innerText = h(
@@ -35,12 +34,15 @@ const createElementVNode = (content: any, duration: number) => {
  * @param suffix 文件后缀名
  */
 export function createImageList(path: string, size: number = 0, suffix = 'png') {
-  const array = ref([] as any);
+  const array = [] as any;
   for (let i = 0; i < size; i++) {
-    import(`/assets/images${path}${i}.${suffix}`).then((urlModel: any) => {
-      array.value.push(urlModel.default);
-    });
+    const url: string = `../assets/images${path}${i}.${suffix}`;
+    // import(new URL(url, import.meta.url).pathname).then((res: any) => {
+    //   array.push(res.default);
+    // });
+    array.push(new URL(url, import.meta.url).pathname);
   }
+
   return array;
 }
 

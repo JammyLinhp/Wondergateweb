@@ -73,7 +73,7 @@
         <img src="../assets/images/home/img_convenient_system.png" alt="payment">
       </div>
     </div>
-    <div class="layout-all-center layout-content" v-if="organizationList.length===7">
+    <div class="layout-all-center layout-content" v-if="organizationList.length!=0">
       <img class="home-logo-organization" :src="item" alt="logo" v-for="item in organizationList">
     </div>
 
@@ -169,7 +169,7 @@ const stepList: ICard[] = [
 ];
 
 const organizationList = ref(createImageList('/home/logo_organization_', 7) as any);
-
+console.log(organizationList);
 </script>
 
 <style lang="less" scoped>
