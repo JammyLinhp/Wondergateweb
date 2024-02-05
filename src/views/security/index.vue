@@ -101,8 +101,7 @@ import Footer from '@/components/footer/index.vue';
 
 .security-risk-control-text-wrap {
   height: 38rem;
-  padding-top: 19rem;
-  transform: translateY(-6.5rem);
+  padding-top: 8rem;
 }
 
 .security-chargeback-alerts-description {
