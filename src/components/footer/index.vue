@@ -84,18 +84,18 @@ const menuList: IMenu[] = [
     name: 'moo.menu.productCenter',
     path: '/product-center',
     hash: '#header',
-    // menus: [
-    //   {
-    //     name: 'moo.home.globalAcquiring',
-    //     path: '/index',
-    //     hash: '#globalAcquiring',
-    //   },
-    //   {
-    //     name: 'moo.home.globalIssuing',
-    //     path: '/index',
-    //     hash: '#globalAcquiring',
-    //   },
-    // ],
+    menus: [
+      {
+        name: 'moo.product.paymentRouting',
+        path: '/product-center',
+        hash: '#paymentRouting',
+      },
+      // {
+      //   name: 'moo.home.globalIssuing',
+      //   path: '/index',
+      //   hash: '#globalAcquiring',
+      // },
+    ],
   },
   {
     name: 'moo.menu.securityCenter',

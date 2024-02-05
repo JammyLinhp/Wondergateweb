@@ -8,11 +8,8 @@
             <star-filled class="home-title-notes-text"/>
             <span class="home-title-notes-text app-detail-font">{{ $t('moo.home.labels') }}</span>
           </div>
-          <div class="app-title-text app-title-font home-title-padding app-color-text-dark">
+          <div class="app-title-text-small app-title-font home-title-padding app-color-text-dark">
             {{ $t('moo.home.title') }}
-          </div>
-          <div class="app-description-text app-detail-font app-color-text app-color-text-dark">
-            {{ $t('moo.home.titleDescription') }}
           </div>
           <div class="title-button">
             <Button :is-dark="true"></Button>
@@ -109,12 +106,10 @@ import globalIssuingImg from '@/assets/images/home/img_global_issuing.png';
 import stepOne from '@/assets/images/home/img_step_one.png';
 import stepTwo from '@/assets/images/home/img_step_two.png';
 import stepThree from '@/assets/images/home/img_step_three.png';
-import logo_organization_0 from '@/assets/images/home/organization/logo_organization_0.png';
 import { ref } from 'vue';
 import { ICard } from '@/interface/home';
 import { createImageList } from '@/utils/tools';
 
-console.log(logo_organization_0);
 const dataList: ICard[] = [
   {
     title: 'moo.home.globalPaymentData',

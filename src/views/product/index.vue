@@ -3,7 +3,7 @@
   <div class="layout-background-2 app-header-distance">
     <div class="product-title-wrap">
       <div class="layout-content">
-        <div  class="app-title-text app-title-font app-color-text">
+        <div class="app-title-text app-title-font app-color-text">
           {{ $t('moo.product.title') }}
         </div>
         <div class="app-description-text app-detail-font app-text-font app-color-text product-title-description">
@@ -15,7 +15,7 @@
   </div>
 
 
-  <div class="layout-background-3">
+  <div class="layout-background-3" id="paymentRouting">
     <div class="layout-content app-color-text-main layout-two-side-end">
       <div class="layout-horizontal-equalization">
         <div class="app-title-text-small  app-text-font">

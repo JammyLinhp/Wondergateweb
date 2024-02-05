@@ -10,9 +10,8 @@ export default {
       aboutUs: 'About Us',
     },
     home: {
-      labels: 'The most scientific, simple and economical',
-      title: 'cross-border payment service solutions',
-      titleDescription: 'A common cross-border payments strategy is to use a combination of services to support your business. But establishing and maintaining connections to these services independently is expensive and complex.',
+      labels: 'Connect To Any Payment Service',
+      title: 'Individually customized the most scientific, simple and economical cross-border payment service solutions for you',
       globalPaymentData: '5YEARS+',
       globalPaymentTip: 'Global payment service experience',
       customersData: '5W+',
@@ -80,7 +79,7 @@ export default {
       address: 'Company Office Address :<br> FLAT/RM 121 1/F LIVEN HOUSE NOS. 61-63 KING YIP STREET KWUN TONG KL HONG KONG',
       email: 'Email',
       copyEmail: 'Copy Email',
-      companyInformation: 'Company Information',
+      companyInformation: 'You can contact us via the following methods',
     },
     common: {
       copySuccessfully: 'Copy successfully',
