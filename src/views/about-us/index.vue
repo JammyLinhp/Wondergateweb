@@ -1,13 +1,13 @@
 <template>
-  <Header></Header>
-  <div class="layout-background-1 app-header-distance">
+  <Header :is-dark="false"></Header>
+  <div class="layout-background-2 app-header-distance">
     <div class="about-title-wrap">
       <div class="layout-content">
-        <div class="app-title-text app-title-font app-color-text-dark">
+        <div class="app-title-text app-title-font app-color-text">
           {{ $t('moo.about.title') }}
         </div>
         <div
-          class="app-description-text app-detail-font app-text-font app-color-text-dark about-title-description"
+          class="app-description-text app-detail-font app-text-font app-color-text about-title-description"
           v-html="$t('moo.about.titleDescription')">
         </div>
       </div>
@@ -59,7 +59,7 @@ import Footer from '@/components/footer/index.vue';
 
 .about-title-wrap {
   text-align: center;
-  padding: 6.7rem 0;
+  padding: 3.7rem 0;
 }
 
 .about-title-description {
@@ -70,7 +70,7 @@ import Footer from '@/components/footer/index.vue';
   width: auto;
   height: 38rem;
   float: right;
-  padding-left: 10rem;
+  padding-left: 3rem;
 }
 
 .security-risk-control-text-wrap {

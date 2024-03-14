@@ -1,17 +1,35 @@
 <template>
   <Header :is-dark="false"></Header>
   <div class="layout-background-2 app-header-distance">
-    <div class="product-title-wrap">
-      <div class="layout-content">
-        <div class="app-title-text app-title-font app-color-text">
-          {{ $t('moo.product.title') }}
+    <div class="structure-title-wrap">
+      <div class="layout-content layout-two-side-center">
+        <div class="structure-title-left">
+          <div class="structure-title-notes">
+            <star-filled class="structure-title-notes-text"/>
+            <span class="structure-title-notes-text app-detail-font">{{ $t('moo.product.notes') }}</span>
+          </div>
+          <div class="app-title-text app-title-font home-title-padding-top app-color-text">
+            {{ $t('moo.product.title') }}
+          </div>
+          <div class="app-title-text app-title-font home-title-padding-bottom app-color-white">
+            {{ $t('moo.product.titleMain') }}
+          </div>
+          <div class="app-description-text-small app-detail-font home-title-padding app-color-white">
+            {{ $t('moo.product.titleDescription') }}
+          </div>
+          <div class="title-button">
+            <Button :is-dark="true"></Button>
+          </div>
         </div>
-        <div class="app-description-text app-detail-font app-text-font app-color-text product-title-description">
-          {{ $t('moo.product.titleDescription') }}
+        <div class="structure-title-right" style="right: 11rem">
+          <img src="../../assets/images/product/img_product_title.png" alt="payment">
         </div>
-        <Button :is-center="true" class="title-button"></Button>
       </div>
     </div>
+  </div>
+
+  <div class="layout-content app-color-text-main layout-horizontal-equalization">
+    <ParagraphStructure></ParagraphStructure>
   </div>
 
 
@@ -73,9 +91,14 @@
 import Header from '@/components/header/index.vue';
 import Button from '@/components/button/index.vue';
 import Footer from '@/components/footer/index.vue';
+import ParagraphStructure from '@/components/structure/left-rigth/half/paragraph/index.vue';
+
 </script>
 
 <style scoped lang="less">
+@import '@/styles/base';
+@import '@/styles/structure';
+
 .product-title-wrap {
   padding: 6.5rem 0;
   text-align: center;

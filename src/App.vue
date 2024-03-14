@@ -2,8 +2,6 @@
 import zhCN from 'ant-design-vue/es/locale/zh_CN';
 import enUS from 'ant-design-vue/es/locale/en_US';
 import { RouterView } from 'vue-router';
-import { useAppStore } from '@/stores/app';
-import { storeToRefs } from 'pinia';
 import { provide, ref } from 'vue';
 import 'dayjs/locale/zh-cn';
 import { useLangStore } from '@/stores/lang';
@@ -16,7 +14,7 @@ const reload = () => {
 provide('reload', reload);
 </script>
 <template>
-  <div :class="{en:isLongLanguage(),'app-height':true}">
+  <div :class="{en:isLongLanguage()}">
     <a-config-provider :locale="isLongLanguage()? enUS : zhCN" :key="flag">
       <RouterView/>
     </a-config-provider>

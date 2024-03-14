@@ -1,30 +1,35 @@
 <template>
-  <Header></Header>
-  <div class="layout-background-1 app-header-distance">
-    <div class="home-title-wrap">
+  <Header :is-dark="false"></Header>
+  <div class="layout-background-2 app-header-distance">
+    <div class="structure-title-wrap">
       <div class="layout-content layout-two-side-center">
-        <div class="home-title-left">
-          <div class="home-title-notes">
-            <star-filled class="home-title-notes-text"/>
-            <span class="home-title-notes-text app-detail-font">{{ $t('moo.home.labels') }}</span>
+        <div class="structure-title-left">
+          <div class="structure-title-notes">
+            <star-filled class="structure-title-notes-text"/>
+            <span class="structure-title-notes-text app-detail-font">{{ $t('moo.home.labels') }}</span>
           </div>
-          <div class="app-title-text-small app-title-font home-title-padding app-color-text-dark">
+          <div class="app-title-text app-title-font home-title-padding-top app-color-text">
             {{ $t('moo.home.title') }}
+          </div>
+          <div class="app-title-text app-title-font home-title-padding-bottom app-color-white">
+            {{ $t('moo.home.titleMain') }}
+          </div>
+          <div class="app-description-text-small app-detail-font home-title-padding app-color-white">
+            {{ $t('moo.home.titleExplanation') }}
           </div>
           <div class="title-button">
             <Button :is-dark="true"></Button>
           </div>
         </div>
-        <div class="home-title-right">
-          <img src="../assets/images/home/img_title_amount_detail.png" alt="amount">
+        <div class="structure-title-right">
           <img src="../assets/images/home/img_title_payment_detail.png" alt="payment">
         </div>
       </div>
 
       <div class="data-item-wrap layout-content layout-two-side-center">
-        <div v-for="item in dataList">
-          <div class="app-title-font app-subtitle-text app-color-text-dark">{{ $t(String(item.title)) }}</div>
-          <div class="app-description-text-small app-text-font app-color-text-dark">
+        <div v-for="item in dataList" class="app-color-text">
+          <div class="app-title-font app-subtitle-text">{{ $t(String(item.title)) }}</div>
+          <div class="app-description-text-small app-detail-font">
             {{
               $t(String(item.description))
             }}
@@ -43,15 +48,12 @@
            v-html=" $t('moo.home.suiteDescription')">
       </div>
 
-      <div id="globalAcquiring" class="home-card-wrap layout-content layout-two-side-center app-detail-font">
+      <div id="globalAcquiring" class="home-card-wrap layout-content layout-two-side-start app-detail-font">
         <div class="home-card-content" v-for="item in cardList">
           <div><img :src="item.path" alt=""></div>
           <div class="home-card-title app-subtitle-text">{{ $t(String(item.title)) }}</div>
           <div class="app-description-text-small">{{ $t(String(item.description)) }}</div>
         </div>
-      </div>
-      <div class="home-card-button">
-        <Button :is-dark="true" :is-center="true" class="title-button"></Button>
       </div>
     </div>
   </div>
@@ -88,7 +90,10 @@
         <div class="home-step-line" v-if="index!==stepList.length-1"></div>
         <div><img :src="item.path" alt=""></div>
         <div class="app-description-text home-step-text">{{ $t(String(item.title)) }}</div>
-        <div class="app-description-text app-color-text-main">{{ $t(String(item.description)) }}</div>
+        <div class="app-description-text-small app-text-font app-color-text-main">{{
+            $t(String(item.description))
+          }}
+        </div>
       </div>
     </div>
   </div>
@@ -168,69 +173,9 @@ const organizationList = ref(createImageList(import.meta.globEager('../assets/im
 </script>
 
 <style lang="less" scoped>
-@import '@/styles/base.less';
+@import '@/styles/base';
+@import '@/styles/structure';
 
-@top-distance: 3.5rem;
-@top-title-height: 25rem;
-
-.home-title-wrap {
-  position: relative;
-  padding-top: @top-distance;
-  padding-bottom: 20px;
-
-  .home-title-left {
-    position: relative;
-    width: 29rem;
-    height: @top-title-height;
-
-    .home-title-notes {
-      display: inline-block;
-      background: @color-bg1;
-      border-radius: 15px;
-      padding: 2px .3rem;
-
-
-      .home-title-notes-text {
-        display: inline-block;
-        font-size: 1rem;
-        font-weight: 500;
-        text-align: center;
-        color: @color-bg;
-        padding: 0 5px;
-      }
-    }
-
-    .home-title-padding {
-      padding: 1.5rem 0;
-    }
-
-    .title-button {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
-  }
-
-  .home-title-right {
-    display: flex;
-    position: absolute;
-    right: -1.2rem;
-    top: @top-distance;
-
-    img {
-      height: @top-title-height;
-
-      &:first-child {
-        margin-right: 1rem;
-      }
-    }
-  }
-
-  .data-item-wrap {
-    margin-top: 5rem;
-
-  }
-}
 
 .home-suite-title-padding {
   padding: 4.3rem 0 1rem;
@@ -238,10 +183,6 @@ const organizationList = ref(createImageList(import.meta.globEager('../assets/im
 
 .home-suite-tip-padding {
   padding-bottom: 4.5rem;
-}
-
-.home-card-button {
-  padding-bottom: 3.5rem;
 }
 
 .home-card-wrap {
@@ -258,7 +199,7 @@ const organizationList = ref(createImageList(import.meta.globEager('../assets/im
 
 
 .home-logo-organization {
-  max-width: 10rem;
+  max-width: 9.2rem;
   max-height: 1.8rem;
   padding: 0 1.9rem;
 
@@ -303,6 +244,10 @@ const organizationList = ref(createImageList(import.meta.globEager('../assets/im
       border-radius: 1px;
       top: 42px;
       left: 160px;
+    }
+
+    img {
+      max-height: 85px;
     }
   }
 }

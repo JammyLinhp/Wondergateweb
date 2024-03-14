@@ -71,19 +71,22 @@ const handleOk = () => {
     padding: .5rem 1.4rem;
     cursor: pointer;
     font-size: 1rem;
+    color: @color-text-dark;
+
+    &:hover {
+      color: @color-text-dark;
+    }
   }
 }
 
 .button-bg {
   border-color: @color-bg !important;
   background-color: @color-bg !important;
-  color: @color-text-dark !important;
 }
 
 .button-dark-bg {
-  border-color: @color-bg1 !important;
-  background-color: @color-bg1 !important;
-  color: @color-text;
+  border-color: #F77222 !important;
+  background-color: #F77222 !important;
 }
 
 .ant-modal-wrap {
