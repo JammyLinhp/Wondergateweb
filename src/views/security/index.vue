@@ -1,33 +1,59 @@
 <template>
-  <Header></Header>
-  <div class="layout-background-1 app-header-distance">
+  <Header :is-dark="false"></Header>
+  <div class="layout-background-2 app-header-distance">
     <div class="security-title-wrap">
       <div class="layout-content">
-        <div class="app-title-text app-title-font app-color-text-dark">
+        <div class="app-title-text app-title-font app-color-text">
           {{ $t('moo.security.title') }}
         </div>
         <div
-          class="app-description-text app-detail-font app-text-font app-color-text-dark security-title-content-description"
+          class="app-description-text app-detail-font app-text-font app-color-text security-title-content-description"
           v-html="$t('moo.security.titleDescription')">
         </div>
       </div>
     </div>
   </div>
 
-
-  <div id="riskControl" class="layout-background-3">
-    <div class="app-color-text-main app-clean-float">
-      <img class="security-risk-control-img" src="../../assets/images/security/img_risk_control.png" alt="security">
-      <div class="layout-content security-risk-control-text-wrap">
-        <div class="app-title-text-small  app-text-font">
-          {{ $t('moo.security.riskControl') }}
-        </div>
-        <div class="app-description-text-small app-detail-font security-chargeback-alerts-description"
-             v-html=" $t('moo.security.riskControlDescription')">
-        </div>
-      </div>
+  <div class="layout-content layout-horizontal-equalization" id="riskControl">
+    <div class="app-title-text-small  app-text-font">
+      {{ $t('moo.security.riskControl') }}
     </div>
+    <div class="app-description-text-small app-detail-font "
+         v-html=" $t('moo.security.riskControlDescription')">
+    </div>
+    <HalfStructure horizontal-padding="2rem" alignment-mode="top">
+      <template #left>
+        <div class="app-description-text-small app-detail-font security-chargeback-alerts-description"
+             v-html=" $t('moo.security.identityVerification')">
+        </div>
+
+        <div class="app-description-text-small app-detail-font security-chargeback-alerts-description"
+             v-html=" $t('moo.security.transactionMonitoring')">
+        </div>
+
+        <div class="app-description-text-small app-detail-font security-chargeback-alerts-description"
+             v-html=" $t('moo.security.riskAssessment')">
+        </div>
+
+        <div class="app-description-text-small app-detail-font security-chargeback-alerts-description"
+             v-html=" $t('moo.security.preventionStrategies')">
+        </div>
+
+        <div class="app-description-text-small app-detail-font security-chargeback-alerts-description"
+             v-html=" $t('moo.security.complianceManagement')">
+        </div>
+
+        <div class="app-description-text-small app-detail-font security-chargeback-alerts-description"
+             v-html=" $t('moo.security.dataSecurity')">
+        </div>
+      </template>
+      <template #right>
+        <img class="security-chargeback-alerts-description" src="@/assets/images/security/img_risk_control.png"
+             alt="security">
+      </template>
+    </HalfStructure>
   </div>
+
 
   <div id="chargebackAlerts" class="layout-content app-color-text-main layout-two-side-center">
     <div class="layout-horizontal-equalization">
@@ -60,15 +86,18 @@
   </div>
 
   <div id="business" class="app-color-text-main app-clean-float">
-    <img class="security-business-img" src="../../assets/images/security/img_business.png" alt="security">
-    <div class="layout-content security-business-text-wrap">
-      <div class="app-title-text-small  app-text-font">
-        {{ $t('moo.security.business') }}
-      </div>
-      <div class="app-description-text-small app-detail-font security-chargeback-alerts-description"
-           v-html=" $t('moo.security.businessDescription')">
-      </div>
-    </div>
+
+    <FloatStructure height="38rem" :image-path="BusinessImage" :is-left="true">
+      <template #content>
+        <div class="app-title-text-small  app-text-font">
+          {{ $t('moo.security.business') }}
+        </div>
+        <div class="app-description-text-small app-detail-font security-chargeback-alerts-description"
+             v-html=" $t('moo.security.businessDescription')">
+        </div>
+      </template>
+    </FloatStructure>
+
   </div>
 
 
@@ -78,8 +107,9 @@
 <script setup lang="ts">
 import Header from '@/components/header/index.vue';
 import Footer from '@/components/footer/index.vue';
-
-
+import HalfStructure from '@/components/structure/left-rigth/half/index.vue';
+import FloatStructure from '@/components/structure/left-rigth/float/index.vue';
+import BusinessImage from '@/assets/images/security/img_business.png';
 </script>
 
 <style scoped lang="less">

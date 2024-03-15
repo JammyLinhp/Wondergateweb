@@ -6,17 +6,38 @@
         <img v-if="!isDark" src="../../assets/images/logo_light.png" alt="logo">
       </div>
       <div class="header-title layout-all-center">
-        <RouterLink :to="item.path" v-for="item in titleList"
-                    :class="{
-                   'header-title-item':true,
-                  'layout-all-center':true,
-                  'app-text-font':true,
-                  'app-color-text':!isDark,
-                  'app-color-text-dark':isDark,
 
-           }">
-          {{ $t(item.name) }}
-        </RouterLink>
+        <a-menu mode="horizontal" theme="dark" triggerSubMenuAction="click">
+          <template v-for="(item,index) in titleList">
+            <template v-if="!item.menus">
+              <a-menu-item :key="index">
+                <RouterLink :to="item.path"
+                            class="header-title-item"
+                            :class="{'app-color-text':!isDark,'app-color-text-dark':isDark,}">
+                  {{ $t(item.name) }}
+                </RouterLink>
+              </a-menu-item>
+            </template>
+            <template v-else>
+              <a-sub-menu :key="item.name">
+                <template #title>
+                  <div class="header-title-item  "
+                       :class="{'app-color-text':!isDark,'app-color-text-dark':isDark,}">
+                    {{ $t(item.name) }}
+                  </div>
+                </template>
+                <a-menu-item v-for="subItem in item.menus" :key="subItem.path">
+                  <RouterLink :to="subItem.path"
+                              class="header-title-item"
+                              :class="{'app-color-text':!isDark,'app-color-text-dark':isDark,}">
+                    {{ $t(subItem.name) }}
+                  </RouterLink>
+                </a-menu-item>
+              </a-sub-menu>
+            </template>
+          </template>
+        </a-menu>
+        <!--        </RouterLink>-->
         <!--        <div :class="{-->
         <!--                  'layout-background-1': !isDark,-->
         <!--                  'layout-background-2': isDark,-->
@@ -33,6 +54,8 @@
 
 <script setup lang="ts">
 // props
+import { IMenu } from '@/interface/menu';
+
 defineProps({
   isDark: {
     type: Boolean,
@@ -44,10 +67,20 @@ const onLogoClick = () => {
   window.location.href = '/';
 };
 
-const titleList = [
+const titleList: IMenu[] = [
   {
     name: 'moo.menu.productCenter',
-    path: '/product-center',
+    path: '/product-center/global-payments',
+    menus: [
+      {
+        name: 'moo.menu.globalPayments',
+        path: '/product-center/global-payments',
+      },
+      {
+        name: 'moo.menu.collectionAccount',
+        path: '/product-center/global-collection-account',
+      },
+    ],
   },
   {
     name: 'moo.menu.securityCenter',
@@ -89,11 +122,8 @@ const titleList = [
       height: 100%;
 
       .header-title-item {
-        padding: 0 1rem;
         font-size: 1rem;
         font-weight: bolder;
-        text-decoration: none;
-        height: 100%;
         line-height: @header-height;
       }
 

@@ -82,12 +82,12 @@ const menuList: IMenu[] = [
   },
   {
     name: 'moo.menu.productCenter',
-    path: '/product-center',
+    path: '/product-center/global-payments',
     hash: '#header',
     menus: [
       {
-        name: 'moo.product.paymentRouting',
-        path: '/product-center',
+        name: 'moo.product.globalTitle',
+        path: '/product-center/global-payments',
         hash: '#paymentRouting',
       },
       // {

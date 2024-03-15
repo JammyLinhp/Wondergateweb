@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import BaseLayout from '@/layout/base/index.vue';
+import Product from '@/router/config/product';
 
 
 const router = createRouter({
@@ -21,16 +22,7 @@ const router = createRouter({
             activeMenu: '/index',
           },
         },
-        {
-          path: '/product-center',
-          name: 'product center',
-          component: () => import('@/views/product/index.vue'),
-          meta: {
-            key: 'product',
-            code: 'product',
-            activeMenu: '/product-center',
-          },
-        },
+        ...Product,
         {
           path: '/security-center',
           name: 'security center',

@@ -15,17 +15,17 @@
   </div>
 
   <div class="layout-background-3">
-    <div class="app-color-text-main app-clean-float">
-      <img class="security-risk-control-img" src="../../assets/images/about-us/img_company_profile.png" alt="us">
-      <div id="companyProfile" class="layout-content security-risk-control-text-wrap">
-        <div class="app-title-text-small  app-text-font">
+
+    <FloatStructure height="38rem" :image-path="CompanyProfile">
+      <template #content>
+        <div class="app-title-text-small app-text-font">
           {{ $t('moo.about.companyProfile') }}
         </div>
         <div class="app-description-text-small app-detail-font about-company-profile-description"
              v-html=" $t('moo.about.companyProfileDescription')">
         </div>
-      </div>
-    </div>
+      </template>
+    </FloatStructure>
   </div>
 
   <div id="provide" class="about-provide-wrap">
@@ -53,6 +53,9 @@
 <script setup lang="ts">
 import Header from '@/components/header/index.vue';
 import Footer from '@/components/footer/index.vue';
+import FloatStructure from '@/components/structure/left-rigth/float/index.vue';
+import CompanyProfile from '@/assets/images/about-us/img_company_profile.png';
+
 </script>
 
 <style lang="less" scoped>

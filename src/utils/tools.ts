@@ -33,7 +33,6 @@ const createElementVNode = (content: any, duration: number) => {
 export function createImageList(modules: any) {
   const array = [] as any;
   Object.keys(modules).forEach((key: any) => {
-    console.log(modules[key]);
     array.push(modules[key].default);
   });
   return array;

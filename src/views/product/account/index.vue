@@ -1,0 +1,187 @@
+<template>
+  <Title notes="moo.product.notes" title="moo.product.title" title-main="moo.product.titleMain"
+         title-description="moo.product.titleDescription" :image-path="TitleImage"></Title>
+
+  <div class="layout-content app-color-text-main layout-horizontal-equalization">
+    dasdsafsdfsdfgsdgdfgfdgdffgddfg
+    <ParagraphStructure :paragraph-array="crossBorderList"
+                        :image-path="CrossBorderImage"
+                        title="moo.product.crossBorder">
+    </ParagraphStructure>
+  </div>
+
+  <div class="layout-all-center" v-if="scopeList.length!=0">
+    <img class="product-scope-logo" :src="item" alt="logo" v-for="item in scopeList">
+  </div>
+
+  <div class="layout-background-3" id="paymentRouting">
+    <div class="layout-content layout-horizontal-equalization">
+      <div class="app-subtitle-text app-text-font">
+        {{ $t('moo.product.globalTitle') }}
+      </div>
+      <div class="app-description-text-small app-detail-font">
+        {{ $t('moo.product.globalDescription') }}
+      </div>
+
+      <a-row :gutter="36" class="layout-content-subspacing">
+        <a-col :span="8" v-for="item in globalList">
+          <a-card :bordered="false" style="border-radius: 15px">
+            <template #title>
+              <img :src="item.path" alt="product">
+            </template>
+            <div class="app-color-text-main app-description-text-small app-detail-font app-text-description-title">
+              {{ $t(item.title) }}
+            </div>
+            <div
+              class="app-color-text-main app-detail-font app-text-description-spacing-top app-description-text-smaller">
+              {{ $t(item.description) }}
+            </div>
+          </a-card>
+        </a-col>
+      </a-row>
+    </div>
+  </div>
+
+  <FloatStructure :image-path="CardImage">
+    <template #content>
+      <div class="app-subtitle-text app-text-font">
+        {{ $t('moo.product.paymentMethodTitle') }}
+      </div>
+      <div class="app-description-text-small app-detail-font ">
+        {{ $t('moo.product.paymentMethodDescription') }}
+      </div>
+      <div class="app-description-text-small app-text-font layout-content-subspacing-small">
+        {{ $t('moo.product.card') }}
+      </div>
+      <div class="layout-background-3 product-card-wrap">
+        <a-row :gutter="86" class="layout-all-center">
+          <a-col :span="8">
+            <img src="../../../assets/images/product/img_product_mastercard.png" alt="card">
+          </a-col>
+          <a-col :span="8">
+            <img src="../../../assets/images/product/img_product_visa.png" alt="card">
+          </a-col>
+          <a-col :span="8">
+            <img src="../../../assets/images/product/img_product_dc.png" alt="card">
+          </a-col>
+        </a-row>
+        <a-row :gutter="86" class="layout-content-subspacing layout-all-center" style="justify-content: left">
+          <a-col :span="8">
+            <img src="../../../assets/images/product/img_product_ae.png" alt="card">
+          </a-col>
+          <a-col :span="8">
+            <img src="../../../assets/images/product/img_product_discover.png" alt="card">
+          </a-col>
+        </a-row>
+      </div>
+      <div class="app-description-text-small app-text-font layout-content-subspacing-small">
+        {{ $t('moo.product.local') }}
+      </div>
+      <div class="layout-background-3 product-card-wrap">
+        <img src="../../../assets/images/product/img_product_local.png" alt="card">
+      </div>
+    </template>
+  </FloatStructure>
+
+
+  <div class="layout-background-3">
+    <div class="layout-content product-settlement-wrap">
+      <div class="app-description-text-small app-text-font">
+        {{ $t('moo.product.settlementTitle') }}
+      </div>
+      <div class="app-title-text-small app-text-font">
+        {{ $t('moo.product.settlementPayment') }}
+      </div>
+      <div class="app-description-text-small app-detail-font product-settlement-description"
+           v-html=" $t('moo.product.settlementDescription')">
+      </div>
+      <img src="../../../assets/images/product/img_settlement.png" alt="product">
+    </div>
+  </div>
+
+  <div class="layout-content app-color-text-main layout-two-side-end">
+    <div class="layout-horizontal-equalization">
+      <div class="app-description-text-small app-text-font">
+        {{ $t('moo.product.virtuallyPaymentTitle') }}
+      </div>
+      <div class="app-title-text-small app-text-font">
+        {{ $t('moo.product.virtuallyPayment') }}
+      </div>
+      <div class="app-description-text-small app-detail-font product-virtually-payment-description"
+           v-html=" $t('moo.product.virtuallyPaymentDescription')">
+      </div>
+    </div>
+    <div class="layout-horizontal-equalization">
+      <img src="../../../assets/images/product/img_virtually_payment.png" alt="product">
+    </div>
+  </div>
+
+  <Footer></Footer>
+
+</template>
+<script setup lang="ts">
+import FloatStructure from '@/components/structure/left-rigth/float/index.vue';
+import Title from '@/components/header/title/index.vue';
+import Footer from '@/components/footer/index.vue';
+import ParagraphStructure from '@/components/structure/left-rigth/half/paragraph/index.vue';
+import { ref } from 'vue';
+import { ICard } from '@/interface/home';
+import CrossBorderImage from '@/assets/images/product/img_product_cross_border.png';
+import CostsImage from '@/assets/images/product/img_product_costs.png';
+import ExperienceImage from '@/assets/images/product/img_product_experience.png';
+import OptimizedImage from '@/assets/images/product/img_product_optimized.png';
+import CardImage from '@/assets/images/product/img_product_card.png';
+import TitleImage from '@/assets/images/product/img_product_title.png';
+import { createImageList } from '@/utils/tools';
+
+const crossBorderList = ref<ICard[]>([
+  { title: 'moo.product.exchangeIssuesTitle', description: 'moo.product.exchangeIssuesDescription' },
+  { title: 'moo.product.paymentChannelTitle', description: 'moo.product.paymentChannelDescription' },
+  { title: 'moo.product.transactionSecurityTitle', description: 'moo.product.transactionSecurityDescription' },
+]);
+
+const scopeList = ref(createImageList(import.meta.globEager('../../assets/images/product/scope/*')) as any);
+
+
+const globalList = ref<ICard[]>([
+  { title: 'moo.product.experienceTitle', description: 'moo.product.experienceDescription', path: ExperienceImage },
+  { title: 'moo.product.optimizedTitle', description: 'moo.product.optimizedDescription', path: OptimizedImage },
+  { title: 'moo.product.costsTitle', description: 'moo.product.costsDescription', path: CostsImage },
+]);
+
+</script>
+
+<style scoped lang="less">
+@import '@/styles/base';
+
+.product-scope-logo {
+  max-width: 8%;
+}
+
+.product-routing-description {
+  padding: 2.1rem 0;
+}
+
+.product-card-wrap {
+  margin-top: .8rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.product-virtually-payment-description {
+  padding: 2.1rem 0 0;
+}
+
+.product-settlement-wrap {
+  padding: 3.5rem 0;
+
+  .product-settlement-description {
+    padding: 2rem 0;
+  }
+}
+
+</style>
