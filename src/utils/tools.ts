@@ -98,3 +98,17 @@ export const copyString = (val: any): any => {
   // @ts-ignore
   // showMessage(i18n.global.t('moo.common.copySuccessfully'));
 };
+
+/**
+ * @description: 原数组复制
+ * @return {*}
+ * @param original  原数组
+ * @param target
+ */
+export const originalArrayModify = (original: any, target: any): any => {
+  console.log(original, target);
+  original = 0;
+  Object.keys(target).forEach((key: any) => {
+    original[key] = target[key];
+  });
+};

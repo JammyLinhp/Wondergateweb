@@ -19,4 +19,24 @@ export default [
       activeMenu: '/product-center/global-collection-account',
     },
   },
+  {
+    path: '/product-center/payment-solutions',
+    name: 'global solutions',
+    component: () => import('@/views/product/solutions/index.vue'),
+    meta: {
+      key: 'product.solutions',
+      code: 'product.solutions',
+      activeMenu: '/product-center/payment-solutions',
+    },
+  },
+  {
+    path: '/product-center/issuing-virtual-cards',
+    name: 'issuing virtual cards',
+    component: () => import('@/views/product/cards/index.vue'),
+    meta: {
+      key: 'product.cards',
+      code: 'product.cards',
+      activeMenu: '/product-center/issuing-virtual-cards',
+    },
+  },
 ];

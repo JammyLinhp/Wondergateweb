@@ -1,5 +1,5 @@
 <template>
-  <Title notes="moo.product.notes" title="moo.product.title" title-main="moo.product.titleMain"
+  <Title notes="moo.menu.globalPayments" title="moo.product.title" title-main="moo.product.titleMain"
          title-description="moo.product.titleDescription" :image-path="TitleImage"></Title>
 
   <div class="layout-content app-color-text-main layout-horizontal-equalization">

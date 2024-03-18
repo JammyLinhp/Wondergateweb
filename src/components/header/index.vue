@@ -5,36 +5,31 @@
         <img v-if="isDark" src="../../assets/images/logo_dark.png" alt="logo">
         <img v-if="!isDark" src="../../assets/images/logo_light.png" alt="logo">
       </div>
-      <div class="header-title layout-all-center">
-
-        <a-menu mode="horizontal" theme="dark" triggerSubMenuAction="click">
-          <template v-for="(item,index) in titleList">
-            <template v-if="!item.menus">
-              <a-menu-item :key="index">
-                <RouterLink :to="item.path"
-                            class="header-title-item"
-                            :class="{'app-color-text':!isDark,'app-color-text-dark':isDark,}">
+      <div class="header-title layout-all-center header-menu-settings">
+        <a-menu v-model:selectedKeys="currentKeys"
+                mode="horizontal"
+                triggerSubMenuAction="click"
+                class="app-text-font header-menu" :class="{dark:isDark}">
+          <template v-for="item in titleList">
+            <a-menu-item :key="item.name" v-if="!item.menus">
+              <a @click="jumpToPage(item)"
+                 class="header-title-item">
+                {{ $t(item.name) }}
+              </a>
+            </a-menu-item>
+            <a-sub-menu :key="item.name" v-else>
+              <template #title>
+                <div class="header-title-item">
                   {{ $t(item.name) }}
-                </RouterLink>
+                </div>
+              </template>
+              <a-menu-item v-for="subItem in item.menus" :key="subItem.name"
+                           class="header-menu-settings app-text-font">
+                <a @click="jumpToPage(subItem)">
+                  {{ $t(subItem.name) }}
+                </a>
               </a-menu-item>
-            </template>
-            <template v-else>
-              <a-sub-menu :key="item.name">
-                <template #title>
-                  <div class="header-title-item  "
-                       :class="{'app-color-text':!isDark,'app-color-text-dark':isDark,}">
-                    {{ $t(item.name) }}
-                  </div>
-                </template>
-                <a-menu-item v-for="subItem in item.menus" :key="subItem.path">
-                  <RouterLink :to="subItem.path"
-                              class="header-title-item"
-                              :class="{'app-color-text':!isDark,'app-color-text-dark':isDark,}">
-                    {{ $t(subItem.name) }}
-                  </RouterLink>
-                </a-menu-item>
-              </a-sub-menu>
-            </template>
+            </a-sub-menu>
           </template>
         </a-menu>
         <!--        </RouterLink>-->
@@ -55,6 +50,8 @@
 <script setup lang="ts">
 // props
 import { IMenu } from '@/interface/menu';
+import { onMounted, reactive, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 defineProps({
   isDark: {
@@ -63,8 +60,25 @@ defineProps({
   },
 });
 
+const currentKeys: any = ref<string[]>([]);
+const saveKey: any = 'header_key';
+const router = useRouter();
+
 const onLogoClick = () => {
-  window.location.href = '/';
+  jumpToPage({
+    path: '/index',
+    name: 'home',
+  });
+};
+
+// const onSubMenuClick = () => {
+//   console.log(saveKey.value);
+// };
+
+
+const jumpToPage = (item: any) => {
+  router.push(item.path);
+  window.localStorage.setItem(saveKey, item.name);
 };
 
 const titleList: IMenu[] = [
@@ -80,6 +94,14 @@ const titleList: IMenu[] = [
         name: 'moo.menu.collectionAccount',
         path: '/product-center/global-collection-account',
       },
+      {
+        name: 'moo.menu.issuingVirtualCards',
+        path: '/product-center/issuing-virtual-cards',
+      },
+      {
+        name: 'moo.menu.paymentSolutions',
+        path: '/product-center/payment-solutions',
+      },
     ],
   },
   {
@@ -91,9 +113,14 @@ const titleList: IMenu[] = [
     path: '/about-us',
   },
 ];
+
+onMounted(() => {
+  currentKeys.value.length = 0;
+  currentKeys.value.push(window.localStorage.getItem(saveKey));
+});
 </script>
 
-<style scoped lang="less">
+<style lang="less">
 @import '@/styles/base.less';
 
 .header-wrap {
@@ -119,13 +146,7 @@ const titleList: IMenu[] = [
     }
 
     .header-title {
-      height: 100%;
-
-      .header-title-item {
-        font-size: 1rem;
-        font-weight: bolder;
-        line-height: @header-height;
-      }
+      flex: 1;
 
       .header-title-language {
         padding: .2rem 1rem;
@@ -136,6 +157,49 @@ const titleList: IMenu[] = [
         border-radius: 2rem;
         cursor: pointer;
       }
+    }
+  }
+}
+
+// 调整菜单配置
+.ant-menu-submenu > .ant-menu {
+  border-radius: 15px !important;
+
+  .header-menu-settings {
+    margin: 10px !important;
+    border-radius: 8px;
+    color: @color-text-dark;
+
+    .ant-menu-title-content a:hover {
+      color: @color-text !important;
+    }
+  }
+
+  .ant-menu-item-selected .ant-menu-title-content a {
+    color: @color-text !important;
+  }
+
+}
+
+.header-menu-settings {
+
+  .ant-menu-horizontal > .ant-menu-item a, .ant-menu-submenu-title {
+    color: @color-text;
+  }
+
+  .header-menu {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    border: 0;
+    background-color: transparent;
+
+    .ant-menu-item::after, .ant-menu-submenu-selected::after, .ant-menu-submenu::after {
+      border: 0 !important;
+    }
+
+    .header-title-item {
+      font-size: .9rem;
     }
   }
 }

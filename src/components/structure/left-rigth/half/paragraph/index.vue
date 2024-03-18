@@ -1,6 +1,11 @@
 <template>
-  <div class="app-subtitle-text app-text-font paragraph-title" v-if="title">
-    {{ $t(title) }}
+  <div class="paragraph-title">
+    <div class="app-subtitle-text app-text-font" v-if="title">
+      {{ $t(title) }}
+    </div>
+    <div class="app-description-text-small app-detail-font" v-if="description">
+      {{ $t(description) }}
+    </div>
   </div>
   <HalfStructure :horizontal-padding="horizontalPadding">
     <template #left>
@@ -45,6 +50,10 @@ defineProps({
     type: String,
     default: '',
   },
+  description: {
+    type: String,
+    default: '',
+  },
   horizontalPadding: {
     type: String,
     default: '3rem',
@@ -69,7 +78,7 @@ defineProps({
 }
 
 .paragraph-icon-warp {
-  width: 1.5rem;
+  width: 1rem;
 }
 
 .paragraph-text-warp {

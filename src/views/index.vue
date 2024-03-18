@@ -77,24 +77,9 @@
     </div>
 
     <div class="layout-content home-rapid-transaction">
-      <div class="app-subtitle-text app-text-font layout-all-center">
-        {{ $t('moo.home.rapidTransactionTitle') }}
-      </div>
-      <div class="app-description-text app-detail-font app-detail-font layout-all-center"
-           v-html=" $t('moo.home.rapidTransactionDescription')">
-      </div>
-    </div>
-
-    <div class="home-step-wrap layout-two-side-center app-detail-font">
-      <div class="layout-all-center home-step-content" v-for="(item,index) in stepList">
-        <div class="home-step-line" v-if="index!==stepList.length-1"></div>
-        <div><img :src="item.path" alt=""></div>
-        <div class="app-description-text home-step-text">{{ $t(String(item.title)) }}</div>
-        <div class="app-description-text-small app-text-font app-color-text-main">{{
-            $t(String(item.description))
-          }}
-        </div>
-      </div>
+      <StepComponents :step-list="stepList"
+                      title="moo.home.rapidTransactionTitle"
+                      description="moo.home.rapidTransactionDescription"></StepComponents>
     </div>
   </div>
 
@@ -105,6 +90,7 @@
 import Header from '@/components/header/index.vue';
 import Footer from '@/components/footer/index.vue';
 import Button from '@/components/button/index.vue';
+import StepComponents from '@/components/step/index.vue';
 import globalAcquiringImg from '@/assets/images/home/img_global_acquiring.png';
 import revenueRecognitionImg from '@/assets/images/home/img_revenue_recognition.png';
 import globalIssuingImg from '@/assets/images/home/img_global_issuing.png';
@@ -220,36 +206,5 @@ const organizationList = ref(createImageList(import.meta.globEager('../assets/im
   padding-top: 7rem;
 }
 
-.home-step-wrap {
-  width: 1100px;
-  margin: auto;
-  padding: 3rem 0 8rem;
-
-  .home-step-content {
-    position: relative;
-    flex-direction: column;
-    width: 240px;
-    text-align: center;
-
-    .home-step-text {
-      padding: 1.1rem 0;
-      color: @color-text-2;
-    }
-
-    .home-step-line {
-      position: absolute;
-      width: 400px;
-      height: 3px;
-      background: linear-gradient(244deg, rgba(238, 238, 238, 0.00) 17%, rgba(227, 227, 227, 0.70) 49%, rgba(216, 216, 216, 0.00));
-      border-radius: 1px;
-      top: 42px;
-      left: 160px;
-    }
-
-    img {
-      max-height: 85px;
-    }
-  }
-}
 
 </style>
