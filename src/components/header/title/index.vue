@@ -1,5 +1,5 @@
 <template>
-  <Header :is-dark="false"></Header>
+  <Header ></Header>
   <div class="layout-background-2 app-header-distance">
     <div class="structure-title-wrap">
       <div class="layout-content layout-two-side-center">

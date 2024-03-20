@@ -16,7 +16,7 @@
         <img src="@/assets/images/logo_light.png" alt="logo">
       </div>
       <div class="layout-two-side-start">
-        <div class="footer-navigation-menu" v-for="item in menuList">
+        <div class="footer-navigation-menu" v-for="item in titleList">
           <RouterLink :to="{ path: item.path, hash: item.hash??''}"
                       class="footer-navigation-menu-item app-text-font app-description-text">
             {{ $t(String(item.name)) }}
@@ -58,90 +58,13 @@ import Button from '@/components/button/index.vue';
 import { IMenu } from '@/interface/menu';
 import { useRoute, useRouter } from 'vue-router';
 import { nextTick, watch } from 'vue';
+import { menuList } from '@/components/header/tools';
 
 const route = useRoute();
 const router = useRouter();
 
-const menuList: IMenu[] = [
-  {
-    name: 'moo.menu.home',
-    path: '/index',
-    hash: '#header',
-    menus: [
-      {
-        name: 'moo.home.globalAcquiring',
-        path: '/index',
-        hash: '#globalAcquiring',
-      },
-      {
-        name: 'moo.home.globalIssuing',
-        path: '/index',
-        hash: '#globalAcquiring',
-      },
-    ],
-  },
-  {
-    name: 'moo.menu.productCenter',
-    path: '/product-center/global-payments',
-    hash: '#header',
-    menus: [
-      {
-        name: 'moo.product.globalTitle',
-        path: '/product-center/global-payments',
-        hash: '#paymentRouting',
-      },
-      // {
-      //   name: 'moo.home.globalIssuing',
-      //   path: '/index',
-      //   hash: '#globalAcquiring',
-      // },
-    ],
-  },
-  {
-    name: 'moo.menu.securityCenter',
-    path: '/security-center',
-    hash: '#header',
-    menus: [
-      {
-        name: 'moo.security.riskControl',
-        path: '/security-center',
-        hash: '#riskControl',
-      },
-      {
-        name: 'moo.security.chargebackAlerts',
-        path: '/security-center',
-        hash: '#chargebackAlerts',
-      },
-      {
-        name: 'moo.security.customerService',
-        path: '/security-center',
-        hash: '#customerService',
-      },
-      {
-        name: 'moo.security.business',
-        path: '/security-center',
-        hash: '#business',
-      },
-    ],
-  },
-  {
-    name: 'moo.menu.aboutUs',
-    path: '/about-us',
-    hash: '#header',
-    menus: [
-      {
-        name: 'moo.about.companyProfile',
-        path: '/about-us',
-        hash: '#companyProfile',
-      },
-      {
-        name: 'moo.about.provide',
-        path: '/about-us',
-        hash: '#provide',
-      },
-    ],
-  },
-];
+const titleList: IMenu[] = menuList;
+
 // const imageList = createImageList('/footer/logo_connection_', 6);
 const onLinkClick = () => {
   if (route.hash) {
@@ -186,7 +109,7 @@ watch(
 .footer-navigation-wrap {
   position: relative;
   background: @color-black;
-  height: 22.5rem;
+  height: 24.5rem;
 
   .footer-navigation-logo {
     padding: 2.6rem 0;

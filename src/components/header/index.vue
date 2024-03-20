@@ -1,15 +1,15 @@
 <template>
-  <div class="header-wrap layout-content">
+  <div id="header" class="header-wrap layout-content">
     <div class="header-inner layout-content layout-two-side-center">
-      <div id="header" class="header-logo" @click="onLogoClick">
+      <div class="header-logo" @click="onLogoClick">
         <img v-if="isDark" src="../../assets/images/logo_dark.png" alt="logo">
         <img v-if="!isDark" src="../../assets/images/logo_light.png" alt="logo">
       </div>
-      <div class="header-title layout-all-center header-menu-settings">
+      <div class="header-title layout-all-center header-menu-settings" :class="{'dark-logo':isDark}">
         <a-menu v-model:selectedKeys="currentKeys"
                 mode="horizontal"
                 triggerSubMenuAction="click"
-                class="app-text-font header-menu" :class="{dark:isDark}">
+                class="app-text-font header-menu">
           <template v-for="item in titleList">
             <a-menu-item :key="item.name" v-if="!item.menus">
               <a @click="jumpToPage(item)"
@@ -50,13 +50,14 @@
 <script setup lang="ts">
 // props
 import { IMenu } from '@/interface/menu';
-import { onMounted, reactive, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { menuList } from '@/components/header/tools';
 
 defineProps({
   isDark: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 });
 
@@ -81,38 +82,7 @@ const jumpToPage = (item: any) => {
   window.localStorage.setItem(saveKey, item.name);
 };
 
-const titleList: IMenu[] = [
-  {
-    name: 'moo.menu.productCenter',
-    path: '/product-center/global-payments',
-    menus: [
-      {
-        name: 'moo.menu.globalPayments',
-        path: '/product-center/global-payments',
-      },
-      {
-        name: 'moo.menu.collectionAccount',
-        path: '/product-center/global-collection-account',
-      },
-      {
-        name: 'moo.menu.issuingVirtualCards',
-        path: '/product-center/issuing-virtual-cards',
-      },
-      {
-        name: 'moo.menu.paymentSolutions',
-        path: '/product-center/payment-solutions',
-      },
-    ],
-  },
-  {
-    name: 'moo.menu.securityCenter',
-    path: '/security-center',
-  },
-  {
-    name: 'moo.menu.aboutUs',
-    path: '/about-us',
-  },
-];
+const titleList: IMenu[] = menuList;
 
 onMounted(() => {
   currentKeys.value.length = 0;
@@ -176,13 +146,12 @@ onMounted(() => {
   }
 
   .ant-menu-item-selected .ant-menu-title-content a {
-    color: @color-text !important;
+    color: @color-text;
   }
 
 }
 
 .header-menu-settings {
-
   .ant-menu-horizontal > .ant-menu-item a, .ant-menu-submenu-title {
     color: @color-text;
   }
@@ -201,6 +170,19 @@ onMounted(() => {
     .header-title-item {
       font-size: .9rem;
     }
+  }
+}
+
+.dark-logo {
+}
+
+.dark-logo.header-menu-settings {
+  .ant-menu-horizontal > .ant-menu-item a, .ant-menu-submenu-title {
+    color: inherit;
+  }
+
+  .ant-menu-item-selected {
+    color: @color-text !important;
   }
 }
 </style>

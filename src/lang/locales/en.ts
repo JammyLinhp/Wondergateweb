@@ -12,6 +12,7 @@ export default {
       paymentSolutions: 'Payment solutions',
       securityCenter: 'Security center',
       aboutUs: 'About Us',
+      contactUs: 'Contact Us',
     },
     home: {
       labels: 'Connect To Any Payment Service',
@@ -193,14 +194,17 @@ export default {
       provide: 'Wondergate can provide',
       provideDescription: 'cross-border payment services for stores opened on SHOPLINE and Shoplazza',
     },
+    contact: {
+      toBegin: 'Contact Us to Begin Your Global Payment Journey',
+      youWant: 'Whether you want to learn about our global payment solutions, seek technical collaboration, or customize a unique payment strategy, we\'re committed to delivering meticulous service.',
+      address: 'FLAT/RM 121 1/F LIVEN HOUSE NOS. 61-63 KING YIP STREET KWUN TONG KL HONG KONG',
+      email: 'Email',
+      officeAddress: 'Address',
+    },
     footer: {
       launch: 'LAUNCH WITH WONDERGATE',
       unleash: 'Unleash your potential now. Simple setup, powerful results.',
       privacy: 'Privacy - Cookies - Disclaimer - ©2024 WONDERGATE Payments Limited 2023',
-      address: 'Company Office Address :<br> FLAT/RM 121 1/F LIVEN HOUSE NOS. 61-63 KING YIP STREET KWUN TONG KL HONG KONG',
-      email: 'Email',
-      copyEmail: 'Copy Email',
-      companyInformation: 'You can contact us via the following methods',
     },
     common: {
       copySuccessfully: 'Copy successfully',

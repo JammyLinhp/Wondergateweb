@@ -1,5 +1,5 @@
 <template>
-  <Header :is-dark="false"></Header>
+  <Header ></Header>
   <div class="layout-background-2 app-header-distance">
     <div class="security-title-wrap">
       <div class="layout-content">
@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <div class="layout-content layout-horizontal-equalization" id="riskControl">
+  <div class="layout-content layout-horizontal-equalization">
     <div class="app-title-text-small  app-text-font">
       {{ $t('moo.security.riskControl') }}
     </div>
@@ -55,7 +55,7 @@
   </div>
 
 
-  <div id="chargebackAlerts" class="layout-content app-color-text-main layout-two-side-center">
+  <div class="layout-content app-color-text-main layout-two-side-center">
     <div class="layout-horizontal-equalization">
       <img src="../../assets/images/security/img_chargeback_alerts.png" alt="security">
     </div>
@@ -69,7 +69,7 @@
     </div>
   </div>
 
-  <div id="customerService" class="layout-background-3">
+  <div class="layout-background-3">
     <div class="layout-content app-color-text-main layout-two-side-center">
       <div class="layout-horizontal-equalization">
         <img src="../../assets/images/home/img_convenient_system.png" alt="security">
@@ -85,7 +85,7 @@
     </div>
   </div>
 
-  <div id="business" class="app-color-text-main app-clean-float">
+  <div class="app-color-text-main app-clean-float">
 
     <FloatStructure height="38rem" :image-path="BusinessImage" :is-left="true">
       <template #content>

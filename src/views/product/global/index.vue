@@ -14,7 +14,7 @@
     <img class="product-scope-logo" :src="item" alt="logo" v-for="item in scopeList">
   </div>
 
-  <div class="layout-background-3" id="paymentRouting">
+  <div class="layout-background-3">
     <div class="layout-content layout-horizontal-equalization">
       <div class="app-subtitle-text app-text-font">
         {{ $t('moo.product.globalTitle') }}

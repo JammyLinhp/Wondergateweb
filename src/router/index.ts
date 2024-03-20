@@ -43,6 +43,16 @@ const router = createRouter({
             activeMenu: '/about-us',
           },
         },
+        {
+          path: '/contact-us',
+          name: 'contact us',
+          component: () => import('@/views/contact-us/index.vue'),
+          meta: {
+            key: 'contact',
+            code: 'contact',
+            activeMenu: '/contact-us',
+          },
+        },
       ],
     },
   ],

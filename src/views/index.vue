@@ -1,5 +1,5 @@
 <template>
-  <Header :is-dark="false"></Header>
+  <Header></Header>
   <div class="layout-background-2 app-header-distance">
     <div class="structure-title-wrap">
       <div class="layout-content layout-two-side-center">
@@ -48,7 +48,7 @@
            v-html=" $t('moo.home.suiteDescription')">
       </div>
 
-      <div id="globalAcquiring" class="home-card-wrap layout-content layout-two-side-start app-detail-font">
+      <div class="home-card-wrap layout-content layout-two-side-start app-detail-font">
         <div class="home-card-content" v-for="item in cardList">
           <div><img :src="item.path" alt=""></div>
           <div class="home-card-title app-subtitle-text">{{ $t(String(item.title)) }}</div>

@@ -1,5 +1,5 @@
 <template>
-  <Header :is-dark="false"></Header>
+  <Header></Header>
   <div class="layout-background-2 app-header-distance">
     <div class="about-title-wrap">
       <div class="layout-content">
@@ -28,7 +28,7 @@
     </FloatStructure>
   </div>
 
-  <div id="provide" class="about-provide-wrap">
+  <div class="about-provide-wrap">
     <div class="layout-content">
       <div class="app-title-text-small  app-text-font">
         {{ $t('moo.about.provide') }}

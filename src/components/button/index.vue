@@ -7,29 +7,10 @@
     }" @click="onButtonClick">{{ $t(text) }}
     </a>
   </div>
-  <a-modal v-model:visible="visible" :title="$t('moo.footer.companyInformation')"
-           :ok-button-props="{
-              class:{'button-dark-bg':true}
-           }"
-           :cancel-button-props="{
-             style:{display:'none'}
-           }"
-           @ok="handleOk" :ok-text="$t('moo.footer.copyEmail')">
-    <div class=" app-detail-font">
-      {{ $t('moo.footer.email') }} : <br> {{ email }}
-    </div>
-    <a-divider/>
-    <div class="app-detail-font"
-         v-html="$t('moo.footer.address')">
-    </div>
-  </a-modal>
 </template>
 
 <script setup lang="ts">
-// props
-import { ref } from 'vue';
-import { copyString } from '@/utils/tools';
-
+import { useRouter } from 'vue-router';
 
 defineProps({
   text: {
@@ -46,19 +27,11 @@ defineProps({
   },
 });
 
-
-const visible = ref(false);
-const email = 'info@wondergate.io';
+const router = useRouter();
 
 const onButtonClick = () => {
-  visible.value = true;
+  router.push({ path: '/contact-us' });
 };
-
-const handleOk = () => {
-  copyString(email);
-  visible.value = false;
-};
-
 
 </script>
 
@@ -89,21 +62,4 @@ const handleOk = () => {
   background-color: #F77222 !important;
 }
 
-.ant-modal-wrap {
-  .ant-modal-content {
-    border-radius: 25px;
-
-    .ant-modal-header {
-      border-radius: 25px 25px 0 0;
-    }
-
-    .ant-modal-footer {
-      border-radius: 0 0 25px 25px;
-    }
-
-    .ant-btn {
-      border-radius: 25px;
-    }
-  }
-}
 </style>
