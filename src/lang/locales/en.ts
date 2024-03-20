@@ -27,7 +27,6 @@ export default {
       countriesTip: 'Countries And Regions Covered',
       cooperatingData: '20+',
       cooperatingTip: 'Cooperating financial institutions',
-      contactUs: 'Contact Us',
       suite: 'Integrated suite of financial and payment products',
       suiteDescription: 'A common cross-border payments strategy is to use a combination of services to support your business. But establishing and maintaining connections to these services independently is expensive and complex.<br>Wondergate connects you to almost any payment service simply and quickly. Any connection is made through a single API, minimizing development costs.Wondergate helps you enter the market faster, achieve higher payment success rates and reduce business risks.',
       globalAcquiring: 'Global Acquiring',

@@ -1,21 +1,28 @@
 <template>
-  <div :style="{ 'text-align':isCenter? 'center':'left',padding: '.5rem 0' }">
-    <a :class="{
-   'button-bg': !isDark,
-   'button-dark-bg ':isDark,
-   'button':true
-    }" @click="onButtonClick">{{ $t(text) }}
+  <div
+    :style="{ 'text-align': isCenter ? 'center' : 'left', padding: '.5rem 0' }"
+  >
+    <a
+      :class="{
+        'button-bg': !isDark,
+        'button-dark-bg ': isDark,
+        button: true,
+      }"
+      @click="onButtonClick"
+      >{{ $t(text) }}
     </a>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
+import { saveKey } from '../header/tools';
+import { getCurrentInstance } from 'vue';
 
 defineProps({
   text: {
     type: String,
-    default: 'moo.home.contactUs',
+    default: 'moo.menu.contactUs',
   },
   isDark: {
     type: Boolean,
@@ -26,13 +33,13 @@ defineProps({
     default: false,
   },
 });
-
+const { proxy } = getCurrentInstance() as any;
 const router = useRouter();
 
 const onButtonClick = () => {
   router.push({ path: '/contact-us' });
+  window.localStorage.setItem(saveKey, proxy.text);
 };
-
 </script>
 
 <style lang="less">
@@ -41,7 +48,7 @@ const onButtonClick = () => {
 #app {
   .button {
     border-radius: 1.5rem;
-    padding: .5rem 1.4rem;
+    padding: 0.5rem 1.4rem;
     cursor: pointer;
     font-size: 1rem;
     color: @color-text-dark;
@@ -58,8 +65,7 @@ const onButtonClick = () => {
 }
 
 .button-dark-bg {
-  border-color: #F77222 !important;
-  background-color: #F77222 !important;
+  border-color: #f77222 !important;
+  background-color: #f77222 !important;
 }
-
 </style>
