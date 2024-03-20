@@ -1,5 +1,5 @@
 export interface IMenu {
-  name?: string,
+  name: string,
   path?: string,
   hash?: string,
   onClick?: Function,
