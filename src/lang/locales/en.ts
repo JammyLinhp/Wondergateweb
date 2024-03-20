@@ -10,7 +10,7 @@ export default {
       collectionAccount: 'Global collection account',
       issuingVirtualCards: 'Issuing virtual cards',
       paymentSolutions: 'Payment solutions',
-      securityCenter: 'Security center',
+      securityCenter: 'Security Center',
       aboutUs: 'About Us',
       contactUs: 'Contact Us',
     },
