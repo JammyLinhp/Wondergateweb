@@ -3,22 +3,10 @@
     <div class="header-inner layout-content layout-two-side-center">
       <div class="header-logo" @click="onLogoClick">
         <img v-if="isDark" src="../../assets/images/logo_dark.png" alt="logo" />
-        <img
-          v-if="!isDark"
-          src="../../assets/images/logo_light.png"
-          alt="logo"
-        />
+        <img v-if="!isDark" src="../../assets/images/logo_light.png" alt="logo" />
       </div>
-      <div
-        class="header-title layout-all-center header-menu-settings"
-        :class="{ 'dark-logo': isDark }"
-      >
-        <a-menu
-          v-model:selectedKeys="currentKeys"
-          mode="horizontal"
-          triggerSubMenuAction="click"
-          class="app-text-font header-menu"
-        >
+      <div class="header-title layout-all-center header-menu-settings" :class="{ 'dark-logo': isDark }">
+        <a-menu v-model:selectedKeys="currentKeys" mode="horizontal" triggerSubMenuAction="click" class="app-text-font header-menu">
           <template v-for="item in titleList">
             <a-menu-item :key="item.name" v-if="!item.menus">
               <a @click="jumpToPage(item)" class="header-title-item">
@@ -31,11 +19,7 @@
                   {{ $t(item.name) }}
                 </div>
               </template>
-              <a-menu-item
-                v-for="subItem in item.menus"
-                :key="subItem.name"
-                class="header-menu-settings app-text-font"
-              >
+              <a-menu-item v-for="subItem in item.menus" :key="subItem.name" class="header-menu-settings app-text-font">
                 <a @click="jumpToPage(subItem)">
                   {{ $t(subItem.name) }}
                 </a>
@@ -61,9 +45,9 @@
 <script setup lang="ts">
 // props
 import { IMenu } from "@/interface/menu";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { useRouter } from "vue-router";
-import { menuList } from "@/components/header/tools";
+import { menuList, saveKey } from "@/components/header/tools";
 
 defineProps({
   isDark: {
@@ -73,7 +57,7 @@ defineProps({
 });
 
 const currentKeys: any = ref<string[]>([]);
-const saveKey: any = "header_key";
+
 const router = useRouter();
 
 const onLogoClick = () => {
@@ -94,10 +78,22 @@ const jumpToPage = (item: any) => {
 
 const titleList: IMenu[] = menuList;
 
-onMounted(() => {
+const setCurrentKey = () => {
   currentKeys.value.length = 0;
   currentKeys.value.push(window.localStorage.getItem(saveKey));
+};
+
+onMounted(() => {
+  setCurrentKey();
 });
+
+watch(
+  () => router.currentRoute.value,
+  (newValue: any) => {
+    setCurrentKey();
+  },
+  { immediate: true }
+);
 </script>
 
 <style lang="less">

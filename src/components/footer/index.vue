@@ -2,33 +2,32 @@
   <div class="footer-launch-wrap footer-wrap">
     <div class="layout-content footer-launch-content">
       <div class="app-title-text app-title-font footer-launch-title">
-        {{ $t('moo.footer.launch') }}
+        {{ $t("moo.footer.launch") }}
       </div>
       <div class="app-subtitle-text app-detail-font">
-        {{ $t('moo.footer.unleash') }}
+        {{ $t("moo.footer.unleash") }}
       </div>
     </div>
-    <Button :is-center="true" class="title-button"></Button>
+    <Button v-if="isDisplayButton" :is-center="true" class="title-button"></Button>
   </div>
   <div class="footer-wrap footer-navigation-wrap">
     <div class="layout-content">
       <div class="footer-navigation-logo">
-        <img src="@/assets/images/logo_light.png" alt="logo">
+        <img src="@/assets/images/logo_light.png" alt="logo" />
       </div>
       <div class="layout-two-side-start">
         <div class="footer-navigation-menu" v-for="item in titleList">
-          <RouterLink :to="{ path: item.path, hash: item.hash??''}"
-                      class="footer-navigation-menu-item app-text-font app-description-text">
+          <RouterLink :to="{ path: item.path, hash: item.hash ?? '' }" onLinkClick(item) class="footer-navigation-menu-item app-text-font app-description-text">
             {{ $t(String(item.name)) }}
           </RouterLink>
           <template v-if="item.menus">
             <div class="footer-navigation-submenu">
-              <RouterLink :to="{ path: subItem.path, hash: subItem.hash??''}" v-for="subItem in item.menus"
-                          class="footer-navigation-submenu-item app-text-font
-                          app-description-text-small
-                           app-description-text app-detail-font"
-                          @click="onLinkClick"
-                          style="font-size: .9rem">
+              <RouterLink
+                :to="{ path: subItem.path, hash: subItem.hash ?? '' }"
+                v-for="subItem in item.menus"
+                class="footer-navigation-submenu-item app-text-font app-description-text-small app-description-text app-detail-font"
+                @click="onLinkClick(subItem)"
+                style="font-size: 0.9rem">
                 {{ $t(String(subItem.name)) }}
               </RouterLink>
             </div>
@@ -43,22 +42,28 @@
         <!--         -->
         <!--        </div>-->
       </div>
-
     </div>
     <div class="footer-privacy-wrap">
       <div class="app-detail-font layout-content">
-        {{ $t('moo.footer.privacy') }}
+        {{ $t("moo.footer.privacy") }}
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import Button from '@/components/button/index.vue';
-import { IMenu } from '@/interface/menu';
-import { useRoute, useRouter } from 'vue-router';
-import { nextTick, watch } from 'vue';
-import { menuList } from '@/components/header/tools';
+import Button from "@/components/button/index.vue";
+import { IMenu } from "@/interface/menu";
+import { useRoute, useRouter } from "vue-router";
+import { nextTick, watch } from "vue";
+import { menuList, saveKey } from "@/components/header/tools";
+
+defineProps({
+  isDisplayButton: {
+    type: Boolean,
+    default: true,
+  },
+});
 
 const route = useRoute();
 const router = useRouter();
@@ -66,12 +71,15 @@ const router = useRouter();
 const titleList: IMenu[] = menuList;
 
 // const imageList = createImageList('/footer/logo_connection_', 6);
-const onLinkClick = () => {
+const onLinkClick = (item?: any) => {
   if (route.hash) {
     nextTick(() => {
-      const id = route.hash.replaceAll('#', '');
+      const id = route.hash.replaceAll("#", "");
       document.getElementById(id)?.scrollIntoView();
     });
+  }
+  if (item) {
+    window.localStorage.setItem(saveKey, item.name);
   }
 };
 watch(
@@ -79,12 +87,12 @@ watch(
   (newValue: any) => {
     onLinkClick();
   },
-  { immediate: true },
+  { immediate: true }
 );
 </script>
 
 <style lang="less">
-@import '@/styles/base.less';
+@import "@/styles/base.less";
 
 .footer-wrap {
   width: 100%;
@@ -130,7 +138,7 @@ watch(
       flex-direction: column;
 
       .footer-navigation-submenu-item {
-        margin-bottom: .65rem;
+        margin-bottom: 0.65rem;
         color: @color-white;
         display: inline-block;
       }
@@ -139,14 +147,13 @@ watch(
 }
 
 .footer-navigation-connection-logo {
-  padding: 0 .6rem;
+  padding: 0 0.6rem;
 }
-
 
 .footer-privacy-wrap {
   width: 100%;
-  padding-bottom: .5rem;
-  font-size: .6rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.6rem;
   position: absolute;
   bottom: 0;
   left: 0;

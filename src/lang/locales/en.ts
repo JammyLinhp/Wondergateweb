@@ -8,7 +8,7 @@ export default {
       productCenter: 'Product Center',
       globalPayments: 'Global payments',
       collectionAccount: 'Global collection account',
-      issuingVirtualCards: 'Issuing Virtual Cards',
+      issuingVirtualCards: 'Issuing virtual cards',
       paymentSolutions: 'Payment solutions',
       securityCenter: 'Security center',
       aboutUs: 'About Us',

@@ -7,16 +7,12 @@
         <div class="app-title-text app-title-font app-color-text-main">
           {{ $t("moo.contact.toBegin") }}
         </div>
-        <div
-          class="app-description-text-small app-detail-font contact-description"
-          v-html="$t('moo.contact.youWant')"
-        ></div>
+        <div class="app-description-text-small app-detail-font contact-description" v-html="$t('moo.contact.youWant')"></div>
         <div class="layout-content-subspacing">
           <a-row
             :gutter="36"
             class="layout-content-subspacing-small app-color-text-main app-description-text-small app-detail-font app-text-description-title"
-            v-for="item in informationList"
-          >
+            v-for="item in informationList">
             <a-col :span="6">
               <div>{{ $t(String(item.title)) }} :</div>
             </a-col>
@@ -30,7 +26,7 @@
       </template>
     </FloatStructure>
   </div>
-  <Footer></Footer>
+  <Footer :is-display-button="false"></Footer>
 </template>
 
 <script setup lang="ts">
@@ -44,7 +40,7 @@ import { ICard } from "@/interface/home";
 const informationList = ref<ICard[]>([
   {
     title: "moo.contact.email",
-    description: "mailto:globalpayments@ourcompany.com",
+    description: "info@wondergatetech.com",
   },
   { title: "moo.contact.officeAddress", description: "moo.contact.address" },
 ]);
