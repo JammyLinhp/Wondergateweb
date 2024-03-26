@@ -111,13 +111,13 @@ watch(
     z-index: 100;
 
     .header-logo {
-      width: 160px;
+      width: 137px;
       height: @header-height;
       line-height: @header-height;
       cursor: pointer;
 
       img {
-        height: 2rem;
+        height: 80%;
       }
     }
 

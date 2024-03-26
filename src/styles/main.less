@@ -13,11 +13,10 @@ img {
   font-size: inherit;
 }
 
-
 body {
   transition: color 0.5s, background-color 0.5s;
   font-family: Helvetica, Arial, PingFang SC, Microsoft YaHei, Tahoma,
-  sans-serif, Avenir;
+    sans-serif, Avenir;
 }
 
 img {
@@ -33,19 +32,18 @@ img {
 
 @font-face {
   font-family: titleFont;
-  src: url('@/assets/iconfont/WorldwiseSans-Heavy.ttf')
+  src: url('@/assets/iconfont/WorldwiseSans-Heavy.ttf');
 }
 
 @font-face {
   font-family: textFont;
-  src: url('@/assets/iconfont/Avenir.ttc')
+  src: url('@/assets/iconfont/Avenir.ttc');
 }
 
 @font-face {
   font-family: detailFont;
-  src: url('@/assets/iconfont/Poppins-Bold.ttf')
+  src: url('@/assets/iconfont/Poppins-Bold.ttf');
 }
-
 
 input:-webkit-autofill {
   background: transparent;
@@ -71,13 +69,11 @@ input:-webkit-autofill {
   }
 }
 
-
 @media screen and (min-width: 1341px) and (max-width: 1680px) {
   html {
     font-size: 18px;
   }
 }
-
 
 @media screen and (min-width: 1251px) and (max-width: 1340px) {
   html {
@@ -86,7 +82,20 @@ input:-webkit-autofill {
 
   .layout-content {
     width: 100%;
-    padding: 0 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .layout-horizontal-equalization {
+    &:first-child {
+      padding-left: 15px;
+      flex: 9;
+    }
+
+    &:last-child {
+      padding-right: 15px;
+      flex: 10;
+    }
   }
 }
 
@@ -97,7 +106,8 @@ input:-webkit-autofill {
 
   .layout-content {
     width: 100%;
-    padding: 0 10px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
@@ -108,7 +118,19 @@ input:-webkit-autofill {
 
   .layout-content {
     width: 100%;
-    padding: 0 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .layout-horizontal-equalization {
+    &:first-child {
+      padding-left: 15px;
+      flex: 9;
+    }
+
+    &:last-child {
+      padding-right: 15px;
+      flex: 10;
+    }
   }
 }
 
@@ -119,10 +141,21 @@ input:-webkit-autofill {
 
   .layout-content {
     width: 100%;
-    padding: 0 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .layout-horizontal-equalization {
+    &:first-child {
+      padding-left: 15px;
+      flex: 9;
+    }
+
+    &:last-child {
+      padding-right: 15px;
+      flex: 10;
+    }
   }
 }
-
 
 @media screen and (min-width: 881px) and (max-width: 930px) {
   html {
@@ -131,10 +164,21 @@ input:-webkit-autofill {
 
   .layout-content {
     width: 100%;
-    padding: 0 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .layout-horizontal-equalization {
+    &:first-child {
+      padding-left: 15px;
+      flex: 9;
+    }
+
+    &:last-child {
+      padding-right: 15px;
+      flex: 10;
+    }
   }
 }
-
 
 @media screen and (min-width: 761px) and (max-width: 880px) {
   html {
@@ -143,10 +187,21 @@ input:-webkit-autofill {
 
   .layout-content {
     width: 100%;
-    padding: 0 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .layout-horizontal-equalization {
+    &:first-child {
+      padding-left: 15px;
+      flex: 9;
+    }
+
+    &:last-child {
+      padding-right: 15px;
+      flex: 10;
+    }
   }
 }
-
 
 @media (max-width: 760px) {
   html {
@@ -155,7 +210,18 @@ input:-webkit-autofill {
 
   .layout-content {
     width: 100%;
-    padding: 0 10px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
+  .layout-horizontal-equalization {
+    &:first-child {
+      padding-left: 15px;
+      flex: 9;
+    }
 
+    &:last-child {
+      padding-right: 15px;
+      flex: 10;
+    }
+  }
 }
