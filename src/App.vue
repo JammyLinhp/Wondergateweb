@@ -14,11 +14,23 @@ const reload = () => {
 provide('reload', reload);
 </script>
 <template>
-  <div :class="{en:isLongLanguage()}">
-    <a-config-provider :locale="isLongLanguage()? enUS : zhCN" :key="flag">
-      <RouterView/>
+  <div :class="{ en: isLongLanguage() }">
+    <a-config-provider :locale="isLongLanguage() ? enUS : zhCN" :key="flag">
+      <RouterView />
     </a-config-provider>
   </div>
 </template>
 
-<style scoped></style>
+<style>
+.app-title-font {
+  font-family: titleFont, serif;
+}
+
+.app-text-font {
+  font-family: detailFont, serif;
+}
+
+.app-detail-font {
+  font-family: textFont, serif;
+}
+</style>
