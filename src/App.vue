@@ -22,15 +22,4 @@ provide('reload', reload);
 </template>
 
 <style>
-.app-title-font {
-  font-family: titleFont, serif;
-}
-
-.app-text-font {
-  font-family: detailFont, serif;
-}
-
-.app-detail-font {
-  font-family: textFont, serif;
-}
 </style>
