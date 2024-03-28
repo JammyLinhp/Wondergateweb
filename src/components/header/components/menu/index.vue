@@ -85,14 +85,14 @@ const titleList: IMenu[] = menuList;
 const setCurrentKey = () => {
   currentKeys.value.length = 0;
   currentKeys.value.push(
-    JSON.parse(window.localStorage.getItem(saveKey) as any).currentKeys
+    JSON.parse(window.localStorage.getItem(saveKey) as any)?.currentKeys
   );
 };
 
 const setOpenKey = () => {
   openKeys.value = JSON.parse(
     window.localStorage.getItem(saveKey) as any
-  ).currentKeys;
+  )?.openKeys;
 };
 
 onMounted(() => {
