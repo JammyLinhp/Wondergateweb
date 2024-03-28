@@ -3,30 +3,21 @@
     <div class="header-inner layout-content layout-two-side-center-always">
       <div class="header-logo" @click="onLogoClick">
         <img v-if="isDark" src="../../assets/images/logo_dark.png" alt="logo" />
-        <img v-if="!isDark" src="../../assets/images/logo_light.png" alt="logo" />
+        <img
+          v-if="!isDark"
+          src="../../assets/images/logo_light.png"
+          alt="logo"
+        />
       </div>
-      <div class="header-title layout-all-center header-menu-settings" :class="{ 'dark-logo': isDark }">
-        <a-menu v-model:selectedKeys="currentKeys" mode="horizontal" triggerSubMenuAction="click" class="app-text-font header-menu">
-          <template v-for="item in titleList">
-            <a-menu-item :key="item.name" v-if="!item.menus">
-              <a @click="jumpToPage(item)" class="header-title-item">
-                {{ $t(item.name) }}
-              </a>
-            </a-menu-item>
-            <a-sub-menu :key="String(item.name)" v-else>
-              <template #title>
-                <div class="header-title-item">
-                  {{ $t(item.name) }}
-                </div>
-              </template>
-              <a-menu-item v-for="subItem in item.menus" :key="subItem.name" class="header-menu-settings app-text-font">
-                <a @click="jumpToPage(subItem)">
-                  {{ $t(subItem.name) }}
-                </a>
-              </a-menu-item>
-            </a-sub-menu>
-          </template>
-        </a-menu>
+      <div class="header-title" :class="{ 'dark-logo': isDark }">
+        <Menus ref="menus" class="is-pc-menu"></Menus>
+        <div class="is-phone-menu">
+          <menu-outlined
+            class="header-phone-menu-icon"
+            @click="onDrawerClick"
+          />
+          <MenuDrawer ref="menuDrawer"></MenuDrawer>
+        </div>
         <!--        </RouterLink>-->
         <!--        <div :class="{-->
         <!--                  'layout-background-1': !isDark,-->
@@ -43,11 +34,9 @@
 </template>
 
 <script setup lang="ts">
-// props
-import { IMenu } from "@/interface/menu";
-import { onMounted, ref, watch } from "vue";
-import { useRouter } from "vue-router";
-import { menuList, saveKey } from "@/components/header/tools";
+import MenuDrawer from '@/components/header/components/drawer/index.vue';
+import Menus from '@/components/header/components/menu/index.vue';
+import { getCurrentInstance } from 'vue';
 
 defineProps({
   isDark: {
@@ -55,49 +44,22 @@ defineProps({
     default: false,
   },
 });
+const { proxy } = getCurrentInstance() as any;
 
-const currentKeys: any = ref<string[]>([]);
-
-const router = useRouter();
+const onDrawerClick = () => {
+  proxy.$refs.menuDrawer.openDrawer();
+};
 
 const onLogoClick = () => {
-  jumpToPage({
-    path: "/index",
-    name: "home",
+  proxy.$refs.menus.jumpToPage({
+    path: '/index',
+    name: 'home',
   });
 };
-
-// const onSubMenuClick = () => {
-//   console.log(saveKey.value);
-// };
-
-const jumpToPage = (item: any) => {
-  router.push(item.path);
-  window.localStorage.setItem(saveKey, item.name);
-};
-
-const titleList: IMenu[] = menuList;
-
-const setCurrentKey = () => {
-  currentKeys.value.length = 0;
-  currentKeys.value.push(window.localStorage.getItem(saveKey));
-};
-
-onMounted(() => {
-  setCurrentKey();
-});
-
-watch(
-  () => router.currentRoute.value,
-  (newValue: any) => {
-    setCurrentKey();
-  },
-  { immediate: true }
-);
 </script>
 
 <style lang="less">
-@import "@/styles/base.less";
+@import '@/styles/base.less';
 
 .header-wrap {
   position: relative;
@@ -117,12 +79,15 @@ watch(
       min-width: 139px;
 
       img {
-        height: 80%;
+        width: 170px;
       }
     }
 
     .header-title {
       flex: 1;
+      display: flex;
+      justify-content: end;
+      align-items: center;
 
       .header-title-language {
         padding: 0.2rem 1rem;
@@ -137,61 +102,12 @@ watch(
   }
 }
 
-// 调整菜单配置
-.ant-menu-submenu > .ant-menu {
-  border-radius: 15px !important;
+.is-phone-menu {
+  display: none;
 
-  .header-menu-settings {
-    margin: 10px !important;
-    border-radius: 8px;
-    color: @color-text-dark;
-
-    .ant-menu-title-content a:hover {
-      color: @color-text !important;
-    }
-  }
-
-  .ant-menu-item-selected .ant-menu-title-content a {
+  .header-phone-menu-icon {
+    font-size: 30px;
     color: @color-text;
-  }
-}
-
-.header-menu-settings {
-  .ant-menu-horizontal > .ant-menu-item a,
-  .ant-menu-submenu-title {
-    color: @color-text;
-  }
-
-  .header-menu {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    border: 0;
-    background-color: transparent;
-
-    .ant-menu-item::after,
-    .ant-menu-submenu-selected::after,
-    .ant-menu-submenu::after {
-      border: 0 !important;
-    }
-
-    .header-title-item {
-      font-size: 0.9rem;
-    }
-  }
-}
-
-.dark-logo {
-}
-
-.dark-logo.header-menu-settings {
-  .ant-menu-horizontal > .ant-menu-item a,
-  .ant-menu-submenu-title {
-    color: inherit;
-  }
-
-  .ant-menu-item-selected {
-    color: @color-text !important;
   }
 }
 </style>
