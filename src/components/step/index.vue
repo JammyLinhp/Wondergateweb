@@ -1,18 +1,28 @@
 <template>
-  <div class="app-subtitle-text app-text-font layout-all-center" style="text-align: center" v-if="title">
+  <div
+    class="app-subtitle-text app-text-font layout-all-center"
+    style="text-align: center"
+    v-if="title"
+  >
     {{ $t(title) }}
   </div>
-  <div class="app-description-text app-detail-font app-detail-font layout-all-center" v-if="description"
-       v-html="$t(description)">
-  </div>
+  <div
+    class="app-description-text app-detail-font app-detail-font layout-all-center"
+    v-if="description"
+    v-html="$t(description)"
+  ></div>
   <div class="step-wrap layout-two-side-center app-detail-font">
-    <div class="layout-all-center step-content" v-for="(item,index) in stepList">
-      <div class="step-line" v-if="index!==stepList.length-1"></div>
-      <div><img :src="item.path" alt=""></div>
-      <div class="app-description-text step-text">{{ $t(String(item.title)) }}</div>
-      <div class="app-description-text-small app-text-font app-color-text-main">{{
-          $t(String(item.description))
-        }}
+    <div
+      class="layout-all-center step-content"
+      v-for="(item, index) in stepList"
+    >
+      <div class="step-line" v-if="index !== stepList.length - 1"></div>
+      <div><img :src="item.path" alt="" /></div>
+      <div class="app-description-text step-text">
+        {{ $t(String(item.title)) }}
+      </div>
+      <div class="app-description-text-small app-text-font app-color-text-main">
+        {{ $t(String(item.description)) }}
       </div>
     </div>
   </div>
@@ -35,7 +45,7 @@ defineProps({
 });
 </script>
 
-<style scoped lang="less">
+<style lang="less">
 @import '@/styles/base.less';
 
 .step-wrap {
@@ -58,7 +68,12 @@ defineProps({
       position: absolute;
       width: 400px;
       height: 3px;
-      background: linear-gradient(244deg, rgba(238, 238, 238, 0.00) 17%, rgba(227, 227, 227, 0.70) 49%, rgba(216, 216, 216, 0.00));
+      background: linear-gradient(
+        244deg,
+        rgba(238, 238, 238, 0) 17%,
+        rgba(227, 227, 227, 0.7) 49%,
+        rgba(216, 216, 216, 0)
+      );
       border-radius: 1px;
       top: 42px;
       left: 160px;

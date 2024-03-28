@@ -1,4 +1,5 @@
 @import '@/styles/common.less';
+@import '@/styles/phone/index.less';
 
 body,
 div,
@@ -27,7 +28,6 @@ img {
   overflow: hidden auto;
   background: white;
   width: 100%;
-  min-width: @min-width;
 }
 
 @font-face {
@@ -181,29 +181,6 @@ input:-webkit-autofill {
 }
 
 @media screen and (min-width: 761px) and (max-width: 880px) {
-  html {
-    font-size: 10px;
-  }
-
-  .layout-content {
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  .layout-horizontal-equalization {
-    &:first-child {
-      padding-left: 15px;
-      flex: 9;
-    }
-
-    &:last-child {
-      padding-right: 15px;
-      flex: 10;
-    }
-  }
-}
-
-@media (max-width: 760px) {
   html {
     font-size: 10px;
   }

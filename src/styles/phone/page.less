@@ -1,0 +1,31 @@
+// 首页修改
+.home-settings() {
+  .home-data-item {
+    flex: 1 1 50%;
+    max-width: 50%;
+    &:nth-child(even) {
+      text-align: right;
+    }
+  }
+
+  .home-card-content {
+    margin: 1rem 0;
+  }
+
+  .home-logo-organization-wrap {
+    flex-wrap: wrap;
+    .home-logo-organization {
+      max-width: 90px;
+      max-height: 60px;
+
+      &:nth-child(6),
+      &:nth-child(7) {
+        max-height: 25px;
+      }
+    }
+  }
+}
+
+.in-page() {
+  .home-settings();
+}

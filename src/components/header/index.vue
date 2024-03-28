@@ -1,6 +1,6 @@
 <template>
   <div id="header" class="header-wrap layout-content">
-    <div class="header-inner layout-content layout-two-side-center">
+    <div class="header-inner layout-content layout-two-side-center-always">
       <div class="header-logo" @click="onLogoClick">
         <img v-if="isDark" src="../../assets/images/logo_dark.png" alt="logo" />
         <img v-if="!isDark" src="../../assets/images/logo_light.png" alt="logo" />
@@ -111,10 +111,10 @@ watch(
     z-index: 100;
 
     .header-logo {
-      width: 137px;
       height: @header-height;
       line-height: @header-height;
       cursor: pointer;
+      min-width: 139px;
 
       img {
         height: 80%;

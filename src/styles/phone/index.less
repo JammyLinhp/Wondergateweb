@@ -1,0 +1,30 @@
+@import '@/styles/phone/common.less';
+@import '@/styles/phone/page.less';
+@import '@/styles/phone/components.less';
+
+.in-phone-set-up() {
+  .in-common();
+
+  .in-components();
+
+  .in-page();
+}
+
+@media (max-width: 760px) {
+  html {
+    font-size: 9px;
+    .in-phone-set-up();
+  }
+
+  .layout-horizontal-equalization {
+    &:first-child {
+      padding-left: 15px;
+      flex: 9;
+    }
+
+    &:last-child {
+      padding-right: 15px;
+      flex: 10;
+    }
+  }
+}

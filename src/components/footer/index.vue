@@ -15,7 +15,7 @@
       <div class="footer-navigation-logo">
         <img src="@/assets/images/logo_light.png" alt="logo" />
       </div>
-      <div class="layout-two-side-start">
+      <div class="layout-two-side-start-always">
         <div class="footer-navigation-menu" v-for="item in titleList">
           <RouterLink :to="{ path: item.path, hash: item.hash ?? '' }" onLinkClick(item) class="footer-navigation-menu-item app-text-font app-description-text">
             {{ $t(String(item.name)) }}
