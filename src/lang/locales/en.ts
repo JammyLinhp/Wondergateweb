@@ -73,7 +73,7 @@ export default {
       virtuallyPayment: 'Virtually Any Payment Service',
       virtuallyPaymentDescription: 'Digital enterprises often need to connect to a range of PCI-compliant endpoints. For example, these endpoints might belong to a partner that operates a hotel or a car rental company, or they might be an emerging gateway.<br><br>Wondergate can easily connect to other PCI-compliant services. You can use our toolkit, anti-fraud services, and third-party merchants to transact with other gateways, all using our single API.',
       settlementTitle: 'Flexible',
-      settlementPayment: 'Payment And Settlement Flexible Payment And Settlement',
+      settlementPayment: 'Flexible Payment And Settlement',
       settlementDescription: 'Consumers can make payments using most common currencies, and you can settle payments using most common currencies according to your own needs.<br><br>Detailed transaction records make it easy for you to reconcile.',
     },
     account: {

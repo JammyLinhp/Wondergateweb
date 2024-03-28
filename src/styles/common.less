@@ -48,7 +48,19 @@
   align-items: end;
 }
 
+.layout-two-side-end-always {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
 .layout-two-side-start {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.layout-two-side-start-always {
   display: flex;
   justify-content: space-between;
   align-items: start;
@@ -67,17 +79,7 @@
 }
 
 .layout-horizontal-equalization {
-  padding: 4rem 1.5rem;
-
-  &:first-child {
-    padding-left: 0;
-    flex: 9;
-  }
-
-  &:last-child {
-    padding-right: 0;
-    flex: 10;
-  }
+  padding: 4rem 0;
 }
 
 .layout-content-subspacing {

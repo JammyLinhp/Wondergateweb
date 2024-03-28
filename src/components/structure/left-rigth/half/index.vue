@@ -1,7 +1,7 @@
 <template>
   <LeftRightStructure :alignment-mode="alignmentMode">
     <template #left>
-      <div class="structure-percentage-width-50" :style="{paddingRight:horizontalPadding}">
+      <div class="structure-percentage-width-50" :class="leftClass">
         <slot name="left"></slot>
       </div>
     </template>
@@ -17,9 +17,11 @@
 import LeftRightStructure from '@/components/structure/left-rigth/index.vue';
 
 defineProps({
-  horizontalPadding: {
-    type: String,
-    default: '3rem',
+  leftClass: {
+    type: Object,
+    default: () => ({
+      'left-padding-right': true,
+    }),
   },
   alignmentMode: {
     type: String,
@@ -32,4 +34,7 @@ defineProps({
 @import '@/styles/base';
 @import '@/styles/structure';
 
+.left-padding-right {
+  padding-right: 2rem;
+}
 </style>

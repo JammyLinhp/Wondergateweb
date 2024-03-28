@@ -1,6 +1,6 @@
 // 首页修改
 .home-settings() {
-  .home-data-item {
+  .data-item {
     flex: 1 1 50%;
     max-width: 50%;
     &:nth-child(even) {
@@ -28,6 +28,17 @@
   }
 }
 
+.global-settings() {
+  .product-card-wrap {
+    .ant-row {
+      .product-card-item-spacing {
+        padding: 0 8px;
+      }
+    }
+  }
+}
+
 .in-page() {
   .home-settings();
+  .global-settings();
 }

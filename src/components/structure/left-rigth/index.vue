@@ -1,20 +1,18 @@
 <template>
-  <div :class="{
-    'layout-two-side-center': alignmentMode==='center',
-  'layout-two-side-start': alignmentMode==='top',
-  'layout-two-side-end': alignmentMode==='bottom'}">
+  <div
+    :class="{
+      'layout-two-side-center': alignmentMode === 'center',
+      'layout-two-side-start': alignmentMode === 'top',
+      'layout-two-side-end': alignmentMode === 'bottom',
+    }"
+  >
     <slot name="left"></slot>
     <slot name="right"></slot>
   </div>
 </template>
 
 <script setup lang="ts">
-
 defineProps({
-  horizontalPadding: {
-    type: String,
-    default: '3rem',
-  },
   alignmentMode: {
     type: String,
     default: 'center',
@@ -22,6 +20,4 @@ defineProps({
 });
 </script>
 
-<style scoped lang="less">
-
-</style>
+<style scoped lang="less"></style>

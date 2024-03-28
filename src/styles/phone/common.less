@@ -19,17 +19,30 @@
 
   .layout-two-side-center {
     .in-layout-two-side();
+    .structure-percentage-width-50 {
+      width: 100%;
+    }
   }
 
   .layout-two-side-end {
     .in-layout-two-side();
+    .structure-percentage-width-50 {
+      width: 100%;
+    }
   }
 
   .layout-two-side-start {
     .in-layout-two-side();
+    .structure-percentage-width-50 {
+      width: 100%;
+    }
   }
 
   .layout-two-side-center-always {
+    flex-wrap: wrap;
+  }
+
+  .layout-two-side-start-always {
     flex-wrap: wrap;
   }
 
@@ -44,7 +57,26 @@
       }
     }
     .structure-title-right {
+      width: 100%;
+      height: auto;
       position: relative;
+      left: 0;
+
+      img {
+        height: auto;
+      }
+    }
+  }
+
+  .app-clean-float {
+    .structure-percentage-width-50 {
+      width: 100%;
+    }
+
+    .float-img-left,
+    .float-img-right {
+      float: none;
+      padding: 0;
     }
   }
 }

@@ -38,7 +38,7 @@
       </div>
 
       <div class="data-item-wrap layout-content layout-two-side-center-always">
-        <div v-for="item in dataList" class="app-color-text home-data-item">
+        <div v-for="item in dataList" class="app-color-text data-item">
           <div class="app-title-font app-subtitle-text">
             {{ $t(String(item.title)) }}
           </div>

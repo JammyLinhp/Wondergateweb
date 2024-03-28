@@ -7,10 +7,10 @@
       {{ $t(description) }}
     </div>
   </div>
-  <HalfStructure :horizontal-padding="horizontalPadding">
+  <HalfStructure :left-class="leftClass">
     <template #left>
       <div
-        class="layout-two-side-start paragraph-spacing"
+        class="layout-two-side-start-always paragraph-spacing"
         v-for="item in paragraphArray"
       >
         <div class="paragraph-icon-warp">
@@ -33,15 +33,13 @@
       </div>
     </template>
     <template #right>
-      <div>
-        <img :src="imagePath" alt="WONDERGATE" />
-      </div>
+      <img :src="imagePath" alt="WONDERGATE" class="paragraph-spacing" />
     </template>
   </HalfStructure>
 </template>
 
 <script setup lang="ts">
-import HalfStructure from "@/components/structure/left-rigth/half/index.vue";
+import HalfStructure from '@/components/structure/left-rigth/half/index.vue';
 
 defineProps({
   paragraphArray: {
@@ -50,37 +48,33 @@ defineProps({
   },
   imagePath: {
     type: String,
-    default: "",
+    default: '',
   },
   title: {
     type: String,
-    default: "",
+    default: '',
   },
   description: {
     type: String,
-    default: "",
+    default: '',
   },
-  horizontalPadding: {
-    type: String,
-    default: "3rem",
+  leftClass: {
+    type: Object,
+    default: null,
   },
 });
 </script>
 
 <style scoped lang="less">
-@import "@/styles/base";
-@import "@/styles/structure";
+@import '@/styles/base';
+@import '@/styles/structure';
 
 .paragraph-spacing {
   margin-top: 2rem;
-
-  &:first-child {
-    margin: 0;
-  }
 }
 
 .paragraph-title {
-  padding-bottom: 2.2rem;
+  padding-bottom: 0.5rem;
 }
 
 .paragraph-icon-warp {
