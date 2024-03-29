@@ -86,7 +86,7 @@ const setCurrentKey = () => {
 };
 
 const setOpenKey = () => {
-  const keysJson = geHeaderKeyValue('openKeys');
+  openKeys.value = geHeaderKeyValue('openKeys');
 };
 
 watch(

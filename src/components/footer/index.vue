@@ -8,11 +8,7 @@
         {{ $t('moo.footer.unleash') }}
       </div>
     </div>
-    <Button
-      v-if="isDisplayButton"
-      :is-center="true"
-      class="title-button"
-    ></Button>
+    <Button v-if="isDisplayButton" :is-center="true"></Button>
   </div>
   <div class="footer-wrap footer-navigation-wrap">
     <div class="layout-content">
