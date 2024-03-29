@@ -40,7 +40,7 @@ defineProps({
   },
   right: {
     type: String,
-    default: '11rem',
+    default: '10rem',
   },
   notes: {
     type: String,
