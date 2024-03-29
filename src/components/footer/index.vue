@@ -19,7 +19,7 @@
         <div class="footer-navigation-menu data-item" v-for="item in titleList">
           <RouterLink
             :to="{ path: item.path, hash: item.hash ?? '' }"
-            onLinkClick(item)
+            @click="onLinkClick(item)"
             class="footer-navigation-menu-item app-text-font app-description-text"
           >
             {{ $t(String(item.name)) }}
@@ -84,6 +84,7 @@ const onLinkClick = (item?: any) => {
     });
   }
   if (item) {
+    console.log(item);
     saveHeaderKeyValue(item);
   }
 };
