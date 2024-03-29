@@ -247,7 +247,7 @@ const globalList = ref<ICard[]>([
   padding: 1.5rem;
 
   .product-card-item-spacing {
-    padding: 0 30px;
+    padding: 0 2.5rem;
   }
   &:last-child {
     margin-bottom: 0;

@@ -18,7 +18,7 @@ defineProps({
   },
   height: {
     type: String,
-    default: '50rem',
+    default: '60rem',
   },
   isLeft: {
     type: Boolean,

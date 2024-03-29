@@ -38,7 +38,7 @@ const router = useRouter();
 
 const onButtonClick = () => {
   router.push({ path: '/contact-us' });
-  saveHeaderKeyValue({ currentKeys: proxy.text, openKeys: [proxy.text] });
+  saveHeaderKeyValue({ name: proxy.text, openKeys: [proxy.text] });
 };
 </script>
 
