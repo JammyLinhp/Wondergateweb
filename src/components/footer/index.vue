@@ -65,7 +65,7 @@ import Button from '@/components/button/index.vue';
 import { IMenu } from '@/interface/menu';
 import { useRoute, useRouter } from 'vue-router';
 import { nextTick, watch } from 'vue';
-import { menuList, saveKey } from '@/components/header/tools';
+import { menuList, saveHeaderKeyValue } from '@/components/header/tools';
 
 defineProps({
   isDisplayButton: {
@@ -88,7 +88,7 @@ const onLinkClick = (item?: any) => {
     });
   }
   if (item) {
-    window.localStorage.setItem(saveKey, item.name);
+    saveHeaderKeyValue(item);
   }
 };
 watch(

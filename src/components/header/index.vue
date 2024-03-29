@@ -79,7 +79,8 @@ const onLogoClick = () => {
       min-width: 139px;
 
       img {
-        width: 170px;
+        width: 150px;
+        max-height: 70%;
       }
     }
 

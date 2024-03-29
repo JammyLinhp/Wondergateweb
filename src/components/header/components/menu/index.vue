@@ -37,10 +37,14 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { IMenu } from '@/interface/menu';
-import { menuList, saveKey } from '@/components/header/tools';
+import {
+  geHeaderKeyValue,
+  menuList,
+  saveHeaderKeyValue,
+} from '@/components/header/tools';
 
 defineProps({
   mode: {
@@ -55,13 +59,7 @@ const router = useRouter();
 
 const jumpToPage = (item: any) => {
   router.push(item.path);
-  window.localStorage.setItem(
-    saveKey,
-    JSON.stringify({
-      currentKeys: item.name,
-      openKeys: item.openKeys,
-    })
-  );
+  saveHeaderKeyValue(item);
 };
 
 const initMenuList = (list: IMenu[], key: string | null) => {
@@ -84,20 +82,12 @@ const titleList: IMenu[] = menuList;
 
 const setCurrentKey = () => {
   currentKeys.value.length = 0;
-  currentKeys.value.push(
-    JSON.parse(window.localStorage.getItem(saveKey) as any)?.currentKeys
-  );
+  currentKeys.value.push(geHeaderKeyValue('currentKeys'));
 };
 
 const setOpenKey = () => {
-  openKeys.value = JSON.parse(
-    window.localStorage.getItem(saveKey) as any
-  )?.openKeys;
+  const keysJson = geHeaderKeyValue('openKeys');
 };
-
-onMounted(() => {
-  setCurrentKey();
-});
 
 watch(
   () => router.currentRoute.value,
@@ -115,6 +105,10 @@ defineExpose({ jumpToPage, setOpenKey });
 
 .header-menu {
   border: 0;
+  flex: 1;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 
 .ant-menu
@@ -129,8 +123,8 @@ defineExpose({ jumpToPage, setOpenKey });
 }
 
 // -----Pc
-.is-pc-menu.header-menu.header-title-item {
-  font-size: 0.8rem;
+.is-pc-menu.ant-menu-horizontal .header-title-item {
+  font-size: 0.9rem;
 }
 
 .is-pc-menu.header-menu-settings.app-text-font.ant-menu-item {

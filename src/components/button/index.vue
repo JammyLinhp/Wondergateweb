@@ -16,8 +16,8 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { saveKey } from '../header/tools';
 import { getCurrentInstance } from 'vue';
+import { saveHeaderKeyValue } from '../header/tools';
 
 defineProps({
   text: {
@@ -38,7 +38,7 @@ const router = useRouter();
 
 const onButtonClick = () => {
   router.push({ path: '/contact-us' });
-  window.localStorage.setItem(saveKey, proxy.text);
+  saveHeaderKeyValue({ currentKeys: proxy.text, openKeys: [proxy.text] });
 };
 </script>
 
