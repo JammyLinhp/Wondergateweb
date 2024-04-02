@@ -196,9 +196,9 @@ export default {
     contact: {
       toBegin: 'Contact Us to Begin Your Global Payment Journey',
       youWant: 'Whether you want to learn about our global payment solutions, seek technical collaboration, or customize a unique payment strategy, we\'re committed to delivering meticulous service.',
-      address: 'FLAT/RM 121 1/F LIVEN HOUSE NOS. 61-63 KING YIP STREET KWUN TONG KL HONG KONG',
       email: 'Email',
       officeAddress: 'Address',
+      companyName: 'Company name',
     },
     footer: {
       launch: 'LAUNCH WITH WONDERGATE',

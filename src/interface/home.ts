@@ -1,5 +1,6 @@
 export interface ICard {
-  title?: string,
-  description?: string,
-  path?: string,
+  title?: string;
+  name?: string;
+  description?: string;
+  path?: string;
 }

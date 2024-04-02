@@ -10,7 +10,7 @@ export default {
       collectionAccount: 'Global collection account',
       issuingVirtualCards: 'Issuing virtual cards',
       paymentSolutions: 'Payment solutions',
-      securityCenter: 'Security center',
+      securityCenter: 'Security Center',
       aboutUs: 'About Us',
       contactUs: 'Contact Us',
     },
@@ -73,7 +73,7 @@ export default {
       virtuallyPayment: 'Virtually Any Payment Service',
       virtuallyPaymentDescription: 'Digital enterprises often need to connect to a range of PCI-compliant endpoints. For example, these endpoints might belong to a partner that operates a hotel or a car rental company, or they might be an emerging gateway.<br><br>Wondergate can easily connect to other PCI-compliant services. You can use our toolkit, anti-fraud services, and third-party merchants to transact with other gateways, all using our single API.',
       settlementTitle: 'Flexible',
-      settlementPayment: 'Payment And Settlement Flexible Payment And Settlement',
+      settlementPayment: 'Flexible Payment And Settlement',
       settlementDescription: 'Consumers can make payments using most common currencies, and you can settle payments using most common currencies according to your own needs.<br><br>Detailed transaction records make it easy for you to reconcile.',
     },
     account: {
@@ -196,9 +196,9 @@ export default {
     contact: {
       toBegin: 'Contact Us to Begin Your Global Payment Journey',
       youWant: 'Whether you want to learn about our global payment solutions, seek technical collaboration, or customize a unique payment strategy, we\'re committed to delivering meticulous service.',
-      address: 'FLAT/RM 121 1/F LIVEN HOUSE NOS. 61-63 KING YIP STREET KWUN TONG KL HONG KONG',
       email: 'Email',
       officeAddress: 'Address',
+      companyName: 'Company name',
     },
     footer: {
       launch: 'LAUNCH WITH WONDERGATE',

@@ -22,7 +22,7 @@ export default defineConfig({
     preprocessorOptions: {
       less: {
         modifyVars: {
-          // 'primary-color': '#165DFF',
+          'primary-color': '#00bbd8',
           // 'heading-color': 'rgba(0, 0, 0, 0.85)',
           // 'text-color': '#1D2129',
           // 'success-color': '#00B42A',
@@ -78,7 +78,3 @@ export default defineConfig({
     port: 12017,
   },
 });
-
-
-
-
