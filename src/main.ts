@@ -21,7 +21,11 @@ const reSize = () => {
   if (width <= 1600) {
     baseFontSize = 10;
   }
-  const currentFontSize: number = (width / designSize) * baseFontSize;
+  let currentFontSize: number = (width / designSize) * baseFontSize;
+  if (width <= 770) {
+    currentFontSize = 12;
+  }
+
   document.getElementsByTagName(
     'html'
   )[0].style.fontSize = `${currentFontSize}px`;
