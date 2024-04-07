@@ -18,9 +18,13 @@ const reSize = () => {
   if (width <= 2000 && width > 1600) {
     baseFontSize = 9;
   }
-  if (width <= 1600) {
-    baseFontSize = 10;
+  if (width <= 1600 && width > 1350) {
+    baseFontSize = 10.6;
   }
+  if (width <= 1350) {
+    baseFontSize = 11;
+  }
+
   let currentFontSize: number = (width / designSize) * baseFontSize;
   if (width <= 770) {
     currentFontSize = 12;
