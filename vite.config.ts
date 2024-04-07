@@ -2,11 +2,17 @@ import { fileURLToPath, URL } from 'node:url';
 
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import vueJsx from '@vitejs/plugin-vue-jsx';
 
 const timestamp = new Date().getTime();
 export default defineConfig({
   base: './',
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    vueJsx({
+      // options are passed on to @vue/babel-plugin-jsx
+    }),
+  ],
   define: {
     __VUE_I18N_FULL_INSTALL__: true,
     __VUE_I18N_LEGACY_API__: true,

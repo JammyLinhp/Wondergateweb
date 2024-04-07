@@ -10,6 +10,27 @@ import './styles/main.less';
 import { useLangStore } from './stores/lang';
 import * as Icons from '@ant-design/icons-vue';
 
+// 适配屏幕大小
+const reSize = () => {
+  let baseFontSize: number = 8;
+  const designSize: number = 900;
+  const width: number = +window.innerWidth;
+  if (width <= 2000 && width > 1600) {
+    baseFontSize = 9;
+  }
+  if (width <= 1600) {
+    baseFontSize = 10;
+  }
+  const currentFontSize: number = (width / designSize) * baseFontSize;
+  document.getElementsByTagName(
+    'html'
+  )[0].style.fontSize = `${currentFontSize}px`;
+};
+reSize();
+window.onresize = () => {
+  reSize();
+};
+
 const app = createApp(App);
 
 const icons: any = Icons;
@@ -21,7 +42,6 @@ app.config.globalProperties.$antIcons = icons;
 const store = createPinia();
 store.use(piniaPluginPersist);
 app.use(store);
-
 
 app.use((vue) => {
   vue.config.globalProperties.$http = http;
@@ -47,6 +67,5 @@ app.use(Antd);
 app.use(i18n);
 
 // 关闭vue警告
-app.config.warnHandler = (msg, instance, trace) => {
-};
+app.config.warnHandler = (msg, instance, trace) => {};
 app.mount('#app');

@@ -64,41 +64,51 @@
     </HalfStructure>
   </div>
 
-  <div class="layout-content app-color-text-main layout-two-side-center">
-    <div class="layout-horizontal-equalization">
-      <img
-        src="../../assets/images/security/img_chargeback_alerts.png"
-        alt="security"
-      />
-    </div>
-    <div class="layout-horizontal-equalization">
-      <div class="app-title-text-small app-text-font">
-        {{ $t('moo.security.chargebackAlerts') }}
-      </div>
-      <div
-        class="app-description-text-small app-detail-font security-chargeback-alerts-description"
-        v-html="$t('moo.security.chargebackAlertsDescription')"
-      ></div>
-    </div>
-  </div>
-
-  <div class="layout-background-3">
-    <div class="layout-content app-color-text-main layout-two-side-center">
-      <div class="layout-horizontal-equalization">
+  <div
+    class="layout-content app-color-text-main layout-horizontal-equalization"
+  >
+    <HalfStructure alignment-mode="top">
+      <template #left>
         <img
-          src="../../assets/images/home/img_convenient_system.png"
+         class="layout-content-subspacing-small"
+          src="../../assets/images/security/img_chargeback_alerts.png"
           alt="security"
         />
-      </div>
-      <div class="layout-horizontal-equalization">
-        <div class="app-title-text-small app-text-font">
-          {{ $t('moo.security.customerService') }}
+      </template>
+      <template #right>
+        <div class="app-title-text-small app-text-font layout-content-subspacing-small">
+          {{ $t('moo.security.chargebackAlerts') }}
         </div>
         <div
           class="app-description-text-small app-detail-font security-chargeback-alerts-description"
-          v-html="$t('moo.security.customerServiceDescription')"
+          v-html="$t('moo.security.chargebackAlertsDescription')"
         ></div>
-      </div>
+      </template>
+    </HalfStructure>
+  </div>
+
+  <div class="layout-background-3 layout-horizontal-equalization">
+    <div class="layout-content app-color-text-main">
+      <HalfStructure alignment-mode="top">
+        <template #left>
+          <img
+            class="layout-content-subspacing-small"
+            src="../../assets/images/home/img_convenient_system.png"
+            alt="security"
+          />
+        </template>
+        <template #right>
+          <div
+            class="app-title-text-small app-text-font layout-content-subspacing-small"
+          >
+            {{ $t('moo.security.customerService') }}
+          </div>
+          <div
+            class="app-description-text-small app-detail-font security-chargeback-alerts-description"
+            v-html="$t('moo.security.customerServiceDescription')"
+          ></div>
+        </template>
+      </HalfStructure>
     </div>
   </div>
 
