@@ -7,6 +7,7 @@ import App from './App.vue';
 import router, { setupRouter } from './router';
 import http from './utils/http';
 import './styles/main.less';
+import './style.css';
 import { useLangStore } from './stores/lang';
 import * as Icons from '@ant-design/icons-vue';
 

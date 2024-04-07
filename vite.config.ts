@@ -6,7 +6,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 
 const timestamp = new Date().getTime();
 export default defineConfig({
-  base: './',
+  base: '/',
   plugins: [
     vue(),
     vueJsx({
@@ -64,6 +64,8 @@ export default defineConfig({
           const facadeModuleId = chunkInfo.facadeModuleId
             ? chunkInfo.facadeModuleId.split('/')
             : [];
+          console.log(facadeModuleId[facadeModuleId.length - 2]);
+
           const fileName =
             facadeModuleId[facadeModuleId.length - 2] || '[name]';
           return `js/${fileName}/[name].[hash]${timestamp}.js`;

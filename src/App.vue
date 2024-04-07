@@ -21,5 +21,4 @@ provide('reload', reload);
   </div>
 </template>
 
-<style>
-</style>
+<style></style>
