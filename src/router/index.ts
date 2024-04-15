@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import BaseLayout from '@/layout/base/index.vue';
 import Product from '@/router/config/product';
-
+import Policy from '@/router/config/policy';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,7 +22,6 @@ const router = createRouter({
             activeMenu: '/index',
           },
         },
-        ...Product,
         {
           path: '/security-center',
           name: 'security center',
@@ -53,6 +52,8 @@ const router = createRouter({
             activeMenu: '/contact-us',
           },
         },
+        ...Product,
+        ...Policy,
       ],
     },
   ],

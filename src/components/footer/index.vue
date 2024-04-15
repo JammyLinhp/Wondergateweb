@@ -50,7 +50,8 @@
     </div>
     <div class="footer-privacy-wrap">
       <div class="app-detail-font layout-content">
-        {{ $t('moo.footer.privacy') }}
+        <a href="/policy/privacy">Privacy </a> - <a href="/policy/cookies">Cookies </a> -
+        <a href="/policy/disclaimer">Disclaimer</a> {{ $t('moo.footer.privacy') }}
       </div>
     </div>
   </div>
@@ -88,6 +89,7 @@ const onLinkClick = (item?: any) => {
     saveHeaderKeyValue(item);
   }
 };
+
 watch(
   () => router.currentRoute.value,
   (newValue: any) => {

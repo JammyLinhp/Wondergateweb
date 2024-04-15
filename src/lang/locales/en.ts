@@ -203,7 +203,11 @@ export default {
     footer: {
       launch: 'LAUNCH WITH WONDERGATE',
       unleash: 'Unleash your potential now. Simple setup, powerful results.',
-      privacy: 'Privacy - Cookies - Disclaimer - ©2024 WONDERGATE Payments Limited 2023',
+      privacy: '- ©2024 WONDERGATE FINTECH INC. 2023',
+      cookiesTitle:'Cookies on our website',
+      cookiesContent:'We use cookies on our site to remember you, show you content we think you will like and help you to use the site. For more details, please see our cookies policy.Click \'Accept Cookies\' to consent to cookies',
+      acceptCookies: 'Accept Cookies',
+      reject: 'Reject',
     },
     common: {
       copySuccessfully: 'Copy successfully',
