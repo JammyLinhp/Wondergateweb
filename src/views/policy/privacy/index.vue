@@ -150,22 +150,6 @@
             customer service, communications and auditing.
           </p>
           <p>
-            - Advertising and remarketing networks. Our website uses remarketing
-            and conversion tracking technologies provided by Google AdWords (for
-            further details about the Remarketing product we use, see here; for
-            the product’s privacy policy, see here) and Facebook Pixel (for
-            further details about the Facebook product we use, see here; for
-            details about the information we may share with this provider, see
-            here). This technology allows us to display targeted advertising to
-            users who have already visited our website when they use the
-            websites of the partner networks of Google and Facebook across the
-            internet. We may add similar providers to those mentioned here in
-            the future. Third-party vendors, including Google and Facebook, use
-            cookies to serve you ads based your visits to our website. Please
-            refer to our cookie policy for further information about how these
-            technologies are used on our website.
-          </p>
-          <p>
             - Other third parties. We will share your personal data with third
             parties in the event of any reorganisation, merger, sale, joint
             venture, assignment, transfer or other disposition of all or any
@@ -263,12 +247,6 @@
             appropriate security measures to prevent your personal data from
             being accidentally lost, used or accessed, altered or disclosed in
             an unauthorised manner.
-          </p>
-          <p>
-            We are PCI DSS (Payment Card Industry Data Security Standard) Level
-            1 compliant, which is the highest standard set by the payment card
-            industry to ensure that credit card data is processed, stored or
-            transmitted in a secure environment.
           </p>
           <p>
             In addition, we limit access to your personal information to those
