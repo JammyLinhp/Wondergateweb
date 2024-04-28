@@ -13,37 +13,50 @@
         ></div>
         <a-tabs
           class="layout-content-subspacing-small app-color-text-main app-description-text-small app-detail-font app-text-description-title"
+          v-if="informationList"
         >
           <a-tab-pane :key="index" v-for="(item, index) in informationList">
             <template #tab>{{ item.title }} </template>
             <a-row :gutter="36">
-              <a-col :span="6">
+              <a-col :span="9">
                 <div>{{ $t('moo.contact.email') }} :</div>
               </a-col>
-              <a-col :span="18">
+              <a-col :span="15">
                 <div>
                   {{ 'info@wondergate.io' }}
                 </div>
               </a-col>
             </a-row>
             <a-row :gutter="36" class="layout-content-subspacing-small">
-              <a-col :span="6">
+              <a-col :span="9">
                 <div>{{ $t('moo.contact.companyName') }} :</div>
               </a-col>
-              <a-col :span="18">
+              <a-col :span="15">
                 <div>
                   {{ item?.name }}
                 </div>
               </a-col>
             </a-row>
             <a-row :gutter="36" class="layout-content-subspacing-small">
-              <a-col :span="6">
+              <a-col :span="9">
                 <div>{{ $t('moo.contact.officeAddress') }} :</div>
               </a-col>
-              <a-col :span="18">
+              <a-col :span="15">
                 <div>
                   {{ item?.description }}
                 </div>
+              </a-col>
+            </a-row>
+            <a-row
+              :gutter="36"
+              class="layout-content-subspacing-small"
+              v-if="item.title === 'Hong Kong'"
+            >
+              <a-col :span="9">
+                <div>{{ $t('moo.contact.companyRegistrationNumber') }} :</div>
+              </a-col>
+              <a-col :span="12">
+                <div>3311511</div>
               </a-col>
             </a-row>
           </a-tab-pane>

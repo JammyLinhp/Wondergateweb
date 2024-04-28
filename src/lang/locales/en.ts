@@ -199,6 +199,7 @@ export default {
       email: 'Email',
       officeAddress: 'Address',
       companyName: 'Company name',
+      companyRegistrationNumber: 'Company registration number',
     },
     footer: {
       launch: 'LAUNCH WITH WONDERGATE',
