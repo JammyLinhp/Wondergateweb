@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useAppStore } from '@/stores/app';
-import { i18n } from '@/main';
 import { showMessage } from '@/utils/tools';
 import { storeToRefs } from 'pinia';
 import { useLangStore } from '@/stores/lang';
@@ -76,20 +75,23 @@ http.interceptors.response.use(
   },
   (error) => {
     // @ts-ignore
-    showMessage(i18n.global.t('moozumi.common.failed'), 'error');
+    // showMessage(i18n.global.t('moozumi.common.failed'), 'error');
     return Promise.reject(error);
-  },
+  }
 );
 
 /**
  *  国际化增加请求头参数 Lang
  */
-http.interceptors.request.use(config => {
-  const { lang } = storeToRefs(useLangStore());
-  config.headers['Lang'] = lang.value; // 请求头带上国际化标识
-  return config;
-}, error => {
-  return Promise.reject(error);
-});
+http.interceptors.request.use(
+  (config) => {
+    const { lang } = storeToRefs(useLangStore());
+    config.headers['Lang'] = lang.value; // 请求头带上国际化标识
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 export default http;

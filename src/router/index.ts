@@ -1,10 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createMemoryHistory } from 'vue-router';
 import BaseLayout from '@/layout/base/index.vue';
 import Product from '@/router/config/product';
 import Policy from '@/router/config/policy';
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createMemoryHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -60,7 +60,6 @@ const router = createRouter({
 });
 
 export const setupRouter = (app: any) => {
-  let hasInitPermission = false;
   router.beforeEach(async (to, from, next) => {
     next();
   });

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import zhCN from 'ant-design-vue/es/locale/zh_CN';
+import zhCN from 'ant-design-vue/es/locale/zh_CN.js';
 import enUS from 'ant-design-vue/es/locale/en_US';
 import { RouterView } from 'vue-router';
 import { provide, ref } from 'vue';

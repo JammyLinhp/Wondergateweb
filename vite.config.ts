@@ -58,14 +58,19 @@ export default defineConfig({
           const facadeModuleId = chunkInfo.facadeModuleId
             ? chunkInfo.facadeModuleId.split('/')
             : [];
-          console.log(facadeModuleId[facadeModuleId.length - 2]);
-
           const fileName =
             facadeModuleId[facadeModuleId.length - 2] || '[name]';
           return `js/${fileName}/[name].[hash]${timestamp}.js`;
         },
       },
     },
+  },
+  ssr: {
+    noExternal: [
+      'ant-design-vue',
+      '@ant-design/icons-vue',
+      '@ant-design/icons-svg',
+    ],
   },
   server: {
     proxy: {

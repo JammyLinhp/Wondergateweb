@@ -18,18 +18,6 @@ export const useAppStore = defineStore(
   {
     persist: {
       enabled: true,
-      strategies: [
-        {
-          key: 'user',
-          storage: localStorage,
-          paths: ['user'],
-        },
-        {
-          key: 'permissions',
-          storage: localStorage,
-          paths: ['permissions'],
-        },
-      ],
     },
   }
 );

@@ -13,7 +13,7 @@
   <div class="footer-wrap footer-navigation-wrap">
     <div class="layout-content">
       <div class="footer-navigation-logo">
-        <img src="@/assets/images/logo_light.png" alt="logo" />
+        <img src="@/assets/images/logo_light.png" alt="logo"/>
       </div>
       <div class="layout-two-side-start-always">
         <div class="footer-navigation-menu data-item" v-for="item in titleList">
@@ -95,7 +95,7 @@ watch(
   (newValue: any) => {
     onLinkClick();
   },
-  { immediate: true }
+  { immediate: true },
 );
 </script>
 
@@ -131,6 +131,7 @@ watch(
     width: 180px;
   }
 }
+
 .footer-navigation-menu {
   flex: 1;
 
@@ -151,6 +152,7 @@ watch(
     }
   }
 }
+
 .footer-navigation-connection-logo {
   padding: 0 0.6rem;
 }

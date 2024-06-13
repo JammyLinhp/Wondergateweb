@@ -33,9 +33,10 @@
       name="Keywords"
       content="cross-border, Global payments, Global collection account, Issuing virtual cards, Payment solutions, Security Center"
     />
+    <!--preload-links-->
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <div id="app"><!--ssr-outlet--></div>
+    <script type="module" src="/src/entry-client.js"></script>
   </body>
 </html>
