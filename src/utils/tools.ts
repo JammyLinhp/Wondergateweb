@@ -106,7 +106,6 @@ export const copyString = (val: any): any => {
  * @param target
  */
 export const originalArrayModify = (original: any, target: any): any => {
-  console.log(original, target);
   original = 0;
   Object.keys(target).forEach((key: any) => {
     original[key] = target[key];

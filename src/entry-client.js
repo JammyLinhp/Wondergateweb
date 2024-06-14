@@ -2,9 +2,9 @@
   客户端入口
 */
 import { createApp } from './main';
-import { createMyRouter } from "@/router/index.js";
 
-const { app } = createApp(false);
+console.log(12345);
+const { app, router } = createApp(false);
 
 // 适配屏幕大小
 const reSize = () => {
@@ -28,16 +28,16 @@ const reSize = () => {
 
   document.getElementsByTagName(
     'html'
-  )[0].style.fontSize = `${ currentFontSize }px`;
+  )[0].style.fontSize = `${currentFontSize}px`;
 };
 reSize();
 window.onresize = () => {
   reSize();
 };
 
-const router = createMyRouter('client');
-app.use(router);
+
+app.mount('#app');
 
 router.isReady().then(() => {
-  app.mount('#app', true);
+
 });

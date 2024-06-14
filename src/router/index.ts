@@ -1,11 +1,16 @@
-import { createRouter, createMemoryHistory, Router, createWebHistory } from 'vue-router';
+import {
+  createMemoryHistory,
+  createRouter as _createRouter,
+  createWebHistory, Router
+} from 'vue-router';
 import BaseLayout from '@/layout/base/index.vue';
+import IndexPage from '@/views/index.vue';
 import Product from '@/router/config/product';
 import Policy from '@/router/config/policy';
 
-export const createMyRouter = (type: 'client' | 'server'): Router =>
-  createRouter({
-    history: type === 'client' ? createWebHistory(import.meta.env.BASE_URL) : createMemoryHistory(import.meta.env.BASE_URL),
+export const createRouter = (): Router =>
+  _createRouter({
+    history: import.meta.env.SSR ? createMemoryHistory(import.meta.env.BASE_URL) : createWebHistory(import.meta.env.BASE_URL),
     routes: [
       {
         path: '/',
@@ -20,8 +25,8 @@ export const createMyRouter = (type: 'client' | 'server'): Router =>
             meta: {
               key: 'home',
               code: 'home',
-              activeMenu: '/index',
-            },
+              activeMenu: '/index'
+            }
           },
           {
             path: '/security-center',
@@ -30,8 +35,8 @@ export const createMyRouter = (type: 'client' | 'server'): Router =>
             meta: {
               key: 'security',
               code: 'security',
-              activeMenu: '/security-center',
-            },
+              activeMenu: '/security-center'
+            }
           },
           {
             path: '/about-us',
@@ -40,8 +45,8 @@ export const createMyRouter = (type: 'client' | 'server'): Router =>
             meta: {
               key: 'about',
               code: 'about',
-              activeMenu: '/about-us',
-            },
+              activeMenu: '/about-us'
+            }
           },
           {
             path: '/contact-us',
@@ -50,14 +55,14 @@ export const createMyRouter = (type: 'client' | 'server'): Router =>
             meta: {
               key: 'contact',
               code: 'contact',
-              activeMenu: '/contact-us',
-            },
+              activeMenu: '/contact-us'
+            }
           },
           ...Product,
-          ...Policy,
-        ],
-      },
-    ],
+          ...Policy
+        ]
+      }
+    ]
   });
 
 

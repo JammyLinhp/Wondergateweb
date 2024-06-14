@@ -8,28 +8,31 @@ import * as Icons from '@ant-design/icons-vue';
 import { createPinia } from 'pinia';
 import piniaPluginPersist from 'pinia-plugin-persist';
 import { setupI18n } from './lang';
+import { createRouter } from '@/router';
 
 // 初始化 APP
 export const createApp = () => {
   const app = createSSRApp(App);
-  
   const icons: any = Icons;
   for (const name in icons) {
     app.component(name, icons[name]);
   }
   app.config.globalProperties.$antIcons = icons;
-  
+
   app.use((vue) => {
     vue.config.globalProperties.$http = http;
   });
-  
+
   app.use(Antd);
-  
+
+  const router = createRouter();
+  app.use(router);
+
   // pinia
   const store = createPinia();
   store.use(piniaPluginPersist);
   app.use(store);
-  
+
   // i18n
   const i18n = setupI18n({
     globalInjection: true,
@@ -40,13 +43,13 @@ export const createApp = () => {
     // 关闭18n警告
     fallbackWarn: false,
     warnHtmlMessage: false,
-    missingWarn: false,
+    missingWarn: false
   });
   app.use(i18n);
-  
+
   // 关闭vue警告
   app.config.warnHandler = (msg, instance, trace) => {
   };
-  
-  return {app};
+
+  return { app, router };
 };

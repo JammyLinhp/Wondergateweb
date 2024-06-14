@@ -85,7 +85,6 @@ const onLinkClick = (item?: any) => {
     });
   }
   if (item) {
-    console.log(item);
     saveHeaderKeyValue(item);
   }
 };

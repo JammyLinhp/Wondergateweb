@@ -21,7 +21,7 @@ const onClose = () => {
 onMounted(() => {
   const time: any = localStorage.getItem(cookiesKey);
   if (!time || (new Date().getTime() - time) / 1000 / 60 / 60 / 24 > 1) {
-    showDrawer(); 
+    showDrawer();
   }
 });
 </script>
@@ -45,10 +45,12 @@ onMounted(() => {
         {{ $t('moo.footer.cookiesContent') }}
       </div>
       <a-button type="primary" class="cookies-modal-button" @click="onOk">
-        {{ $t('moo.footer.acceptCookies') }}</a-button
+        {{ $t('moo.footer.acceptCookies') }}
+      </a-button
       >
       <a-button class="cookies-modal-button" @click="onClose">
-        {{ $t('moo.footer.reject') }}</a-button
+        {{ $t('moo.footer.reject') }}
+      </a-button
       >
     </a-drawer>
   </div>
@@ -86,6 +88,7 @@ onMounted(() => {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
   }
+
   .ant-drawer-wrapper-body {
     box-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
   }

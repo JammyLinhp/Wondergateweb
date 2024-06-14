@@ -3,7 +3,7 @@ import express from 'express';
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production';
-const port = process.env.PORT || 5173;
+const port = process.env.PORT || 5172;
 const base = process.env.BASE || '/';
 
 // Cached production assets
@@ -16,7 +16,6 @@ const ssrManifest = isProduction
 
 // Create http server
 const app = express();
-
 // Add Vite or respective production middlewares
 let vite;
 if (!isProduction) {
@@ -24,7 +23,7 @@ if (!isProduction) {
   vite = await createServer({
     server: { middlewareMode: true },
     appType: 'custom',
-    base,
+    base
   });
   app.use(vite.middlewares);
 } else {
@@ -50,7 +49,7 @@ app.use('*', async (req, res) => {
       template = templateHtml;
       render = (await import('./dist/server/entry-server.js')).render;
     }
-    console.log(url, 1233);
+
     const rendered = await render(url, ssrManifest);
     const html = template
       .replace('<!--preload-links-->', rendered.preloadLinks)
