@@ -3,8 +3,9 @@
 */
 import { createApp } from './main';
 
-console.log(12345);
-const { app, router } = createApp(false);
+const { app, router } = createApp();
+app.mount('#app');
+
 
 // 适配屏幕大小
 const reSize = () => {
@@ -35,9 +36,3 @@ window.onresize = () => {
   reSize();
 };
 
-
-app.mount('#app');
-
-router.isReady().then(() => {
-
-});

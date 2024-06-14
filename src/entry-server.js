@@ -26,7 +26,6 @@ function renderPreloadLinks(modules, manifest) {
   let links = '';
   const seen = new Set();
   modules.forEach((id) => {
-    console.log(id, manifest, 6666);
     if (id && manifest) {
       const files = manifest[id];
       if (files) {
