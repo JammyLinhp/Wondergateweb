@@ -1,5 +1,6 @@
 import { renderToString } from 'vue/server-renderer';
 import { createApp } from './main';
+import { createMyRouter } from "@/router/index.js";
 
 function renderPreloadLinks(modules, manifest) {
   let links = '';
@@ -23,26 +24,27 @@ function renderPreloadLinks(modules, manifest) {
         });
       }
     });
-  } catch (error) {}
+  } catch (error) {
+  }
 
   return links;
 }
 
 function renderPreloadLink(file) {
   if (file.endsWith('.js')) {
-    return `<link rel="modulepreload" crossorigin href="${file}">`;
+    return `<link rel="modulepreload" crossorigin href="${ file }">`;
   } else if (file.endsWith('.css')) {
-    return `<link rel="stylesheet" href="${file}">`;
+    return `<link rel="stylesheet" href="${ file }">`;
   } else if (file.endsWith('.woff')) {
-    return ` <link rel="preload" href="${file}" as="font" type="font/woff" crossorigin>`;
+    return ` <link rel="preload" href="${ file }" as="font" type="font/woff" crossorigin>`;
   } else if (file.endsWith('.woff2')) {
-    return ` <link rel="preload" href="${file}" as="font" type="font/woff2" crossorigin>`;
+    return ` <link rel="preload" href="${ file }" as="font" type="font/woff2" crossorigin>`;
   } else if (file.endsWith('.gif')) {
-    return ` <link rel="preload" href="${file}" as="image" type="image/gif">`;
+    return ` <link rel="preload" href="${ file }" as="image" type="image/gif">`;
   } else if (file.endsWith('.jpg') || file.endsWith('.jpeg')) {
-    return ` <link rel="preload" href="${file}" as="image" type="image/jpeg">`;
+    return ` <link rel="preload" href="${ file }" as="image" type="image/jpeg">`;
   } else if (file.endsWith('.png')) {
-    return ` <link rel="preload" href="${file}" as="image" type="image/png">`;
+    return ` <link rel="preload" href="${ file }" as="image" type="image/png">`;
   } else {
     // TODO
     return '';
@@ -50,12 +52,15 @@ function renderPreloadLink(file) {
 }
 
 export async function render(url, manifest) {
-  const { app, router } = createApp();
+  const { app } = createApp();
 
-  // set the router to the desired URL before rendering
-  await router.push(url);
+  const router = createMyRouter('server');
+  app.use(router);
+  // console.log(url, 7777, router);
+  // if (url) {
+  //   await router.push(url);
   await router.isReady();
-
+  // }
   // passing SSR context object which will be available via useSSRContext()
   // @vitejs/plugin-vue injects code into a component's setup() that registers
   // itself on ctx.modules. After the render, ctx.modules would contain all the
