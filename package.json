@@ -18,14 +18,17 @@
   ],
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",
+    "@vue/server-renderer": "^3.4.29",
     "@vueuse/core": "^10.4.0",
     "ant-design-vue": "^3.2.20",
     "axios": "^1.6.5",
+    "compression": "^1.7.4",
     "express": "^4.19.2",
     "minimist": "^1.2.8",
     "pinia": "^2.0.29",
     "pinia-plugin-persist": "^1.0.0",
     "prompts": "^2.4.2",
+    "sirv": "^2.0.4",
     "vue": "^3.2.45",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.6"

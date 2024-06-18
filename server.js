@@ -13,20 +13,18 @@ const templateHtml = isProduction
 const ssrManifest = isProduction
   ? await fs.readFile('./dist/client/ssr-manifest.json', 'utf-8')
   : undefined;
-
+console.log(isProduction, 1111111111);
 // Create http server
 const app = express();
 // Add Vite or respective production middlewares
-let vite;
-if (!isProduction) {
-  const { createServer } = await import('vite');
-  vite = await createServer({
-    server: { middlewareMode: true },
-    appType: 'custom',
-    base
-  });
-  app.use(vite.middlewares);
-} else {
+const { createServer } = await import('vite');
+let vite = await createServer({
+  server: { middlewareMode: true },
+  appType: 'custom',
+  base
+});
+app.use(vite.middlewares);
+if (isProduction) {
   const compression = (await import('compression')).default;
   const sirv = (await import('sirv')).default;
   app.use(compression());
@@ -39,15 +37,13 @@ app.use('*', async (req, res) => {
     const url = req.originalUrl.replace(base, '');
 
     let template;
-    let render;
+    let render = (await vite.ssrLoadModule('/src/entry-server.js')).render;
     if (!isProduction) {
       // Always read fresh template in development
       template = await fs.readFile('./index.html', 'utf-8');
       template = await vite.transformIndexHtml(url, template);
-      render = (await vite.ssrLoadModule('/src/entry-server.js')).render;
     } else {
       template = templateHtml;
-      render = (await import('./dist/server/entry-server.js')).render;
     }
 
     const rendered = await render(url, ssrManifest);
@@ -58,7 +54,7 @@ app.use('*', async (req, res) => {
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html);
   } catch (e) {
     vite?.ssrFixStacktrace(e);
-    console.log(e.stack);
+    console.log(e);
     res.status(500).end(e.stack);
   }
 });
