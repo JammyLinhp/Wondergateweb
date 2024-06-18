@@ -13,7 +13,7 @@ const templateHtml = isProduction
 const ssrManifest = isProduction
   ? await fs.readFile('./dist/client/ssr-manifest.json', 'utf-8')
   : undefined;
-console.log(process.env.NODE_ENV, 1111111111);
+
 // Create http server
 const app = express();
 // Add Vite or respective production middlewares

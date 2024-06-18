@@ -11,11 +11,9 @@
           class="app-description-text-small app-detail-font contact-description"
           v-html="$t('moo.contact.youWant')"
         ></div>
-        <a-tabs
-          class="layout-content-subspacing-small app-color-text-main app-description-text-small app-detail-font app-text-description-title"
-        >
+        <a-tabs>
           <template :key="index" v-for="(item, index) in informationList">
-            <a-tab-pane>
+            <a-tab-pane style="height: 200px">
               <template #tab>{{ item.title }}</template>
               <a-row :gutter="36">
                 <a-col :span="9">
