@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import express from 'express';
 
 // Constants
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 5172;
 const base = process.env.BASE || '/';
 
@@ -13,7 +13,7 @@ const templateHtml = isProduction
 const ssrManifest = isProduction
   ? await fs.readFile('./dist/client/ssr-manifest.json', 'utf-8')
   : undefined;
-console.log(isProduction, 1111111111);
+console.log(process.env.NODE_ENV, 1111111111);
 // Create http server
 const app = express();
 // Add Vite or respective production middlewares
