@@ -31,7 +31,7 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     minify: 'terser',
-    chunkSizeWarningLimit: 1500,
+    chunkSizeWarningLimit: 3500,
     emptyOutDir: true,
     terserOptions: {
       compress: {
