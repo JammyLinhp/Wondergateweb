@@ -12,7 +12,11 @@ export default {
       paymentSolutions: 'Payment solutions',
       securityCenter: 'Security Center',
       aboutUs: 'About Us',
-      contactUs: 'Contact Us',
+      contactUs: 'Contact Us'
+    },
+    header: {
+      login: 'Log In',
+      register: 'Register',
     },
     home: {
       labels: 'Connect To Any Payment Service',
@@ -44,7 +48,7 @@ export default {
       stepTow: '2 step',
       stepTowDescription: 'Link your bank account',
       stepThree: '3 step',
-      stepThreeDescription: 'Start trading',
+      stepThreeDescription: 'Start trading'
     },
     product: {
       title: 'Global payments',
@@ -74,7 +78,7 @@ export default {
       virtuallyPaymentDescription: 'Digital enterprises often need to connect to a range of PCI-compliant endpoints. For example, these endpoints might belong to a partner that operates a hotel or a car rental company, or they might be an emerging gateway.<br><br>Wondergate can easily connect to other PCI-compliant services. You can use our toolkit, anti-fraud services, and third-party merchants to transact with other gateways, all using our single API.',
       settlementTitle: 'Flexible',
       settlementPayment: 'Flexible Payment And Settlement',
-      settlementDescription: 'Consumers can make payments using most common currencies, and you can settle payments using most common currencies according to your own needs.<br><br>Detailed transaction records make it easy for you to reconcile.',
+      settlementDescription: 'Consumers can make payments using most common currencies, and you can settle payments using most common currencies according to your own needs.<br><br>Detailed transaction records make it easy for you to reconcile.'
     },
     account: {
       unlockYourGlobal: 'Unlock Your Global',
@@ -107,7 +111,7 @@ export default {
       embarkTitle: 'Open a Global Collection Account Now and Embark on Your Global Wealth Journey!',
       collectionOne: 'Create an account',
       collectionTwo: 'Collection',
-      collectionThree: 'Settlement amount',
+      collectionThree: 'Settlement amount'
     },
     cards: {
       enjoy: 'Enjoy a New Global',
@@ -133,7 +137,7 @@ export default {
       recharge: 'Recharge',
       useCard: 'Use Card',
       embarkTitle: 'Embark on the Journey of Virtual Card Services Today, Ushering in a New Era of Digital Payments!',
-      embarkDescription: 'Don\'t be confined to traditional physical card payments anymore. Join us and experience the convenience and security offered by our virtual card services! Take action now and usher in a new chapter of digital payments!',
+      embarkDescription: 'Don\'t be confined to traditional physical card payments anymore. Join us and experience the convenience and security offered by our virtual card services! Take action now and usher in a new chapter of digital payments!'
     },
     solutions: {
       crossBorder: 'Cross border',
@@ -165,7 +169,7 @@ export default {
       fundFlowTitle: 'Improved Fund Flow',
       fundFlowDescription: 'Efficient fund settlement services accelerate the flow of funds and ensure the smooth operation of logistics companies.',
       riskTitle: 'Risk Management',
-      riskDescription: 'Cross-border payment platforms also provide risk management tools, helping logistics companies identify and avoid potential transaction risks.',
+      riskDescription: 'Cross-border payment platforms also provide risk management tools, helping logistics companies identify and avoid potential transaction risks.'
     },
     security: {
       title: 'Security Center',
@@ -183,7 +187,7 @@ export default {
       customerService: 'Customer Service Platform',
       customerServiceDescription: 'Provide a real-time dialogue platform for merchants and consumers to help merchants respond to consumer demands in a timely manner.<br>Merchants can initiate refunds directly on the dialogue platform, which is very convenient.<br><br>If merchants and consumers cannot reach an agreement, the platform will provide arbitration services.<br><br>Permanently record conversations and actions in the platform. If there is an after-sales dispute, it can be used as proof.',
       business: 'Business Reminders',
-      businessDescription: 'When various abnormal situations occur or there are urgent matters to be handled, the system will create reminders.<br><br>Wondergate staff will promptly handle these reminders and contact the merchant when necessary.<br>For example, common reminders include: limit reached, multiple failed transactions in a row.',
+      businessDescription: 'When various abnormal situations occur or there are urgent matters to be handled, the system will create reminders.<br><br>Wondergate staff will promptly handle these reminders and contact the merchant when necessary.<br>For example, common reminders include: limit reached, multiple failed transactions in a row.'
     },
     about: {
       title: 'About Us',
@@ -191,7 +195,7 @@ export default {
       companyProfile: 'Company profile',
       companyProfileDescription: 'Wondergate Co., Limited is located in Hong Kong. Its members include financial experts, payment technology experts, and senior cross-border trade practitioners, most of them have worked for well-known domestic companies.<br><br>Wondergate has many years of experience in the cross-border payment industry, providing global acquiring and issuing services. To provide secure, compliant, efficient, convenient, and low-cost payment solutions for cross-border enterprises in China and even globally.<br><br>Wondergate is committed to simplifying the payment process of cross-border trade, providing flexible and efficient cross-border payment services, helping customers expand their international business, and establishing strong international competitiveness.',
       provide: 'Wondergate can provide',
-      provideDescription: 'cross-border payment services for stores opened on SHOPLINE and Shoplazza',
+      provideDescription: 'cross-border payment services for stores opened on SHOPLINE and Shoplazza'
     },
     contact: {
       toBegin: 'Contact Us to Begin Your Global Payment Journey',
@@ -199,19 +203,19 @@ export default {
       email: 'Email',
       officeAddress: 'Address',
       companyName: 'Company name',
-      companyRegistrationNumber: 'Company registration number',
+      companyRegistrationNumber: 'Company registration number'
     },
     footer: {
       launch: 'LAUNCH WITH WONDERGATE',
       unleash: 'Unleash your potential now. Simple setup, powerful results.',
       privacy: '- ©2024 WONDERGATE FINTECH INC. 2023',
-      cookiesTitle:'Cookies on our website',
-      cookiesContent:'We use cookies on our site to remember you, show you content we think you will like and help you to use the site. For more details, please see our cookies policy.Click \'Accept Cookies\' to consent to cookies',
+      cookiesTitle: 'Cookies on our website',
+      cookiesContent: 'We use cookies on our site to remember you, show you content we think you will like and help you to use the site. For more details, please see our cookies policy.Click \'Accept Cookies\' to consent to cookies',
       acceptCookies: 'Accept Cookies',
-      reject: 'Reject',
+      reject: 'Reject'
     },
     common: {
-      copySuccessfully: 'Copy successfully',
-    },
-  },
+      copySuccessfully: 'Copy successfully'
+    }
+  }
 };

@@ -18,14 +18,33 @@
           />
           <MenuDrawer ref="menuDrawer"></MenuDrawer>
         </div>
-        <!--        </RouterLink>-->
+
+        <div :class="{
+                          'layout-background-1': !isDark,
+                          'layout-background-2': isDark,
+                          'app-color-text':isDark,
+                          'app-color-text-dark': !isDark,
+                          'header-title-button':true
+                   }">
+          {{ $t('moo.header.register') }}
+        </div>
+
+        <div :class="{
+                          'layout-background-1': !isDark,
+                          'layout-background-2': isDark,
+                          'app-color-text':isDark,
+                          'app-color-text-dark': !isDark,
+                          'header-title-button':true
+                   }">
+          {{ $t('moo.header.login') }}
+        </div>
         <!--        <div :class="{-->
-        <!--                  'layout-background-1': !isDark,-->
-        <!--                  'layout-background-2': isDark,-->
-        <!--                  'app-color-text':isDark,-->
-        <!--                  'app-color-text-dark': !isDark,-->
-        <!--                  'header-title-language':true-->
-        <!--           }">-->
+        <!--                          'layout-background-1': !isDark,-->
+        <!--                          'layout-background-2': isDark,-->
+        <!--                          'app-color-text':isDark,-->
+        <!--                          'app-color-text-dark': !isDark,-->
+        <!--                          'header-title-button':true-->
+        <!--                   }">-->
         <!--          {{ $t('language') }}-->
         <!--        </div>-->
       </div>
@@ -37,14 +56,16 @@
 import MenuDrawer from '@/components/header/components/drawer/index.vue';
 import Menus from '@/components/header/components/menu/index.vue';
 import { getCurrentInstance } from 'vue';
+import { useRouter } from 'vue-router';
 
 defineProps({
   isDark: {
     type: Boolean,
-    default: false,
-  },
+    default: false
+  }
 });
 const { proxy } = getCurrentInstance() as any;
+const router = useRouter();
 
 const onDrawerClick = () => {
   proxy.$refs.menuDrawer.openDrawer();
@@ -53,7 +74,7 @@ const onDrawerClick = () => {
 const onLogoClick = () => {
   proxy.$refs.menus.jumpToPage({
     path: '/index',
-    name: 'home',
+    name: 'home'
   });
 };
 </script>
@@ -90,7 +111,7 @@ const onLogoClick = () => {
       justify-content: end;
       align-items: center;
 
-      .header-title-language {
+      .header-title-button {
         padding: 0.2rem 1rem;
         margin-left: 15px;
         line-height: 30px;
