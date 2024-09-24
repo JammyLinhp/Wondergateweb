@@ -1,3 +1,26 @@
 {
-    "singleQuote": true
+    "singleQuote": true,
+    "overrides": [
+        {
+            "files": [
+                "*.ts",
+                "*.vue"
+            ],
+            "options": {
+                "printWidth": 128,
+                "proseWrap": "preserve"
+            }
+        },
+        {
+            "files": [
+                "zh-CN.ts",
+                "en.ts",
+                "zh-HK.ts"
+            ],
+            "options": {
+                "printWidth": 10000,
+                "proseWrap": "preserve"
+            }
+        }
+    ]
 }

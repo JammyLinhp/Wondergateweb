@@ -3,39 +3,38 @@
     <div class="header-inner layout-content layout-two-side-center-always">
       <div class="header-logo" @click="onLogoClick">
         <img v-if="isDark" src="../../assets/images/logo_dark.png" alt="logo" />
-        <img
-          v-if="!isDark"
-          src="../../assets/images/logo_light.png"
-          alt="logo"
-        />
+        <img v-if="!isDark" src="../../assets/images/logo_light.png" alt="logo" />
       </div>
       <div class="header-title" :class="{ 'dark-logo': isDark }">
         <Menus ref="menus" class="is-pc-menu"></Menus>
         <div class="is-phone-menu">
-          <menu-outlined
-            class="header-phone-menu-icon"
-            @click="onDrawerClick"
-          />
+          <menu-outlined class="header-phone-menu-icon" @click="onDrawerClick" />
           <MenuDrawer ref="menuDrawer"></MenuDrawer>
         </div>
 
-        <div :class="{
-                          'layout-background-1': !isDark,
-                          'layout-background-2': isDark,
-                          'app-color-text':isDark,
-                          'app-color-text-dark': !isDark,
-                          'header-title-button':true
-                   }">
+        <div
+          :class="{
+            'layout-background-1': !isDark,
+            'layout-background-2': isDark,
+            'app-color-text': isDark,
+            'app-color-text-dark': !isDark,
+            'header-title-button': true,
+          }"
+          @click="onUserClick(1)"
+        >
           {{ $t('moo.header.register') }}
         </div>
 
-        <div :class="{
-                          'layout-background-1': !isDark,
-                          'layout-background-2': isDark,
-                          'app-color-text':isDark,
-                          'app-color-text-dark': !isDark,
-                          'header-title-button':true
-                   }">
+        <div
+          :class="{
+            'layout-background-1': !isDark,
+            'layout-background-2': isDark,
+            'app-color-text': isDark,
+            'app-color-text-dark': !isDark,
+            'header-title-button': true,
+          }"
+          @click="onUserClick(2)"
+        >
           {{ $t('moo.header.login') }}
         </div>
         <!--        <div :class="{-->
@@ -61,8 +60,8 @@ import { useRouter } from 'vue-router';
 defineProps({
   isDark: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 });
 const { proxy } = getCurrentInstance() as any;
 const router = useRouter();
@@ -74,8 +73,25 @@ const onDrawerClick = () => {
 const onLogoClick = () => {
   proxy.$refs.menus.jumpToPage({
     path: '/index',
-    name: 'home'
+    name: 'home',
   });
+};
+
+const onUserClick = (code: any) => {
+  console.log(321312);
+
+  switch (code) {
+    case 1:
+      window.open('https://sandbox-portal.moozumi.io/user/register', '_blank');
+      break;
+
+    case 2:
+      window.open('https://sandbox-portal.moozumi.io/user/login', '_blank');
+      break;
+
+    default:
+      break;
+  }
 };
 </script>
 
