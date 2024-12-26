@@ -78,15 +78,13 @@ const onLogoClick = () => {
 };
 
 const onUserClick = (code: any) => {
-  console.log(321312);
-
   switch (code) {
     case 1:
-      window.open('https://sandbox-portal.moozumi.io/user/register', '_blank');
+      window.open('https://portal.wondergate.io/user/register', '_blank');
       break;
 
     case 2:
-      window.open('https://sandbox-portal.moozumi.io/user/login', '_blank');
+      window.open('https://portal.wondergate.io/user/login', '_blank');
       break;
 
     default:
