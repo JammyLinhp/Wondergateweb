@@ -7,24 +7,13 @@
     :image-path="TitleImage"
   ></Title>
 
-  <div
-    class="layout-content app-color-text-main layout-horizontal-equalization"
-  >
-    <ParagraphStructure
-      :paragraph-array="crossBorderList"
-      :image-path="CrossBorderImage"
-      title="moo.product.crossBorder"
-    >
+  <div class="layout-content app-color-text-main layout-horizontal-equalization">
+    <ParagraphStructure :paragraph-array="crossBorderList" :image-path="CrossBorderImage" title="moo.product.crossBorder">
     </ParagraphStructure>
   </div>
 
   <div class="layout-all-center" v-if="scopeList.length != 0">
-    <img
-      class="product-scope-logo"
-      :src="item"
-      alt="logo"
-      v-for="item in scopeList"
-    />
+    <img class="product-scope-logo" :src="item" alt="logo" v-for="item in scopeList" />
   </div>
 
   <div class="layout-background-3">
@@ -42,14 +31,10 @@
             <template #title>
               <img :src="item.path" alt="product" />
             </template>
-            <div
-              class="app-color-text-main app-description-text-small app-detail-font app-text-description-title"
-            >
+            <div class="app-color-text-main app-description-text-small app-detail-font app-text-description-title">
               {{ $t(String(item.title)) }}
             </div>
-            <div
-              class="app-color-text-main app-detail-font app-text-description-spacing-top app-description-text-smaller"
-            >
+            <div class="app-color-text-main app-detail-font app-text-description-spacing-top app-description-text-smaller">
               {{ $t(String(item.description)) }}
             </div>
           </a-card>
@@ -66,60 +51,35 @@
       <div class="app-description-text-small app-detail-font">
         {{ $t('moo.product.paymentMethodDescription') }}
       </div>
-      <div
-        class="app-description-text-small app-text-font layout-content-subspacing-small"
-      >
+      <div class="app-description-text-small app-text-font layout-content-subspacing-small">
         {{ $t('moo.product.card') }}
       </div>
       <div class="layout-background-3 product-card-wrap">
         <a-row class="layout-all-center">
           <a-col :span="8" class="product-card-item-spacing">
-            <img
-              src="../../../assets/images/product/img_product_mastercard.png"
-              alt="card"
-            />
+            <img src="../../../assets/images/product/img_product_mastercard.png" alt="card" />
           </a-col>
           <a-col :span="8" class="product-card-item-spacing">
-            <img
-              src="../../../assets/images/product/img_product_visa.png"
-              alt="card"
-            />
+            <img src="../../../assets/images/product/img_product_visa.png" alt="card" />
           </a-col>
           <a-col :span="8" class="product-card-item-spacing">
-            <img
-              src="../../../assets/images/product/img_product_dc.png"
-              alt="card"
-            />
+            <img src="../../../assets/images/product/img_product_dc.png" alt="card" />
           </a-col>
         </a-row>
-        <a-row
-          class="layout-content-subspacing layout-all-center"
-          style="justify-content: left"
-        >
+        <a-row class="layout-content-subspacing layout-all-center" style="justify-content: left">
           <a-col :span="8" class="product-card-item-spacing">
-            <img
-              src="../../../assets/images/product/img_product_ae.png"
-              alt="card"
-            />
+            <img src="../../../assets/images/product/img_product_ae.png" alt="card" />
           </a-col>
           <a-col :span="8" class="product-card-item-spacing">
-            <img
-              src="../../../assets/images/product/img_product_discover.png"
-              alt="card"
-            />
+            <img src="../../../assets/images/product/img_product_discover.png" alt="card" />
           </a-col>
         </a-row>
       </div>
-      <div
-        class="app-description-text-small app-text-font layout-content-subspacing-small"
-      >
+      <div class="app-description-text-small app-text-font layout-content-subspacing-small">
         {{ $t('moo.product.local') }}
       </div>
       <div class="layout-background-3 product-card-wrap">
-        <img
-          src="../../../assets/images/product/img_product_local.png"
-          alt="card"
-        />
+        <img src="../../../assets/images/product/img_product_local.png" alt="card" />
       </div>
     </template>
   </FloatStructure>
@@ -136,22 +96,14 @@
         class="app-description-text-small app-detail-font product-settlement-description"
         v-html="$t('moo.product.settlementDescription')"
       ></div>
-      <img
-        src="../../../assets/images/product/img_settlement.png"
-        alt="product"
-      />
+      <img src="../../../assets/images/product/img_settlement.png" alt="product" />
     </div>
   </div>
 
-  <div
-    class="layout-content app-color-text-main layout-two-side-end layout-horizontal-equalization"
-  >
+  <div class="layout-content app-color-text-main layout-two-side-end layout-horizontal-equalization">
     <HalfStructure alignment-mode="top">
       <template #left>
-        <div
-          class="app-description-text-small app-text-font"
-          layout-content-subspacing-small
-        >
+        <div class="app-description-text-small app-text-font" layout-content-subspacing-small>
           {{ $t('moo.product.virtuallyPaymentTitle') }}
         </div>
         <div class="app-title-text-small app-text-font">
@@ -188,7 +140,6 @@ import ExperienceImage from '@/assets/images/product/img_product_experience.png'
 import OptimizedImage from '@/assets/images/product/img_product_optimized.png';
 import CardImage from '@/assets/images/product/img_product_card.png';
 import TitleImage from '@/assets/images/product/img_product_title.png';
-import { createImageList } from '@/utils/tools';
 
 const crossBorderList = ref<ICard[]>([
   {
@@ -206,9 +157,11 @@ const crossBorderList = ref<ICard[]>([
 ]);
 
 const scopeList = ref(
-  createImageList(
-    import.meta.globEager('../../assets/images/product/scope/*')
-  ) as any
+  Object.values(
+    import.meta.glob('../../assets/images/product/scope/*', {
+      eager: true,
+    })
+  ).map((module: any) => module.default)
 );
 
 const globalList = ref<ICard[]>([

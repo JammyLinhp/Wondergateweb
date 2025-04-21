@@ -6,23 +6,15 @@
         <div class="structure-title-left">
           <div class="structure-title-notes">
             <star-filled class="structure-title-notes-text" />
-            <span class="structure-title-notes-text app-detail-font">{{
-              $t('moo.home.labels')
-            }}</span>
+            <span class="structure-title-notes-text app-detail-font">{{ $t('moo.home.labels') }}</span>
           </div>
-          <div
-            class="app-title-text app-title-font home-title-padding-top app-color-text"
-          >
+          <div class="app-title-text app-title-font home-title-padding-top app-color-text">
             {{ $t('moo.home.title') }}
           </div>
-          <div
-            class="app-title-text app-title-font home-title-padding-bottom app-color-white"
-          >
+          <div class="app-title-text app-title-font home-title-padding-bottom app-color-white">
             {{ $t('moo.home.titleMain') }}
           </div>
-          <div
-            class="app-description-text-small app-detail-font home-title-padding app-color-white"
-          >
+          <div class="app-description-text-small app-detail-font home-title-padding app-color-white">
             {{ $t('moo.home.titleExplanation') }}
           </div>
           <div class="title-button">
@@ -30,10 +22,7 @@
           </div>
         </div>
         <div class="structure-title-right">
-          <img
-            src="../assets/images/home/img_title_payment_detail.png"
-            alt="payment"
-          />
+          <img src="../assets/images/home/img_title_payment_detail.png" alt="payment" />
         </div>
       </div>
 
@@ -55,14 +44,9 @@
       <div class="app-title-text home-suite-title-padding">
         {{ $t('moo.home.suite') }}
       </div>
-      <div
-        class="app-description-text home-suite-tip-padding app-detail-font"
-        v-html="$t('moo.home.suiteDescription')"
-      ></div>
+      <div class="app-description-text home-suite-tip-padding app-detail-font" v-html="$t('moo.home.suiteDescription')"></div>
 
-      <div
-        class="home-card-wrap layout-content layout-two-side-start app-detail-font"
-      >
+      <div class="home-card-wrap layout-content layout-two-side-start app-detail-font">
         <div class="home-card-content" v-for="item in cardList">
           <div><img :src="item.path" alt="" /></div>
           <div class="home-card-title app-subtitle-text">
@@ -79,35 +63,18 @@
   <div>
     <div class="layout-content app-color-text-main layout-two-side-end">
       <div class="layout-horizontal-equalization">
-        <div
-          class="app-title-text-small home-suite-title-padding app-text-font"
-        >
+        <div class="app-title-text-small home-suite-title-padding app-text-font">
           {{ $t('moo.home.convenientSystemTitle') }}
         </div>
-        <div
-          class="app-description-text-small app-detail-font"
-          v-html="$t('moo.home.convenientSystemDescription')"
-        ></div>
+        <div class="app-description-text-small app-detail-font" v-html="$t('moo.home.convenientSystemDescription')"></div>
       </div>
       <div class="layout-horizontal-equalization">
-        <img
-          src="../assets/images/home/img_convenient_system.png"
-          alt="payment"
-        />
+        <img src="../assets/images/home/img_convenient_system.png" alt="payment" />
       </div>
     </div>
-    <div
-      class="layout-all-center layout-content home-logo-organization-wrap"
-      v-if="organizationList.length != 0"
-    >
-      <img
-        class="home-logo-organization"
-        :src="item"
-        alt="logo"
-        v-for="item in organizationList"
-      />
+    <div class="layout-all-center layout-content home-logo-organization-wrap" v-if="organizationList.length != 0">
+      <img class="home-logo-organization" :src="item" alt="logo" v-for="item in organizationList" />
     </div>
-
     <div class="layout-content home-rapid-transaction">
       <StepComponents
         :step-list="stepList"
@@ -133,7 +100,6 @@ import stepTwo from '@/assets/images/home/img_step_two.png';
 import stepThree from '@/assets/images/home/img_step_three.png';
 import { ref } from 'vue';
 import { ICard } from '@/interface/home';
-import { createImageList } from '@/utils/tools';
 
 const dataList: ICard[] = [
   {
@@ -190,9 +156,11 @@ const stepList: ICard[] = [
 ];
 
 const organizationList = ref(
-  createImageList(
-    import.meta.globEager('../assets/images/home/organization/*')
-  ) as any
+  Object.values(
+    import.meta.glob('../assets/images/home/organization/*', {
+      eager: true,
+    })
+  ).map((module: any) => module.default)
 );
 </script>
 

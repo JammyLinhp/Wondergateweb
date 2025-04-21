@@ -1,11 +1,9 @@
-/*
-  客户端入口
-*/
+import './style.css';
 import { createApp } from './main';
 
-const { app, router } = createApp();
-app.mount('#app');
+const { app } = createApp();
 
+app.mount('#app');
 
 // 适配屏幕大小
 const reSize = () => {
@@ -35,4 +33,3 @@ reSize();
 window.onresize = () => {
   reSize();
 };
-

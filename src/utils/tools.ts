@@ -3,11 +3,7 @@ import { h } from 'vue';
 import { CloseCircleOutlined } from '@ant-design/icons-vue';
 
 const createElementVNode = (content: any, duration: number) => {
-  const innerText = h(
-    'span',
-    { style: { color: 'rgba(0, 0, 0, 0.85)', fontSize: '14px' } },
-    content,
-  );
+  const innerText = h('span', { style: { color: 'rgba(0, 0, 0, 0.85)', fontSize: '14px' } }, content);
   const innerIcon = h(CloseCircleOutlined, {
     style: {
       marginLeft: '10px',
@@ -20,23 +16,9 @@ const createElementVNode = (content: any, duration: number) => {
     },
     onclick: () => message.destroy(),
   });
-  const container = h('span', {}, [
-    innerText,
-    duration === 0 ? innerIcon : null,
-  ]);
+  const container = h('span', {}, [innerText, duration === 0 ? innerIcon : null]);
   return container;
 };
-
-/**
- * 创建一个图片地址的数组
- */
-export function createImageList(modules: any) {
-  const array = [] as any;
-  Object.keys(modules).forEach((key: any) => {
-    array.push(modules[key].default);
-  });
-  return array;
-}
 
 /**
  *
@@ -44,11 +26,7 @@ export function createImageList(modules: any) {
  * @param type success|info|error|warning
  * @param duration
  */
-export function showMessage(
-  content: any,
-  type: string = 'success',
-  duration = 2.5,
-) {
+export function showMessage(content: any, type: string = 'success', duration = 2.5) {
   if (type === 'success') {
     message.success(createElementVNode(content, duration), duration);
   } else if (type === 'warning') {
@@ -59,7 +37,6 @@ export function showMessage(
     message.info(createElementVNode(content, duration), duration);
   }
 }
-
 
 export function deepClone(obj: any) {
   let result: any = Array.isArray(obj) ? [] : {};
