@@ -6,8 +6,8 @@
         <img v-if="!isDark" src="../../assets/images/logo_light.png" alt="logo" />
       </div>
       <div class="header-title" :class="{ 'dark-logo': isDark }">
-        <Menus ref="menus" class="is-pc-menu"></Menus>
-        <div class="is-phone-menu">
+        <Menus v-if="!isPhone" ref="menus" class="is-pc-menu" mode="horizontal"></Menus>
+        <div v-else class="is-phone-menu">
           <menu-outlined class="header-phone-menu-icon" @click="onDrawerClick" />
           <MenuDrawer ref="menuDrawer"></MenuDrawer>
         </div>
@@ -54,8 +54,7 @@
 <script setup lang="ts">
 import MenuDrawer from '@/components/header/components/drawer/index.vue';
 import Menus from '@/components/header/components/menu/index.vue';
-import { getCurrentInstance } from 'vue';
-import { useRouter } from 'vue-router';
+import { getCurrentInstance, onMounted, onUnmounted, ref } from 'vue';
 
 defineProps({
   isDark: {
@@ -64,7 +63,7 @@ defineProps({
   },
 });
 const { proxy } = getCurrentInstance() as any;
-const router = useRouter();
+const isPhone = ref(false);
 
 const onDrawerClick = () => {
   proxy.$refs.menuDrawer.openDrawer();
@@ -91,6 +90,20 @@ const onUserClick = (code: any) => {
       break;
   }
 };
+
+const handleResize = () => {
+  const width = window.innerWidth;
+  isPhone.value = width <= 770;
+};
+
+onMounted(() => {
+  handleResize();
+  window.addEventListener('resize', handleResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize);
+});
 </script>
 
 <style lang="less">
