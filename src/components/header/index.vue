@@ -12,7 +12,7 @@
           <MenuDrawer ref="menuDrawer"></MenuDrawer>
         </div>
 
-        <div
+        <!-- <div
           :class="{
             'layout-background-1': !isDark,
             'layout-background-2': isDark,
@@ -36,7 +36,7 @@
           @click="onUserClick(2)"
         >
           {{ $t('moo.header.login') }}
-        </div>
+        </div> -->
         <!--        <div :class="{-->
         <!--                          'layout-background-1': !isDark,-->
         <!--                          'layout-background-2': isDark,-->
