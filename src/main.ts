@@ -43,13 +43,12 @@ export const createApp = () => {
     // 关闭18n警告
     fallbackWarn: false,
     warnHtmlMessage: false,
-    missingWarn: false
+    missingWarn: false,
   });
   app.use(i18n);
 
   // 关闭vue警告
-  app.config.warnHandler = (msg, instance, trace) => {
-  };
+  app.config.warnHandler = (msg: any, instance: any, trace: any) => {};
 
   return { app, router };
 };
