@@ -52,5 +52,7 @@ export default defineConfig({
       },
     },
     port: 12017,
+    host: '0.0.0.0', // 允许外部访问
+    allowedHosts: ['wondergate.io', 'www.wondergate.io', 'localhost', '127.0.0.1'],
   },
 });

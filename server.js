@@ -21,7 +21,8 @@ if (!isProduction) {
   const { createServer } = await import('vite');
   vite = await createServer({
     server: {
-      middlewareMode: true,
+      middlewareMode: 'ssr',
+      host: '0.0.0.0',
       hmr: {
         // 调整超时阈值
         timeout: 30000,
