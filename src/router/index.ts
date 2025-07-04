@@ -1,10 +1,5 @@
-import {
-  createMemoryHistory,
-  createRouter as _createRouter,
-  createWebHistory, Router
-} from 'vue-router';
+import { createMemoryHistory, createRouter as _createRouter, createWebHistory, Router } from 'vue-router';
 import BaseLayout from '@/layout/base/index.vue';
-import IndexPage from '@/views/index.vue';
 import Product from '@/router/config/product';
 import Policy from '@/router/config/policy';
 
@@ -16,16 +11,16 @@ export const createRouter = (): Router =>
         path: '/',
         name: 'base layout',
         component: BaseLayout,
-        redirect: '/index',
+        redirect: '/home',
         children: [
           {
-            path: '/index',
-            name: 'index',
+            path: '/home',
+            name: 'home',
             component: () => import('@/views/index.vue'),
             meta: {
               key: 'home',
               code: 'home',
-              activeMenu: '/index'
+              activeMenu: '/home'
             }
           },
           {
@@ -64,7 +59,6 @@ export const createRouter = (): Router =>
       }
     ]
   });
-
 
 // export const setupRouter = (app: any) => {
 //   router.beforeEach(async (to, from, next) => {

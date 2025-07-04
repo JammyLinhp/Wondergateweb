@@ -71,25 +71,25 @@ const onDrawerClick = () => {
 
 const onLogoClick = () => {
   proxy.$refs.menus.jumpToPage({
-    path: '/index',
+    path: '/home',
     name: 'home',
   });
 };
 
-const onUserClick = (code: any) => {
-  switch (code) {
-    case 1:
-      window.open('https://portal.wondergate.io/user/register', '_blank');
-      break;
+// const onUserClick = (code: any) => {
+//   switch (code) {
+//     case 1:
+//       window.open('https://portal.wondergate.io/user/register', '_blank');
+//       break;
 
-    case 2:
-      window.open('https://portal.wondergate.io/user/login', '_blank');
-      break;
+//     case 2:
+//       window.open('https://portal.wondergate.io/user/login', '_blank');
+//       break;
 
-    default:
-      break;
-  }
-};
+//     default:
+//       break;
+//   }
+// };
 
 const handleResize = () => {
   const width = window.innerWidth;
