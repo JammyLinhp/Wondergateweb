@@ -56,6 +56,11 @@
             this website in jurisdictions where such content or use is unlawful is strictly prohibited. Users are
             responsible for complying with all applicable laws in their local jurisdiction.
           </p>
+          <p>
+            For services provided by our affiliated entities in Canada or the United States, additional terms or local
+            regulatory requirements may apply. Please refer to the relevant entity directly for jurisdiction-specific
+            information.
+          </p>
         </div>
       </div>
     </div>
@@ -72,9 +77,11 @@ import Footer from '@/components/footer/index.vue';
 .disclaimer-content p {
   line-height: 26px;
 }
+
 .content-title {
   font-weight: 800;
 }
+
 .disclaimer-int {
   padding-top: 2.8rem;
   padding-bottom: 4.5rem;
