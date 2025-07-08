@@ -12,7 +12,8 @@ export default {
       paymentSolutions: 'Payment solutions',
       securityCenter: 'Security Center',
       aboutUs: 'About Us',
-      contactUs: 'Contact Us'
+      contactUs: 'Contact Us',
+      TermsAndPolicies: 'Terms And Policies'
     },
     header: {
       login: 'Log In',
@@ -189,6 +190,13 @@ export default {
       business: 'Business Reminders',
       businessDescription: 'When various abnormal situations occur or there are urgent matters to be handled, the system will create reminders.<br><br>Wondergate staff will promptly handle these reminders and contact the merchant when necessary.<br>For example, common reminders include: limit reached, multiple failed transactions in a row.'
     },
+    terms: {
+      title: 'TERMS AND POLICIES',
+      titleDescription: 'We ensure your rights through clear terms and transparent policies, building trust and mutual success through compliance.',
+      subTitle: 'Terms and Conditions of Service',
+      subTitleTime: 'Last Updated: June 18, 2025',
+      subTitleIntro: 'Welcome to Wondergate. These Terms and Conditions ("Terms") govern your access to and use of the services ("Services") provided by Wondergate Limited. Wondergate Limited is a company incorporated in Hong Kong and licensed as a Money Service Operator (MSO License Number: 25-05-03281).<br>By accessing or using our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree, you must not use the Services.',
+    },
     about: {
       title: 'About Us',
       titleDescription: 'Connecting the global digital economy.<br>Build financial infrastructure for cross-border commerce.',
@@ -203,7 +211,8 @@ export default {
       email: 'Email',
       officeAddress: 'Address',
       companyName: 'Company name',
-      companyRegistrationNumber: 'Company registration number'
+      companyRegistrationNumber: 'Company registration number',
+      userService: 'User Services'
     },
     footer: {
       launch: 'LAUNCH WITH WONDERGATE',

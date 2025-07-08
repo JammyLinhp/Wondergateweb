@@ -2,18 +2,16 @@
   <Header :is-dark="true"></Header>
   <div class="app-header-distance"></div>
   <div class="layout-background-3">
-    <FloatStructure height="38rem" :image-path="ContactImage">
+    <FloatStructure height="50rem" :image-path="ContactImage">
       <template #content>
         <div class="app-title-text app-title-font app-color-text-main">
           {{ $t('moo.contact.toBegin') }}
         </div>
-        <div
-          class="app-description-text-small app-detail-font contact-description"
-          v-html="$t('moo.contact.youWant')"
-        ></div>
+        <div class="app-description-text-small app-detail-font contact-description" v-html="$t('moo.contact.youWant')">
+        </div>
         <a-tabs>
           <template :key="index" v-for="(item, index) in informationList">
-            <a-tab-pane style="height: 200px">
+            <a-tab-pane style="height: 400px">
               <template #tab>{{ item.title }}</template>
               <a-row :gutter="36">
                 <a-col :span="9">
@@ -45,16 +43,20 @@
                   </div>
                 </a-col>
               </a-row>
-              <a-row
-                :gutter="36"
-                class="layout-content-subspacing-small"
-                v-if="item.title === 'Hong Kong'"
-              >
+              <a-row :gutter="36" class="layout-content-subspacing-small" v-if="item.title === 'Hong Kong'">
                 <a-col :span="9">
                   <div>{{ $t('moo.contact.companyRegistrationNumber') }} :</div>
                 </a-col>
                 <a-col :span="12">
                   <div>3311511</div>
+                </a-col>
+              </a-row>
+              <a-row :gutter="36" class="layout-content-subspacing-small" :wrap="true">
+                <a-col :span="9">
+                  <div>{{ $t('moo.contact.userService') }} :</div>
+                </a-col>
+                <a-col :span="13">
+                  <div class="linebreak">{{ item?.userService }}</div>
                 </a-col>
               </a-row>
             </a-tab-pane>
@@ -79,17 +81,23 @@ const informationList = ref<ICard[]>([
     title: 'Hong Kong',
     name: 'Wondergate Co., Limited',
     description:
-      'FLAT/RM 121 1/F LIVEN HOUSE NOS.61-63 KING YIP STREET KWUN TONG'
+      'FLAT/RM 121 1/F LIVEN HOUSE NOS.61-63 KING YIP STREET KWUN TONG',
+    userService:
+      'Services for Hong Kong users are regulated under Hong Kong law, including but not limited to: Payment Systems and Stored Value Facilities Ordinance (Cap. 584), Anti-Money Laundering and Counter-Terrorist Financing Ordinance (Cap. 615), and other applicable regulations.'
   },
   {
     title: 'Canada',
     name: 'WONDERGATE FINTECH INC.',
-    description: '44322 YALE RD UNIT 3B #198 CHILLIWACK BC V2R 4H1 CANADA'
+    description: '44322 YALE RD UNIT 3B #198 CHILLIWACK BC V2R 4H1 CANADA',
+    userService:
+      'Services for Canadian users comply with: The Constitution of Canada, Proceeds of Crime (Money Laundering) and Terrorist Financing Act (PCMLTFA), Payment Services Act, and other relevant provincial and federal laws.\nUsers from other jurisdictions must ensure compliance with their local money transmission regulations before using our services.'
   },
   {
     title: 'America',
     name: 'Wondergate Limited',
-    description: '1401 21ST ST STE R  SACRAMENTO, CA 95811'
+    description: '1401 21ST ST STE R  SACRAMENTO, CA 95811',
+    userService:
+      'Services in the United States are governed by U.S. federal law, including: Bank Secrecy Act (BSA), Electronic Fund Transfer Act (Regulation E), and other relevant statutes. These services are not available to users in U.S.-sanctioned jurisdictions.'
   }
 ]);
 </script>
@@ -97,14 +105,18 @@ const informationList = ref<ICard[]>([
 <style lang="less">
 @import '@/styles/base';
 
-.ant-tabs-top > .ant-tabs-nav::before,
-.ant-tabs-bottom > .ant-tabs-nav::before,
-.ant-tabs-top > div > .ant-tabs-nav::before,
-.ant-tabs-bottom > div > .ant-tabs-nav::before {
+.ant-tabs-top>.ant-tabs-nav::before,
+.ant-tabs-bottom>.ant-tabs-nav::before,
+.ant-tabs-top>div>.ant-tabs-nav::before,
+.ant-tabs-bottom>div>.ant-tabs-nav::before {
   border: 0px;
 }
 
 .contact-description {
   padding: 1.65rem 0 0.8rem;
+}
+
+.linebreak {
+  white-space: pre-line;
 }
 </style>

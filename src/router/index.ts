@@ -2,6 +2,7 @@ import { createMemoryHistory, createRouter as _createRouter, createWebHistory, R
 import BaseLayout from '@/layout/base/index.vue';
 import Product from '@/router/config/product';
 import Policy from '@/router/config/policy';
+import Security from './config/security';
 
 export const createRouter = (): Router =>
   _createRouter({
@@ -31,7 +32,7 @@ export const createRouter = (): Router =>
               key: 'security',
               code: 'security',
               activeMenu: '/security-center'
-            }
+            },
           },
           {
             path: '/about-us',
@@ -54,7 +55,8 @@ export const createRouter = (): Router =>
             }
           },
           ...Product,
-          ...Policy
+          ...Policy,
+          ...Security
         ]
       }
     ]

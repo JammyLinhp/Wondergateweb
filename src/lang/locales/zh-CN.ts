@@ -13,6 +13,7 @@ export default {
       securityCenter: 'Security Center',
       aboutUs: 'About Us',
       contactUs: 'Contact Us',
+      TermsAndPolicies: 'Terms And Policies'
     },
     home: {
       labels: 'Connect To Any Payment Service',

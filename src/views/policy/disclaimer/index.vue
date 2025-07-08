@@ -3,37 +3,58 @@
   <div class="app-header-distance"></div>
   <div class="layout-background-3">
     <div class="layout-content">
-      <div class="layout-content-padding-top layout-content-padding-bottom">
-        <div class="app-title-font app-subtitle-text">DISCLAIMER</div>
-        <div
-          class="app-description-text-small app-detail-font layout-content-subspacing-small"
-        >
+      <div class="layout-content-padding-top layout-content-padding-bottom disclaimer-int">
+        <div class="app-title-font app-title-text" style="padding-bottom: 1.5rem;">DISCLAIMER</div>
+        <div class="app-description-text-small app-detail-font layout-content-subspacing-small disclaimer-content">
           <p>
-            Any information contained in this or any other Wondergate.io website
-            should not be construed as legal advice and is not intended to be a
-            substitute for legal counsel on any subject matter. The contents of
-            this site are for general information purposes only. Whilst we
-            endeavour to ensure that the information on this site is correct, no
-            warranty, express or implied, is given as to its accuracy and we do
-            not accept any liability for error or omission. We shall not be
-            liable for any damage (including, without limitation, damage for
-            loss of business or loss of profits) arising in contract, tort or
-            otherwise from the use of, or inability to use, this site or any
-            material contained in it, or from any action or decision taken as a
-            result of using this site or any such material. Some of the material
-            on this site may have been prepared some time ago.
+            The information provided on this website, including but not limited to policy documents, rate schedules,
+            operational guidelines, compliance statements, and other materials (collectively, “Content”), is for general
+            informational purposes only. It does not constitute, and shall not be construed as, legal, regulatory,
+            financial, or investment advice under any jurisdiction.
           </p>
           <p>
-            Certain parts of this site may link to external internet sites, and
-            other external internet sites may link to this website.
-            Wondergate.io is not responsible for the content of any external
-            internet sites and has no control over the nature, content and
-            availability of those sites. The use of any links to external
-            internal sites does not constitute an endorsement, guarantee or
-            approval by Wondergate.io for any of the products, services,
-            information, opinions or any other contents contained. Wondergate.io
-            bears no responsibility for the accuracy, legality or content of the
-            external site or for that of subsequent links.
+            No part of the Content on this website shall be interpreted as a guarantee, certification, or endorsement of
+            the compliance status of specific transactions, nor as a representation of the suitability, availability,
+            commercial value, or legality of any services. Users are solely responsible for ensuring that the use of our
+            products or services is lawful under the laws and regulations of their respective jurisdictions.
+          </p>
+          <p>
+            Third-party content or references (such as documents from regulatory authorities or industry standards) are
+            provided for convenience only. Wondergate.io does not warrant the accuracy, completeness, or timeliness of
+            any such materials. Responsibility for verifying the validity of third-party content rests with the original
+            sources.
+          </p>
+          <p>
+            While reasonable efforts are made to ensure the accuracy and currency of the Content, Wondergate.io makes no
+            representations or warranties of any kind, express or implied, about the completeness, accuracy,
+            reliability, suitability, or availability of the website or any information contained herein. Some content
+            may refer to historical or outdated materials; the latest officially published versions shall prevail in all
+            cases.
+          </p>
+          <p>
+            We reserve the right to modify, update, or remove any Content, or to amend this Disclaimer, at any time
+            without prior notice. Continued use of the website or services following such modifications constitutes
+            acceptance of the updated terms.
+          </p>
+          <p>
+            To the fullest extent permitted by law, Wondergate.io shall not be liable for any direct, indirect,
+            incidental, special, consequential, or punitive damages, including but not limited to loss of profits,
+            business interruption, or loss of data, arising out of or in connection with the use of, inability to use,
+            or reliance on any content on this website.
+          </p>
+          <p>
+            This website may contain links to third-party websites. These links are provided solely for your
+            convenience. Wondergate.io does not endorse, approve, control, or assume responsibility for the content,
+            availability, or accuracy of any external sites or any products, services, or information contained therein.
+            Wondergate.io shall not be liable for any damages or losses resulting from the use of any third-party
+            websites.
+          </p>
+          <p class="content-title">Governing Law</p>
+          <p>
+            This Disclaimer and any use of the website shall be governed by and construed in accordance with the laws of
+            the Hong Kong Special Administrative Region (HKSAR), without regard to its conflict of law rules. Use of
+            this website in jurisdictions where such content or use is unlawful is strictly prohibited. Users are
+            responsible for complying with all applicable laws in their local jurisdiction.
           </p>
         </div>
       </div>
@@ -47,4 +68,15 @@ import Header from '@/components/header/index.vue';
 import Footer from '@/components/footer/index.vue';
 </script>
 
-<style lang="less"></style>
+<style lang="less">
+.disclaimer-content p {
+  line-height: 26px;
+}
+.content-title {
+  font-weight: 800;
+}
+.disclaimer-int {
+  padding-top: 2.8rem;
+  padding-bottom: 4.5rem;
+}
+</style>

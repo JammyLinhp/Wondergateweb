@@ -3,4 +3,5 @@ export interface ICard {
   name?: string;
   description?: string;
   path?: string;
+  userService?: string
 }

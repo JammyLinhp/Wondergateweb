@@ -58,6 +58,18 @@ export const menuList: IMenu[] = [
     name: 'moo.menu.securityCenter',
     path: '/security-center',
     hash: '#header',
+    menus: [
+      {
+        name: 'moo.menu.securityCenter',
+        path: '/security-center',
+        hash: '#header',
+      },
+      {
+        name: 'moo.menu.TermsAndPolicies',
+        path: '/security-center/terms-and-policies/agreement',
+        hash: '#header',
+      }
+    ]
   },
   {
     name: 'moo.menu.aboutUs',
