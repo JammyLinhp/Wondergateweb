@@ -150,8 +150,9 @@ const handleSubMenuClick = () => {
 /* ----菜单样式---- */ 
 
 .menu-container {
-    width: 7.23rem;
+    width: 20%;
     padding-top: 4rem;
+    padding-right: 20px;
 }
 
 .menu-header {
@@ -201,7 +202,7 @@ const handleSubMenuClick = () => {
 /* ----内容样式---- */ 
 
 .sub-content {
-    width: 50rem;
+    width: 80%;
     padding: 3rem 0;
 }
 .content-title {
@@ -230,7 +231,7 @@ const handleSubMenuClick = () => {
     font-size: 0.8rem;
     font-weight: 800;
     position: relative;
-    padding-left: 25px;
+    padding-left: 1.3rem;
 }
 .document-section h2::before {
     content: counter(section) ".";
@@ -248,7 +249,7 @@ const handleSubMenuClick = () => {
 .clause-list li {
     counter-increment: clause;
     position: relative;
-    padding-left: 30px;
+    padding-left: 1.54rem;
     font-weight: 500;
     margin: 2px 0;
     font-size: 0.8rem;
