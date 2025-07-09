@@ -14,14 +14,14 @@
     </div>
 
     <div>
-        <div class="terms-content layout-content" style="height: 115rem;">
+        <div class="terms-content layout-content" >
             <div class="menu-container">
                 <div class="menu-header">
                     <span class="vertical-line" :class="{ active: isVerticalLineActive }"></span>
-                    <h2 class="general-title">General</h2>
+                    <h2 class="general-title app-description-text">General</h2>
                 </div>
                 <ul class="sub-menu">
-                    <li class="sub-menu-item" v-for="(item) in subMenuList" 
+                    <li class="sub-menu-item " v-for="(item) in subMenuList" 
                     @click="handleSubMenuClick">
                     {{ item }}</li>
                 </ul>
@@ -142,30 +142,32 @@ const handleSubMenuClick = () => {
 .terms-title-description{ 
     padding-top: 3.8rem;
 }
+.terms-content {
+    display: flex;
+    justify-content: space-between;
+}
 
 /* ----菜单样式---- */ 
 
 .menu-container {
     width: 7.23rem;
-    padding-top: 3.6rem;
-    margin-left: 3.5rem;
+    padding-top: 4rem;
 }
 
 .menu-header {
     display: flex;
-    //   align-items: center;
     text-align: center;
     cursor: default;
 }
 
 .vertical-line {
     display: inline-block;
-    width: 2px;
-    height: 24px;
+    width: 0.2rem;
+    height: 1.23rem;
     background-color: transparent;
     transition: background-color 0.3s ease;
-    margin-top: 5px;
-    margin-right: 9px;
+    margin-top: 0.2rem;
+    margin-right: 0.5rem;
     border-radius: 46px;
 }
 
@@ -174,7 +176,6 @@ const handleSubMenuClick = () => {
 }
 
 .general-title {
-    font-size: 22px;
     font-weight: 500;
     color: #302C3E;
 }
@@ -186,10 +187,11 @@ const handleSubMenuClick = () => {
 }
 
 .sub-menu-item {
-    padding-left: 13px;
+    padding-left: 0.67rem;
     color: #00BBD8;
     cursor: pointer;
     transition: color 0.3s ease;
+    font-size: 0.8rem;
 }
 
 .sub-menu-item:hover {
@@ -199,26 +201,24 @@ const handleSubMenuClick = () => {
 /* ----内容样式---- */ 
 
 .sub-content {
-    width: 47.6rem;
-    height: 80%;
-    float: right;
-    margin-top: -4.5rem;
-    margin-right: 2.5rem;
+    width: 50rem;
+    padding: 3rem 0;
 }
 .content-title {
     text-align: center;
-    font-size: 34px;
+    font-size: 1.75rem;
     font-weight: 500;
     margin: 10px 0;
 }
 .content-title-time {
     text-align: center;
-    font-size: 16px;
+    font-size: 0.8rem;
     font-weight: 500;
     margin: 20px 0;
 }
 .content-title-intro {
     font-weight: 500;
+    font-size: 0.8rem
 }
 .document-section {
     counter-reset: section 0;
@@ -227,7 +227,7 @@ const handleSubMenuClick = () => {
 }
 .document-section h2 {
     counter-increment: section;
-    font-size: 16px;
+    font-size: 0.8rem;
     font-weight: 800;
     position: relative;
     padding-left: 25px;
@@ -251,7 +251,7 @@ const handleSubMenuClick = () => {
     padding-left: 30px;
     font-weight: 500;
     margin: 2px 0;
-    
+    font-size: 0.8rem;
 }
 .clause-list li::before {
     content: counter(section) "." counter(clause);

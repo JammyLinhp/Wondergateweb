@@ -14,10 +14,10 @@ export default [
         path: '/security-center/terms-and-policies/agreement',
         name: 'terms and policies',
         component: () => import('@/views/security/terms/agreement/index.vue'),
-        meata: {
+        meta: {
             key: 'security.terms',
             code: 'security.terms',
-            activeMenu: '/security-center/terms-and-policies'
+            activeMenu: '/security-center/terms-and-policies/agreement'
         }
     },
 ]
