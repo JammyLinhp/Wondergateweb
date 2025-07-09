@@ -3,7 +3,7 @@
     <div class="layout-background-2 app-header-distance">
         <div class="terms-title-wrap">
             <div class="layout-content">
-                <div class="app-title-text app-title-font app-color-text">
+                <div class="app-title-text app-title-font app-color-text" style="letter-spacing: 1.14px;">
                     {{ $t('moo.terms.title') }}
                 </div>
                 <div class="app-description-text-smaller app-detail-font app-color-text terms-title-description">
@@ -18,7 +18,7 @@
             <div class="menu-container">
                 <div class="menu-header">
                     <span class="vertical-line" :class="{ active: isVerticalLineActive }"></span>
-                    <h2 class="general-title app-description-text">General</h2>
+                    <h2 class="general-title">General</h2>
                 </div>
                 <ul class="sub-menu">
                     <li class="sub-menu-item " v-for="(item) in subMenuList" 
@@ -27,7 +27,7 @@
                 </ul>
             </div>
             <div class="sub-content">
-                <div class="content-title app-text-font">{{ $t('moo.terms.subTitle') }}</div>
+                <div class="content-title">{{ $t('moo.terms.subTitle') }}</div>
                 <div class="content-title-time">{{ $t('moo.terms.subTitleTime') }}</div>
                 <div class="content-title-intro" v-html="$t('moo.terms.subTitleIntro')"></div>
                 
@@ -138,9 +138,12 @@ const handleSubMenuClick = () => {
 .terms-title-wrap {
     padding: 3.2rem 0 5rem 0;
     text-align: center;
+
 }
 .terms-title-description{ 
     padding-top: 3.8rem;
+    font-family: Avenir;
+    font-weight: 500;
 }
 .terms-content {
     display: flex;
@@ -153,6 +156,7 @@ const handleSubMenuClick = () => {
     width: 20%;
     padding-top: 4rem;
     padding-right: 20px;
+    font-family: Avenir;
 }
 
 .menu-header {
@@ -167,7 +171,7 @@ const handleSubMenuClick = () => {
     height: 1.23rem;
     background-color: transparent;
     transition: background-color 0.3s ease;
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
     margin-right: 0.5rem;
     border-radius: 46px;
 }
@@ -177,8 +181,9 @@ const handleSubMenuClick = () => {
 }
 
 .general-title {
-    font-weight: 500;
+    font-weight: 900;
     color: #302C3E;
+    font-size: 1.13rem;
 }
 
 .sub-menu {
@@ -204,22 +209,23 @@ const handleSubMenuClick = () => {
 .sub-content {
     width: 80%;
     padding: 3rem 0;
+    font-family: Avenir;
 }
 .content-title {
     text-align: center;
-    font-size: 1.75rem;
-    font-weight: 500;
+    font-size: 2.46rem;
+    font-weight: 800;
     margin: 10px 0;
 }
 .content-title-time {
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     font-weight: 500;
     margin: 20px 0;
 }
 .content-title-intro {
     font-weight: 500;
-    font-size: 0.8rem
+    font-size: 0.82rem
 }
 .document-section {
     counter-reset: section 0;
@@ -228,7 +234,7 @@ const handleSubMenuClick = () => {
 }
 .document-section h2 {
     counter-increment: section;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     font-weight: 800;
     position: relative;
     padding-left: 1.3rem;
@@ -252,7 +258,7 @@ const handleSubMenuClick = () => {
     padding-left: 1.54rem;
     font-weight: 500;
     margin: 2px 0;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
 }
 .clause-list li::before {
     content: counter(section) "." counter(clause);

@@ -5,7 +5,7 @@
     <div class="layout-content">
       <div class="layout-content-padding-top layout-content-padding-bottom disclaimer-int">
         <div class="app-title-font app-title-text" style="padding-bottom: 1.5rem;">DISCLAIMER</div>
-        <div class="app-description-text-small app-detail-font layout-content-subspacing-small disclaimer-content">
+        <div class="app-description-text-small app-detail-font layout-content-subspacing-small disclaimer-content" style="font-weight: 500;">
           <p>
             The information provided on this website, including but not limited to policy documents, rate schedules,
             operational guidelines, compliance statements, and other materials (collectively, “Content”), is for general
@@ -74,13 +74,19 @@ import Footer from '@/components/footer/index.vue';
 </script>
 
 <style lang="less">
-.disclaimer-content p {
-  line-height: 26px;
-}
-
 .content-title {
   font-weight: 800;
 }
+
+.disclaimer-content p {
+  line-height: 26px;
+  font-size: 1.02rem;
+  font-family: Avenir;
+  color: #0F100D;
+  letter-spacing: 0px;
+}
+
+
 
 .disclaimer-int {
   padding-top: 2.8rem;
