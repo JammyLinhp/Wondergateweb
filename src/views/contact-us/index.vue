@@ -56,7 +56,7 @@
                   <div>{{ $t('moo.contact.userService') }} :</div>
                 </a-col>
                 <a-col :span="13">
-                  <div class="linebreak">{{ item?.userService }}</div>
+                  <div class="linebreak" v-html="item?.userService"></div>
                 </a-col>
               </a-row>
             </a-tab-pane>
@@ -83,21 +83,21 @@ const informationList = ref<ICard[]>([
     description:
       'FLAT/RM 121 1/F LIVEN HOUSE NOS.61-63 KING YIP STREET KWUN TONG',
     userService:
-      'Services for Hong Kong users are regulated under Hong Kong law, including but not limited to: Payment Systems and Stored Value Facilities Ordinance (Cap. 584), Anti-Money Laundering and Counter-Terrorist Financing Ordinance (Cap. 615), and other applicable regulations.'
+      'Services for Hong Kong users are regulated under Hong Kong law, including but not limited to: <i>Payment Systems and Stored Value Facilities Ordinance (Cap. 584), Anti-Money Laundering and Counter-Terrorist Financing Ordinance (Cap. 615)</i>, and other applicable regulations.'
   },
   {
     title: 'Canada',
     name: 'WONDERGATE FINTECH INC.',
     description: '44322 YALE RD UNIT 3B #198 CHILLIWACK BC V2R 4H1 CANADA',
     userService:
-      'Services for Canadian users comply with: The Constitution of Canada, Proceeds of Crime (Money Laundering) and Terrorist Financing Act (PCMLTFA), Payment Services Act, and other relevant provincial and federal laws.\nUsers from other jurisdictions must ensure compliance with their local money transmission regulations before using our services.'
+      'Services for Canadian users comply with: <i>The Constitution of Canada, Proceeds of Crime (Money Laundering) and Terrorist Financing Act (PCMLTFA), Payment Services Act</i>, and other relevant provincial and federal laws.\nUsers from other jurisdictions must ensure compliance with their local money transmission regulations before using our services.'
   },
   {
     title: 'America',
     name: 'Wondergate Limited',
     description: '1401 21ST ST STE R  SACRAMENTO, CA 95811',
     userService:
-      'Services in the United States are governed by U.S. federal law, including: Bank Secrecy Act (BSA), Electronic Fund Transfer Act (Regulation E), and other relevant statutes. These services are not available to users in U.S.-sanctioned jurisdictions.'
+      'Services in the United States are governed by U.S. federal law, including: <i>Bank Secrecy Act (BSA), Electronic Fund Transfer Act (Regulation E)</i>, and other relevant statutes. These services are not available to users in U.S.-sanctioned jurisdictions.'
   }
 ]);
 </script>
@@ -118,5 +118,9 @@ const informationList = ref<ICard[]>([
 
 .linebreak {
   white-space: pre-line;
+}
+
+.linebreak i {
+  font-style: italic !important;
 }
 </style>
