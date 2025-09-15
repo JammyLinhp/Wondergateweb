@@ -13,7 +13,7 @@
   <div class="footer-wrap footer-navigation-wrap">
     <div class="layout-content">
       <div class="footer-navigation-logo">
-        <img src="@/assets/images/logo_light.png" alt="logo"/>
+        <img src="@/assets/images/logo_light.png" alt="logo" />
       </div>
       <div class="layout-two-side-start-always">
         <div class="footer-navigation-menu data-item" v-for="item in titleList">
@@ -50,7 +50,9 @@
     </div>
     <div class="footer-privacy-wrap">
       <div class="app-detail-font layout-content">
-        <a href="/policy/privacy">Privacy </a> - <a href="/policy/cookies">Cookies </a> -
+        <a href="/policy/privacy">Privacy </a>
+        - <a href="/policy/cookies">Cookies </a> -
+        <a href="/security-center/terms-and-policies/agreement">Terms and conditions </a> -
         <a href="/policy/disclaimer">Disclaimer</a> {{ $t('moo.footer.privacy') }}
       </div>
     </div>
@@ -94,7 +96,7 @@ watch(
   (newValue: any) => {
     onLinkClick();
   },
-  { immediate: true },
+  { immediate: true }
 );
 </script>
 
