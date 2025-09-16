@@ -90,7 +90,7 @@ const setOpenKey = () => {
 };
 
 watch(
-  () => router.currentRoute.value,
+  () => router?.currentRoute?.value,
   (newValue: any) => {
     setCurrentKey();
   },

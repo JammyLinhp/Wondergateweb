@@ -92,7 +92,7 @@ const onLinkClick = (item?: any) => {
 };
 
 watch(
-  () => router.currentRoute.value,
+  () => router?.currentRoute?.value,
   (newValue: any) => {
     onLinkClick();
   },
