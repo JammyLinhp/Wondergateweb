@@ -1,7 +1,7 @@
 export default {
   undefined: '',
   null: '',
-  language: 'Language Zh',
+  language: 'Language EN',
   moo: {
     menu: {
       home: 'Home Page',
@@ -13,7 +13,7 @@ export default {
       securityCenter: 'Security Center',
       aboutUs: 'About Us',
       contactUs: 'Contact Us',
-      TermsAndPolicies: 'Terms And Policies'
+      TermsAndPolicies: 'Terms And Policies',
     },
     header: {
       login: 'Log In',
@@ -23,7 +23,7 @@ export default {
       labels: 'Connect To Any Payment Service',
       title: 'cross-border',
       titleMain: 'payment service solutions',
-      titleExplanation: 'Don\'t let tedious payment issues trouble your business anymore, choose our service products to make your capital flow boundless! Contact us now and embark on your global wealth journey!',
+      titleExplanation: "Don't let tedious payment issues trouble your business anymore, choose our service products to make your capital flow boundless! Contact us now and embark on your global wealth journey!",
       globalPaymentData: '5YEARS+',
       globalPaymentTip: 'Global payment service experience',
       customersData: '5W+',
@@ -41,7 +41,7 @@ export default {
       globalIssuing: 'Global Issuing',
       globalIssuingDescription: 'With just a few simple steps, you can generate virtual cards online. No need for physical cards, easily manage your funds',
       convenientSystemTitle: 'Convenient system to take your startup further and faster',
-      convenientSystemDescription: 'We can launch faster, scale with growth, and automate workflows to do more with less.Build your own API-based integrations or use our low-code or no-code solutions that are simple enough to implement and powerful enough to quickly scale with your needs<br><br>Save engineering time with unified payments. We specialize in gateways, payment rails and financial institutions in the world\'s complex economic landscape, allowing your team to focus on building everything your business needs on a single platform.',
+      convenientSystemDescription: "We can launch faster, scale with growth, and automate workflows to do more with less.Build your own API-based integrations or use our low-code or no-code solutions that are simple enough to implement and powerful enough to quickly scale with your needs<br><br>Save engineering time with unified payments. We specialize in gateways, payment rails and financial institutions in the world's complex economic landscape, allowing your team to focus on building everything your business needs on a single platform.",
       rapidTransactionTitle: 'Rapid Transaction Processing',
       rapidTransactionDescription: 'Experience the market’s quickest settlements,enhancing your cash flow.',
       stepOne: '1 step',
@@ -49,7 +49,7 @@ export default {
       stepTow: '2 step',
       stepTowDescription: 'Link your bank account',
       stepThree: '3 step',
-      stepThreeDescription: 'Start trading'
+      stepThreeDescription: 'Start trading',
     },
     product: {
       title: 'Global payments',
@@ -79,7 +79,7 @@ export default {
       virtuallyPaymentDescription: 'Digital enterprises often need to connect to a range of PCI-compliant endpoints. For example, these endpoints might belong to a partner that operates a hotel or a car rental company, or they might be an emerging gateway.<br><br>Wondergate can easily connect to other PCI-compliant services. You can use our toolkit, anti-fraud services, and third-party merchants to transact with other gateways, all using our single API.',
       settlementTitle: 'Flexible',
       settlementPayment: 'Flexible Payment And Settlement',
-      settlementDescription: 'Consumers can make payments using most common currencies, and you can settle payments using most common currencies according to your own needs.<br><br>Detailed transaction records make it easy for you to reconcile.'
+      settlementDescription: 'Consumers can make payments using most common currencies, and you can settle payments using most common currencies according to your own needs.<br><br>Detailed transaction records make it easy for you to reconcile.',
     },
     account: {
       unlockYourGlobal: 'Unlock Your Global',
@@ -94,7 +94,7 @@ export default {
       safeguardedSecurityTitle: 'Safeguarded Security, A Trusted Choice',
       safeguardedSecurityDescription: 'We employ internationally advanced payment encryption technology and risk control systems to ensure the security of your funds. With 24/7 monitoring and protection, you can collect payments with peace of mind and operate confidently.',
       whyChooseTitle: 'Why Choose Our Global Collection Account?',
-      whyChooseDescription: 'Don\'t let cumbersome collection issues hinder your global business expansion! Open our Global Collection Account now to unlock your global wealth channel! Aggregate funds and create new heights of success!',
+      whyChooseDescription: "Don't let cumbersome collection issues hinder your global business expansion! Open our Global Collection Account now to unlock your global wealth channel! Aggregate funds and create new heights of success!",
       oneStopTitle: 'One-Stop Service, Simplified Processes',
       oneStopDescription: 'We provide a comprehensive global collection solution, eliminating the need to collaborate with multiple banks or payment providers. Simplify your collection processes and focus more on business growth.',
       costEffectiveTitle: 'Cost-Effective, Enhanced Efficiency',
@@ -112,12 +112,12 @@ export default {
       embarkTitle: 'Open a Global Collection Account Now and Embark on Your Global Wealth Journey!',
       collectionOne: 'Create an account',
       collectionTwo: 'Collection',
-      collectionThree: 'Settlement amount'
+      collectionThree: 'Settlement amount',
     },
     cards: {
       enjoy: 'Enjoy a New Global',
       experience: 'Payment Experience!',
-      titleDescription: 'In today\'s digital world, traditional payment methods often fall short when it comes to meeting global payment needs. That\'s why we\'ve partnered with Visa and Mastercard to offer you an innovative issuing virtual card service - a seamless and secure way to make payments worldwide!',
+      titleDescription: "In today's digital world, traditional payment methods often fall short when it comes to meeting global payment needs. That's why we've partnered with Visa and Mastercard to offer you an innovative issuing virtual card service - a seamless and secure way to make payments worldwide!",
       digitalSolution: 'Your Global Digital Payment Solution',
       quickTitle: 'Simple and Quick, Generate with a Single Click',
       quickDescription: 'Say goodbye to cumbersome steps and generate your virtual card effortlessly online. Say farewell to physical cards and manage your funds with ease.',
@@ -126,7 +126,7 @@ export default {
       mindTitle: 'Secure Transactions, Peace of Mind',
       mindDescription: 'Advanced encryption technology and security measures ensure the safety and privacy of every transaction, keeping your funds fully protected.',
       settingsTitle: 'Flexible Management and Personalized Settings',
-      settingsDescription: 'Tailor your virtual card\'s limit, expiration date, and more to fit your unique needs for personalized management.',
+      settingsDescription: "Tailor your virtual card's limit, expiration date, and more to fit your unique needs for personalized management.",
       virtualCards: 'Why Choose Our Virtual Card Services?',
       futureTitle: 'Innovative Technology, Shaping the Future',
       futureDescription: 'As a cutting-edge payment solution provider, we strive to deliver the newest and most convenient payment experiences to you.',
@@ -138,7 +138,7 @@ export default {
       recharge: 'Recharge',
       useCard: 'Use Card',
       embarkTitle: 'Embark on the Journey of Virtual Card Services Today, Ushering in a New Era of Digital Payments!',
-      embarkDescription: 'Don\'t be confined to traditional physical card payments anymore. Join us and experience the convenience and security offered by our virtual card services! Take action now and usher in a new chapter of digital payments!'
+      embarkDescription: "Don't be confined to traditional physical card payments anymore. Join us and experience the convenience and security offered by our virtual card services! Take action now and usher in a new chapter of digital payments!",
     },
     solutions: {
       crossBorder: 'Cross border',
@@ -170,13 +170,13 @@ export default {
       fundFlowTitle: 'Improved Fund Flow',
       fundFlowDescription: 'Efficient fund settlement services accelerate the flow of funds and ensure the smooth operation of logistics companies.',
       riskTitle: 'Risk Management',
-      riskDescription: 'Cross-border payment platforms also provide risk management tools, helping logistics companies identify and avoid potential transaction risks.'
+      riskDescription: 'Cross-border payment platforms also provide risk management tools, helping logistics companies identify and avoid potential transaction risks.',
     },
     security: {
       title: 'Security Center',
       titleDescription: 'Wondergate has a mature risk control model and is constantly expanding and optimizing it according to the development of the industry.<br><br>Customize a personalized risk control strategy for each merchant based on its characteristics.<br><br>Use the risk control model to review each transaction of the merchant, and properly handle risky transactions according to the risk control strategy.<br><br>Keep detailed records of risky transactions and their disposal results to make transactions traceable.',
       riskControl: 'My risk control and AML system',
-      riskControlDescription: 'Our payment system\'s risk control framework is a comprehensive approach to ensuring the security, compliance, and stability of payment transactions. It encompasses several key aspects:',
+      riskControlDescription: "Our payment system's risk control framework is a comprehensive approach to ensuring the security, compliance, and stability of payment transactions. It encompasses several key aspects:",
       identityVerification: '<span class="app-text-font">Customer Identity Verification</span>: To ensure transaction security, we conduct rigorous identity verification of customers, including confirming their identity details and bank accounts, to prevent fraud and money laundering activities.',
       transactionMonitoring: '<span class="app-text-font">Transaction Monitoring</span>:  Our system constantly monitors every transaction, identifying and assessing potential risks. For suspicious transactions, it triggers an alert mechanism to allow us to respond promptly.',
       riskAssessment: '<span class="app-text-font">Risk Assessment</span>: Before transactions occur, we assess the risk level based on customers\' transaction history, behavioral patterns, and other factors.',
@@ -188,7 +188,12 @@ export default {
       customerService: 'Customer Service Platform',
       customerServiceDescription: 'Provide a real-time dialogue platform for merchants and consumers to help merchants respond to consumer demands in a timely manner.<br>Merchants can initiate refunds directly on the dialogue platform, which is very convenient.<br><br>If merchants and consumers cannot reach an agreement, the platform will provide arbitration services.<br><br>Permanently record conversations and actions in the platform. If there is an after-sales dispute, it can be used as proof.',
       business: 'Business Reminders',
-      businessDescription: 'When various abnormal situations occur or there are urgent matters to be handled, the system will create reminders.<br><br>Wondergate staff will promptly handle these reminders and contact the merchant when necessary.<br>For example, common reminders include: limit reached, multiple failed transactions in a row.'
+      businessDescription: 'When various abnormal situations occur or there are urgent matters to be handled, the system will create reminders.<br><br>Wondergate staff will promptly handle these reminders and contact the merchant when necessary.<br>For example, common reminders include: limit reached, multiple failed transactions in a row.',
+      complianceTitle: 'Security&Compliance',
+      complianceParagraphOne: 'Strictly abide by the regulatory policies of financial institutions in various countries, actively obtain financial licenses from multiple countries, and ensure the legality of transactions.',
+      complianceParagraphTwo: 'Possess an independently developed risk management system to effectively manage and reduce business risks, and ensure the full-process information and fund security of customers and partners.',
+      complianceParagraphThree: ' Integrate multiple external risk control systems, such as the Collaboration Chargeback Alert System and Ethoca Chargeback Alert System, to better prevent financial crimes and terrorist activities and ensure the security and compliance of funds.',
+      msoLicensePlate: '香港MSO牌照',
     },
     terms: {
       title: 'TERMS AND POLICIES',
@@ -203,28 +208,28 @@ export default {
       companyProfile: 'Company profile',
       companyProfileDescription: 'Wondergate Co., Limited is located in Hong Kong. Its members include financial experts, payment technology experts, and senior cross-border trade practitioners, most of them have worked for well-known domestic companies.<br><br>Wondergate has many years of experience in the cross-border payment industry, providing global acquiring and issuing services. To provide secure, compliant, efficient, convenient, and low-cost payment solutions for cross-border enterprises in China and even globally.<br><br>Wondergate is committed to simplifying the payment process of cross-border trade, providing flexible and efficient cross-border payment services, helping customers expand their international business, and establishing strong international competitiveness.',
       provide: 'Wondergate can provide',
-      provideDescription: 'cross-border payment services for stores opened on SHOPLINE and Shoplazza'
+      provideDescription: 'cross-border payment services for stores opened on SHOPLINE and Shoplazza',
     },
     contact: {
       toBegin: 'Contact Us to Begin Your Global Payment Journey',
-      youWant: 'Whether you want to learn about our global payment solutions, seek technical collaboration, or customize a unique payment strategy, we\'re committed to delivering meticulous service.',
+      youWant: "Whether you want to learn about our global payment solutions, seek technical collaboration, or customize a unique payment strategy, we're committed to delivering meticulous service.",
       email: 'Email',
       officeAddress: 'Address',
       companyName: 'Company name',
       companyRegistrationNumber: 'Company registration number',
-      userService: 'User Services'
+      userService: 'User Services',
     },
     footer: {
       launch: 'LAUNCH WITH WONDERGATE',
       unleash: 'Unleash your potential now. Simple setup, powerful results.',
       privacy: '- ©2024 WONDERGATE FINTECH INC. 2023',
       cookiesTitle: 'Cookies on our website',
-      cookiesContent: 'We use cookies on our site to remember you, show you content we think you will like and help you to use the site. For more details, please see our cookies policy.Click \'Accept Cookies\' to consent to cookies',
+      cookiesContent: "We use cookies on our site to remember you, show you content we think you will like and help you to use the site. For more details, please see our cookies policy.Click 'Accept Cookies' to consent to cookies",
       acceptCookies: 'Accept Cookies',
-      reject: 'Reject'
+      reject: 'Reject',
     },
     common: {
-      copySuccessfully: 'Copy successfully'
-    }
-  }
+      copySuccessfully: 'Copy successfully',
+    },
+  },
 };

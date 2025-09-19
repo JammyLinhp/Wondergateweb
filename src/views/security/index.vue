@@ -14,14 +14,45 @@
     </div>
   </div>
 
+  <div class="layout-content app-color-text-main layout-horizontal-equalization">
+    <HalfStructure alignment-mode="top">
+      <template #left>
+        <div class="layout-content-subspacing-small">
+          <div class="security-compliance-wrap">
+            <div class="layout-all-center security-compliance-title">{{ $t('moo.security.msoLicensePlate') }}</div>
+            <img
+              class="security-compliance-img"
+              src="../../assets/images/security/img_security_compliance.png"
+              alt="security&compliance"
+            />
+          </div>
+        </div>
+      </template>
+      <template #right>
+        <div class="app-title-text-small app-text-font layout-content-subspacing-small">
+          {{ $t('moo.security.complianceTitle') }}
+        </div>
+        <div
+          class="app-description-text-small app-detail-font security-chargeback-alerts-description security-compliance-text"
+          v-html="$t('moo.security.complianceParagraphOne')"
+        ></div>
+        <div
+          class="app-description-text-small app-detail-font security-chargeback-alerts-description security-compliance-text"
+          v-html="$t('moo.security.complianceParagraphTwo')"
+        ></div>
+        <div
+          class="app-description-text-small app-detail-font security-chargeback-alerts-description security-compliance-text"
+          v-html="$t('moo.security.complianceParagraphThree')"
+        ></div>
+      </template>
+    </HalfStructure>
+  </div>
+
   <div class="layout-content layout-horizontal-equalization">
     <div class="app-title-text-small app-text-font">
       {{ $t('moo.security.riskControl') }}
     </div>
-    <div
-      class="app-description-text-small app-detail-font"
-      v-html="$t('moo.security.riskControlDescription')"
-    ></div>
+    <div class="app-description-text-small app-detail-font" v-html="$t('moo.security.riskControlDescription')"></div>
     <HalfStructure alignment-mode="top">
       <template #left>
         <div
@@ -64,13 +95,11 @@
     </HalfStructure>
   </div>
 
-  <div
-    class="layout-content app-color-text-main layout-horizontal-equalization"
-  >
+  <div class="layout-content app-color-text-main layout-horizontal-equalization">
     <HalfStructure alignment-mode="top">
       <template #left>
         <img
-         class="layout-content-subspacing-small"
+          class="layout-content-subspacing-small"
           src="../../assets/images/security/img_chargeback_alerts.png"
           alt="security"
         />
@@ -98,9 +127,7 @@
           />
         </template>
         <template #right>
-          <div
-            class="app-title-text-small app-text-font layout-content-subspacing-small"
-          >
+          <div class="app-title-text-small app-text-font layout-content-subspacing-small">
             {{ $t('moo.security.customerService') }}
           </div>
           <div
@@ -138,6 +165,8 @@ import BusinessImage from '@/assets/images/security/img_business.png';
 </script>
 
 <style scoped lang="less">
+@import '@/styles/base.less';
+
 .security-title-wrap {
   text-align: center;
   padding: 6rem 0 5rem;
@@ -174,5 +203,53 @@ import BusinessImage from '@/assets/images/security/img_business.png';
   height: 38rem;
   padding-top: 19rem;
   transform: translateY(-4.75rem);
+}
+
+.security-compliance-wrap {
+  display: inline-block;
+  background-color: #fcfcfc;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+
+  .security-compliance-title {
+    height: 60px;
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  .security-compliance-img {
+    height: 25rem;
+    padding: 0 15px 15px;
+    object-fit: contain;
+  }
+}
+.security-compliance-text {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 1.6rem;
+    left: -34px;
+    margin-left: 6px;
+    margin-top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: @color-bg;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 1.6rem;
+    left: -34px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1.8px @color-bg solid;
+  }
 }
 </style>
