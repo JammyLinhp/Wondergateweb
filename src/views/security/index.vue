@@ -222,6 +222,7 @@ import BusinessImage from '@/assets/images/security/img_business.png';
     height: 25rem;
     padding: 0 15px 15px;
     object-fit: contain;
+    width: auto;
   }
 }
 .security-compliance-text {
