@@ -235,8 +235,10 @@ import BusinessImage from '@/assets/images/security/img_business.png';
     left: -34px;
     margin-left: 6px;
     margin-top: 6px;
-    width: 12px;
-    height: 12px;
+    max-width: 12px;
+    max-height: 12px;
+    width: 0.7rem;
+    height: 0.7rem;
     border-radius: 50%;
     background-color: @color-bg;
   }
@@ -246,11 +248,37 @@ import BusinessImage from '@/assets/images/security/img_business.png';
     position: absolute;
     top: 1.6rem;
     left: -34px;
-    width: 24px;
-    height: 24px;
+    width: 1.68rem;
+    height: 1.68rem;
+    max-width: 24px;
+    max-height: 24px;
     border-radius: 50%;
     background-color: transparent;
     border: 1.8px @color-bg solid;
+  }
+}
+
+@media screen and (min-width: 771px) and (max-width: 990px) {
+  .security-compliance-text {
+    &::before {
+      margin-left: 5px;
+      margin-top: 5px;
+    }
+
+    // &::after {
+    // }
+  }
+}
+
+@media (max-width: 770px) {
+  .security-compliance-text {
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      display: none;
+    }
   }
 }
 </style>

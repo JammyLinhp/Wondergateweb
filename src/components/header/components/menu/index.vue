@@ -1,50 +1,32 @@
 <template>
-  <a-menu
-    v-model:selectedKeys="currentKeys"
-    v-model:openKeys="openKeys"
-    :mode="mode"
-    triggerSubMenuAction="click"
-    class="app-text-font header-menu"
-  >
-    <template v-for="item in titleList">
-      <a-menu-item :key="item.name" v-if="!item.menus">
-        <a @click="jumpToPage(item)" class="header-title-item">
-          {{ $t(item.name) }}
-        </a>
-      </a-menu-item>
-      <a-sub-menu :key="String(item.name)" v-else>
-        <template #title>
-          <div class="header-title-item">
-            {{ $t(item.name) }}
-          </div>
-        </template>
-        <a-menu-item
-          v-for="subItem in item.menus"
-          :key="subItem.name"
-          class="header-menu-settings app-text-font"
-          :class="{
-            'is-pc-menu': mode === 'horizontal',
-            'is-phone-menu': mode === 'inline',
-          }"
-        >
-          <a @click="jumpToPage(subItem)">
+  <ul class="moo-menu-horizontal">
+    <li class="moo-menu-title-item" v-for="(item, index) in titleList" :key="index + 'title'" @click="openMenu($event, item)">
+      <template v-if="item.menus">
+        <span class="moo-menu-title-text"> {{ $t(item.name) }}</span>
+        <ul class="moo-menu moo-menu-vertical" :class="{ 'moo-menu-visible': item.openMenuKey }">
+          <li
+            class="moo-menu-sub"
+            v-for="subItem in item.menus"
+            :class="{ 'moo-menu-sub-selected': isSelected(subItem) }"
+            :key="subItem.currentKey"
+            @click="jumpToPage(subItem)"
+          >
             {{ $t(subItem.name) }}
-          </a>
-        </a-menu-item>
-      </a-sub-menu>
-    </template>
-  </a-menu>
+          </li>
+        </ul>
+      </template>
+      <template v-else>
+        <span class="moo-menu-title-text" @click="jumpToPage(item)">{{ $t(item.name) }}</span>
+      </template>
+    </li>
+  </ul>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { IMenu } from '@/interface/menu';
-import {
-  geHeaderKeyValue,
-  menuList,
-  saveHeaderKeyValue,
-} from '@/components/header/tools';
+import { geHeaderKeyValue, menuList, saveHeaderKeyValue } from '@/components/header/tools';
 
 defineProps({
   mode: {
@@ -53,7 +35,7 @@ defineProps({
   },
 });
 
-const currentKeys: any = ref<string[]>([]);
+const currentKey: any = ref<string[]>([]);
 const openKeys: any = ref<string[]>([]);
 const router = useRouter();
 
@@ -62,37 +44,57 @@ const jumpToPage = (item: any) => {
   saveHeaderKeyValue(item);
 };
 
+const closeMenu = () => {
+  titleList.forEach((item: any) => {
+    item.openMenuKey = false;
+  });
+};
+
+const openMenu = (event: any, item: any) => {
+  event.stopPropagation();
+  closeMenu();
+  item.openMenuKey = true;
+};
+
 const initMenuList = (list: IMenu[], key: string | null) => {
   if (list) {
     list.forEach((item: any) => {
       item.openKeys = [] as any;
       if (key) {
         item.openKeys.push(key);
-        item.openKeys.push(item.name);
+        item.openKeys.push(item.currentKey);
       } else {
-        item.openKeys.push(item.name);
+        item.openKeys.push(item.currentKey);
       }
-      initMenuList(item.menus, item.name);
+      initMenuList(item.menus, item.currentKey);
     });
   }
 };
 initMenuList(menuList, null);
 
-const titleList: IMenu[] = menuList;
+const titleList: IMenu[] = reactive(menuList);
 
 const setCurrentKey = () => {
-  currentKeys.value.length = 0;
-  currentKeys.value.push(geHeaderKeyValue('currentKeys'));
+  currentKey.value = geHeaderKeyValue('currentKey') || '';
 };
 
 const setOpenKey = () => {
   openKeys.value = geHeaderKeyValue('openKeys');
 };
 
+const isSelected = (item: any) => {
+  return openKeys.value?.includes(item.currentKey);
+};
+
+document.addEventListener('click', function () {
+  closeMenu();
+});
+
 watch(
   () => router?.currentRoute?.value,
-  (newValue: any) => {
+  () => {
     setCurrentKey();
+    setOpenKey();
   },
   { immediate: true }
 );
@@ -111,82 +113,88 @@ defineExpose({ jumpToPage, setOpenKey });
   align-items: center;
 }
 
-.ant-menu
-  .ant-menu-item.ant-menu-item-only-child.ant-menu-item-selected
-  .ant-menu-title-content
-  a,
-.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-selected
-  .ant-menu-submenu-title
-  .ant-menu-title-content
-  .header-title-item {
+.moo-menu-horizontal {
+  display: flex;
+  line-height: 46px;
+  border: 0;
+  box-shadow: none;
+  margin: 0;
+}
+
+.moo-menu-title-item {
+  position: relative;
+  margin-right: 10px;
+  padding-right: 20px;
+  cursor: pointer;
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+.moo-menu-title-text {
+  height: 100%;
+  line-height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0px;
   color: @color-text;
 }
 
-// -----Pc
-.is-pc-menu.ant-menu-horizontal .header-title-item {
-  font-size: 0.9rem;
+.moo-menu-vertical {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-.is-pc-menu.header-menu-settings.app-text-font.ant-menu-item {
+.moo-menu-sub {
+  line-height: 26px;
+  font-weight: 600;
   margin: 8px;
-}
-.is-pc-menu.ant-menu-horizontal {
-  background-color: transparent;
-  border: 0;
+  position: relative;
+  display: block;
+  padding: 8px 15px;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 4px;
 
-  .ant-menu-item::after,
-  .ant-menu-submenu-selected::after,
-  .ant-menu-submenu::after {
-    border: 0 !important;
-  }
-
-  .ant-menu-item a,
-  .ant-menu-submenu-title {
+  &:hover {
     color: @color-text;
   }
 }
 
-.is-pc-menu.header-menu-settings {
-  margin: 10px;
-  border-radius: 8px;
-  color: @color-text-dark;
+.moo-menu-sub-selected {
+  background-color: #e6fffe;
+  color: @color-text;
+}
 
-  .ant-menu-title-content a:hover {
-    color: @color-text !important;
-  }
+// -----Pc
+.moo-menu {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  z-index: 1000;
+  background: transparent;
+  border-radius: 2px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  line-height: 0;
+  text-align: left;
+  list-style: none;
+  background: #fff;
+  outline: none;
+  transform: scale(0);
+}
+
+.moo-menu-visible {
+  transform: scale(1);
+  transition: all 0.1s ease-in-out;
 }
 
 // -----Phone
-.is-phone-menu.header-menu.header-title-item {
-  font-size: 1.8rem;
-}
-
-.is-phone-menu.header-menu-settings.app-text-font.ant-menu-item {
-  margin-left: 0;
-}
-
-.is-phone-menu.ant-menu-light.ant-menu-inline {
-  background-color: transparent;
-  border: 0;
-
-  .ant-menu-item::after,
-  .ant-menu-submenu-selected::after,
-  .ant-menu-submenu::after {
-    border: 0 !important;
-  }
-
-  .ant-menu-item a,
-  .ant-menu-submenu-title {
-    color: @color-text-dark;
-  }
-}
-
-.is-phone-menu.header-menu-settings {
-  margin: 10px;
-  color: @color-text-dark;
-
-  .ant-menu-title-content a:hover {
-    color: @color-text !important;
-  }
-}
 </style>

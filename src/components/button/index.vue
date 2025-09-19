@@ -1,7 +1,5 @@
 <template>
-  <div
-    :style="{ 'text-align': isCenter ? 'center' : 'left', padding: '.5rem 0' }"
-  >
+  <div :style="{ 'text-align': isCenter ? 'center' : 'left', padding: '.5rem 0' }">
     <a
       :class="{
         'button-bg': !isDark,
@@ -36,7 +34,7 @@ defineProps({
 const { proxy } = getCurrentInstance() as any;
 const router = useRouter();
 
-const onButtonClick = () => {
+const onButtonClick = (event: any) => {
   router.push({ path: '/contact-us' });
   saveHeaderKeyValue({ name: proxy.text, openKeys: [proxy.text] });
 };
