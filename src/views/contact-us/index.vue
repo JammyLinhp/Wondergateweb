@@ -2,7 +2,7 @@
   <Header :is-dark="true"></Header>
   <div class="app-header-distance"></div>
   <div class="layout-background-3">
-    <FloatStructure height="50rem" :image-path="ContactImage">
+    <FloatStructure height="60rem" :image-path="ContactImage">
       <template #content>
         <div class="app-title-text app-title-font app-color-text-main">
           {{ $t('moo.contact.toBegin') }}
@@ -109,7 +109,7 @@ const informationList = ref<ICard[]>([
 .ant-tabs-bottom>.ant-tabs-nav::before,
 .ant-tabs-top>div>.ant-tabs-nav::before,
 .ant-tabs-bottom>div>.ant-tabs-nav::before {
-  border: 0px;
+  border: 0;
 }
 
 .contact-description {
