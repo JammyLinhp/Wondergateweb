@@ -4,8 +4,8 @@
   <div class="layout-background-3">
     <div class="layout-content">
       <div class="layout-content-padding-top layout-content-padding-bottom disclaimer-int">
-        <div class="app-title-font app-title-text" style="padding-bottom: 1.5rem;">DISCLAIMER</div>
-        <div class="app-description-text-small app-detail-font layout-content-subspacing-small disclaimer-content" style="font-weight: 500;">
+        <div class="app-subtitle-text app-title-font" style="padding-bottom: 1.5rem;">DISCLAIMER</div>
+        <div class="app-description-text-small" style="font-weight: 500;">
           <p>
             The information provided on this website, including but not limited to policy documents, rate schedules,
             operational guidelines, compliance statements, and other materials (collectively, “Content”), is for general
@@ -49,7 +49,7 @@
             Wondergate.io shall not be liable for any damages or losses resulting from the use of any third-party
             websites.
           </p>
-          <p class="content-title">Governing Law</p>
+          <p class="app-subtitle-text app-title-font">Governing Law</p>
           <p>
             This Disclaimer and any use of the website shall be governed by and construed in accordance with the laws of
             the Hong Kong Special Administrative Region (HKSAR), without regard to its conflict of law rules. Use of
@@ -83,10 +83,8 @@ import Footer from '@/components/footer/index.vue';
   font-size: 1.02rem;
   font-family: Avenir;
   color: #0F100D;
-  letter-spacing: 0px;
+  letter-spacing: 0;
 }
-
-
 
 .disclaimer-int {
   padding-top: 2.8rem;

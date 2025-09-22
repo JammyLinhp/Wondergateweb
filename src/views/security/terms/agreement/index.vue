@@ -21,7 +21,7 @@
                     <h2 class="general-title">General</h2>
                 </div>
                 <ul class="sub-menu">
-                    <li class="sub-menu-item " v-for="(item) in subMenuList" 
+                    <li class="sub-menu-item " v-for="(item) in subMenuList"
                     @click="handleSubMenuClick">
                     {{ item }}</li>
                 </ul>
@@ -30,7 +30,7 @@
                 <div class="content-title">{{ $t('moo.terms.subTitle') }}</div>
                 <div class="content-title-time">{{ $t('moo.terms.subTitleTime') }}</div>
                 <div class="content-title-intro" v-html="$t('moo.terms.subTitleIntro')"></div>
-                
+
                 <div class="document-section">
                     <h2>Definitions</h2>
                     <ol class="clause-list">
@@ -77,7 +77,7 @@
                     <h2>Data Protection</h2>
                     <ol class="alone-list">
                         <li>We collect, store, and process your personal data in accordance with our Privacy Policy. By using the Services, you consent to such processing and acknowledge that you have reviewed the Privacy Policy.</li>
-                        
+
                     </ol>
                     <br>
                     <h2>Intellectual Property</h2>
@@ -107,7 +107,7 @@
                     </ol>
 
                 </div>
-                
+
                 <div class="content-title-intro">If you have any questions regarding these Terms, please contact us at:<br>&nbsp;&nbsp;&nbsp;&nbsp;support@wondergate.io</div>
 
             </div>
@@ -140,7 +140,7 @@ const handleSubMenuClick = () => {
     text-align: center;
 
 }
-.terms-title-description{ 
+.terms-title-description{
     padding-top: 3.8rem;
     font-family: Avenir;
     font-weight: 500;
@@ -150,7 +150,7 @@ const handleSubMenuClick = () => {
     justify-content: space-between;
 }
 
-/* ----菜单样式---- */ 
+/* ----菜单样式---- */
 
 .menu-container {
     width: 20%;
@@ -201,10 +201,10 @@ const handleSubMenuClick = () => {
 }
 
 .sub-menu-item:hover {
-    color: #007bff;
+  color: #80e8fa;
 }
 
-/* ----内容样式---- */ 
+/* ----内容样式---- */
 
 .sub-content {
     width: 80%;
@@ -249,7 +249,7 @@ const handleSubMenuClick = () => {
 .clause-list {
     list-style: none;
     counter-reset: clause 0;
-    padding-left: 0px;
+    padding-left: 0;
     text-indent: 0;
 }
 .clause-list li {
@@ -268,6 +268,7 @@ const handleSubMenuClick = () => {
     font-weight: 800;
 }
 .alone-list {
+    font-size: 0.82rem;
     padding-left: 0;
     font-weight: 500;
 }
