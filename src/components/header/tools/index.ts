@@ -2,6 +2,12 @@ import { IMenu } from '@/interface/menu';
 
 const SAVE_KEY: any = 'header_key';
 
+export const jumpToPage = (router: any, item: any) => {
+  router.push(item.path);
+  saveHeaderKeyValue(item);
+};
+
+// 存储的上次点击的菜单
 export const saveHeaderKeyValue = (item: any) => {
   window.localStorage.setItem(
     SAVE_KEY,
@@ -12,6 +18,7 @@ export const saveHeaderKeyValue = (item: any) => {
   );
 };
 
+// 获取缓存中存储的上次点击的菜单
 export const geHeaderKeyValue = (key?: any) => {
   try {
     const keysJson = JSON.parse(window.localStorage.getItem(SAVE_KEY) as string);

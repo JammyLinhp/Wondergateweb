@@ -55,6 +55,8 @@
 import MenuDrawer from '@/components/header/components/drawer/index.vue';
 import Menus from '@/components/header/components/menu/index.vue';
 import { getCurrentInstance, onMounted, onUnmounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { jumpToPage } from './tools';
 
 defineProps({
   isDark: {
@@ -64,13 +66,14 @@ defineProps({
 });
 const { proxy } = getCurrentInstance() as any;
 const isPhone = ref(false);
+const router = useRouter();
 
 const onDrawerClick = () => {
   proxy.$refs.menuDrawer.openDrawer();
 };
 
 const onLogoClick = () => {
-  proxy.$refs.menus.jumpToPage({
+  jumpToPage(router, {
     path: '/home',
     name: 'home',
   });

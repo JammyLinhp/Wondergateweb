@@ -3,30 +3,34 @@
     <li class="moo-menu-title-item" v-for="(item, index) in titleList" :key="index + 'title'" @click="openMenu($event, item)">
       <template v-if="item.menus">
         <span class="moo-menu-title-text"> {{ $t(item.name) }}</span>
-        <ul class="moo-menu moo-menu-vertical" :class="{ 'moo-menu-visible': item.openMenuKey }">
+        <ul
+          class="moo-menu moo-menu-vertical"
+          :class="{ 'moo-menu-visible': item.openMenuKey || isPhone, 'moo-menu-open': item.openMenuKey }"
+        >
           <li
             class="moo-menu-sub"
             v-for="subItem in item.menus"
             :class="{ 'moo-menu-sub-selected': isSelected(subItem) }"
             :key="subItem.currentKey"
-            @click="jumpToPage(subItem)"
+            @click="changePage(subItem)"
           >
             {{ $t(subItem.name) }}
           </li>
         </ul>
       </template>
       <template v-else>
-        <span class="moo-menu-title-text" @click="jumpToPage(item)">{{ $t(item.name) }}</span>
+        <span class="moo-menu-title-text" @click="changePage(item)">{{ $t(item.name) }}</span>
       </template>
     </li>
   </ul>
 </template>
 
 <script setup lang="ts">
-import { ref, watch, reactive } from 'vue';
+import { ref, watch, reactive, getCurrentInstance } from 'vue';
 import { useRouter } from 'vue-router';
 import { IMenu } from '@/interface/menu';
-import { geHeaderKeyValue, menuList, saveHeaderKeyValue } from '@/components/header/tools';
+import { geHeaderKeyValue, jumpToPage, menuList } from '@/components/header/tools';
+import { deepClone } from '@/utils/tools';
 
 defineProps({
   mode: {
@@ -35,13 +39,13 @@ defineProps({
   },
 });
 
-const currentKey: any = ref<string[]>([]);
+const { proxy } = getCurrentInstance() as any;
+const isPhone: any = ref<boolean>(proxy.mode !== 'horizontal');
 const openKeys: any = ref<string[]>([]);
 const router = useRouter();
 
-const jumpToPage = (item: any) => {
-  router.push(item.path);
-  saveHeaderKeyValue(item);
+const changePage = (item: any) => {
+  jumpToPage(router, item);
 };
 
 const closeMenu = () => {
@@ -52,8 +56,12 @@ const closeMenu = () => {
 
 const openMenu = (event: any, item: any) => {
   event.stopPropagation();
-  closeMenu();
-  item.openMenuKey = true;
+  if (isPhone.value) {
+    item.openMenuKey = !item.openMenuKey;
+  } else {
+    closeMenu();
+    item.openMenuKey = true;
+  }
 };
 
 const initMenuList = (list: IMenu[], key: string | null) => {
@@ -72,11 +80,7 @@ const initMenuList = (list: IMenu[], key: string | null) => {
 };
 initMenuList(menuList, null);
 
-const titleList: IMenu[] = reactive(menuList);
-
-const setCurrentKey = () => {
-  currentKey.value = geHeaderKeyValue('currentKey') || '';
-};
+const titleList: IMenu[] = reactive(deepClone(menuList));
 
 const setOpenKey = () => {
   openKeys.value = geHeaderKeyValue('openKeys');
@@ -86,20 +90,28 @@ const isSelected = (item: any) => {
   return openKeys.value?.includes(item.currentKey);
 };
 
+const expandMenu = () => {
+  setOpenKey();
+  titleList.forEach((item: any) => {
+    item.openMenuKey = isSelected(item);
+  });
+};
+
 document.addEventListener('click', function () {
-  closeMenu();
+  if (!isPhone.value) {
+    closeMenu();
+  }
 });
 
 watch(
   () => router?.currentRoute?.value,
   () => {
-    setCurrentKey();
     setOpenKey();
   },
   { immediate: true }
 );
 
-defineExpose({ jumpToPage, setOpenKey });
+defineExpose({ expandMenu });
 </script>
 
 <style lang="less">
@@ -197,4 +209,19 @@ defineExpose({ jumpToPage, setOpenKey });
 }
 
 // -----Phone
+.is-phone-menu {
+  .moo-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-out;
+  }
+
+  .moo-menu-open {
+    max-height: 500px;
+  }
+}
 </style>

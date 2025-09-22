@@ -1,16 +1,10 @@
 <template>
-  <div>
-    <a-drawer
-      width="75%"
-      placement="left"
-      :closable="false"
-      :visible="visible"
-      @close="closeDrawer"
-    >
+  <a-drawer width="75%" placement="left" :closable="false" :visible="visible" @close="closeDrawer">
+    <div>
       <img src="@/assets/images/logo_dark.png" alt="logo" class="drawer-logo" />
       <Menus ref="menus" mode="inline" class="is-phone-menu"></Menus>
-    </a-drawer>
-  </div>
+    </div>
+  </a-drawer>
 </template>
 
 <script setup lang="ts">
@@ -24,7 +18,7 @@ const visible = ref(false);
 const openDrawer = () => {
   visible.value = true;
   nextTick(() => {
-    proxy.$refs.menus.setOpenKey();
+    proxy.$refs.menus.expandMenu();
   });
 };
 

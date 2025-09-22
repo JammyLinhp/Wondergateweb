@@ -1,6 +1,6 @@
 <template>
   <Title
-    right="19rem"
+    right="19"
     title="moo.solutions.crossBorder"
     title-main="moo.solutions.variousIndustries"
     title-description="moo.solutions.titleDescription" :image-path="TitleImage"></Title>

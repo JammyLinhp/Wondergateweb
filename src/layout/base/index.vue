@@ -46,12 +46,10 @@ onMounted(() => {
       </div>
       <a-button type="primary" class="cookies-modal-button" @click="onOk">
         {{ $t('moo.footer.acceptCookies') }}
-      </a-button
-      >
+      </a-button>
       <a-button class="cookies-modal-button" @click="onClose">
         {{ $t('moo.footer.reject') }}
-      </a-button
-      >
+      </a-button>
     </a-drawer>
   </div>
 </template>
@@ -69,6 +67,7 @@ onMounted(() => {
   transition: all 2.6s;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  min-height: 200px;
 
   .ant-drawer {
     height: 100% !important;
