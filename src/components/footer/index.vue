@@ -8,7 +8,7 @@
         {{ $t('moo.footer.unleash') }}
       </div>
     </div>
-    <Button v-if="isDisplayButton" :is-center="true"></Button>
+    <Button v-if="isDisplayButton" :is-center="true" onclick="window.location.href = '#top'"></Button>
   </div>
   <div class="footer-wrap footer-navigation-wrap">
     <div class="layout-content">

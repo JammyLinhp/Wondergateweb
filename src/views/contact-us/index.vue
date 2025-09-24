@@ -2,7 +2,7 @@
   <Header :is-dark="true"></Header>
   <div class="app-header-distance"></div>
   <div class="layout-background-3">
-    <FloatStructure height="60rem" :image-path="ContactImage">
+    <FloatStructure height="65rem" :image-path="ContactImage">
       <template #content>
         <div class="app-title-text app-title-font app-color-text-main">
           {{ $t('moo.contact.toBegin') }}
@@ -13,7 +13,7 @@
           <template :key="index" v-for="(item, index) in informationList">
             <a-tab-pane style="height: 400px">
               <template #tab>{{ item.title }}</template>
-              <a-row :gutter="36">
+              <a-row :gutter="5">
                 <a-col :span="9">
                   <div>{{ $t('moo.contact.email') }} :</div>
                 </a-col>
@@ -23,8 +23,8 @@
                   </div>
                 </a-col>
               </a-row>
-              <a-row :gutter="36" class="layout-content-subspacing-small">
-                <a-col :span="9">
+              <a-row :gutter="5" class="layout-content-subspacing-small">
+                <a-col :span="9" >
                   <div>{{ $t('moo.contact.companyName') }} :</div>
                 </a-col>
                 <a-col :span="15">
@@ -33,7 +33,7 @@
                   </div>
                 </a-col>
               </a-row>
-              <a-row :gutter="36" class="layout-content-subspacing-small">
+              <a-row :gutter="5" class="layout-content-subspacing-small">
                 <a-col :span="9">
                   <div>{{ $t('moo.contact.officeAddress') }} :</div>
                 </a-col>
@@ -43,7 +43,7 @@
                   </div>
                 </a-col>
               </a-row>
-              <a-row :gutter="36" class="layout-content-subspacing-small" v-if="item.title === 'Hong Kong'">
+              <a-row :gutter="5" class="layout-content-subspacing-small" v-if="item.title === 'Hong Kong'">
                 <a-col :span="9">
                   <div>{{ $t('moo.contact.companyRegistrationNumber') }} :</div>
                 </a-col>
@@ -51,11 +51,11 @@
                   <div>3311511</div>
                 </a-col>
               </a-row>
-              <a-row :gutter="36" class="layout-content-subspacing-small" :wrap="true">
+              <a-row :gutter="5" class="layout-content-subspacing-small" :wrap="true">
                 <a-col :span="9">
                   <div>{{ $t('moo.contact.userService') }} :</div>
                 </a-col>
-                <a-col :span="13">
+                <a-col :span="15">
                   <div class="linebreak" v-html="item?.userService"></div>
                 </a-col>
               </a-row>
@@ -122,5 +122,8 @@ const informationList = ref<ICard[]>([
 
 .linebreak i {
   font-style: italic !important;
+}
+.content-font {
+  font-size: 1rem;
 }
 </style>
