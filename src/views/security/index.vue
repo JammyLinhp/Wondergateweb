@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <div class="layout-content app-color-text-main layout-horizontal-equalization">
+  <!-- <div class="layout-content app-color-text-main layout-horizontal-equalization">
     <HalfStructure alignment-mode="top">
       <template #left>
         <div class="layout-content-subspacing-small">
@@ -46,7 +46,7 @@
         ></div>
       </template>
     </HalfStructure>
-  </div>
+  </div> -->
 
   <div class="layout-content layout-horizontal-equalization">
     <div class="app-title-text-small app-text-font">
