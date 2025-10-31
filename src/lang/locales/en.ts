@@ -200,7 +200,7 @@ export default {
       titleDescription: 'We ensure your rights through clear terms and transparent policies, building trust and mutual success through compliance.',
       subTitle: 'Terms and Conditions of Service',
       subTitleTime: 'Last Updated: June 18, 2025',
-      subTitleIntro: 'Welcome to Wondergate. These Terms and Conditions ("Terms") govern your access to and use of the services ("Services") provided by Wondergate Limited. Wondergate Limited is a company incorporated in Hong Kong and licensed as a Money Service Operator (MSO License Number: 25-05-03281).<br>By accessing or using our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree, you must not use the Services.',
+      subTitleIntro: 'Welcome to Wondergate Co., Limited. These Terms and Conditions ("Terms") govern your access to and use of the services ("Services") provided by Wondergate Co., Limited. Wondergate Co., Limited is a company incorporated in Hong Kong and licensed as a Money Service Operator (MSO License Number: 25-05-03281).<br>By accessing or using our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree, you must not use the Services.',
     },
     about: {
       title: 'About Us',
