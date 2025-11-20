@@ -1,6 +1,7 @@
 <template>
   <ul class="moo-menu-horizontal">
-    <li class="moo-menu-title-item" v-for="(item, index) in titleList" :key="index + 'title'" @click="openMenu($event, item)">
+    <li class="moo-menu-title-item" v-for="(item, index) in titleList" :key="index + 'title'"
+        @click="openMenu($event, item)">
       <template v-if="item.menus">
         <span class="moo-menu-title-text"> {{ $t(item.name) }}</span>
         <ul
@@ -35,8 +36,8 @@ import { deepClone } from '@/utils/tools';
 defineProps({
   mode: {
     type: String,
-    default: 'horizontal',
-  },
+    default: 'horizontal'
+  }
 });
 
 const { proxy } = getCurrentInstance() as any;
@@ -64,7 +65,7 @@ const openMenu = (event: any, item: any) => {
   }
 };
 
-const initMenuList = (list: IMenu[], key: string | null) => {
+const initMenuList = (list: IMenu[], key: string|null) => {
   if (list) {
     list.forEach((item: any) => {
       item.openKeys = [] as any;
@@ -97,7 +98,7 @@ const expandMenu = () => {
   });
 };
 
-document.addEventListener('click', function () {
+document.addEventListener('click', function() {
   if (!isPhone.value) {
     closeMenu();
   }
