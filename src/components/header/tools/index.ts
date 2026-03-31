@@ -89,7 +89,21 @@ export const menuList: IMenu[] = [
     name: 'moo.menu.aboutUs',
     currentKey: 'moo.menu.aboutUs',
     path: '/about-us',
-    hash: '#header'
+    hash: '#header',
+    menus: [
+      {
+        name: 'moo.menu.aboutUs',
+        currentKey: 'moo.menu.aboutUsSub',
+        path: '/about-us',
+        hash: '#header'
+      },
+      {
+        name: 'moo.menu.blogBanner',
+        currentKey: 'moo.menu.blogBanner',
+        path: '/about-us/blog-banner',
+        hash: '#header'
+      }
+    ]
   },
   {
     name: 'moo.menu.contactUs',

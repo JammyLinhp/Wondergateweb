@@ -1,12 +1,70 @@
 import { fileURLToPath, URL } from 'node:url';
-
+import { SitemapStream } from 'sitemap';
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
 import vue from '@vitejs/plugin-vue';
+import { createWriteStream, existsSync, mkdirSync, writeFileSync } from 'node:fs';
+
+const routes = [
+  '/',
+  '/home',
+  '/security-center',
+  '/about-us',
+  '/contact-us',
+  '/product-center/global-payments',
+  '/product-center/global-collection-account',
+  '/product-center/payment-solutions',
+  '/product-center/issuing-virtual-cards',
+  '/policy/cookies',
+  '/policy/disclaimer',
+  '/policy/privacy',
+  '/security-center/terms-and-policies/agreement'
+];
 
 const timestamp = new Date().getTime();
+
 export default defineConfig({
   base: '/',
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    {
+      name: 'generate-sitemap',
+      // 在构建结束时执行
+      buildEnd: async () => {
+        const sitemap = new SitemapStream({
+          hostname: 'https://www.wondergate.io',
+        });
+        // 确保 dist 目录存在
+        const outDir = resolve(__dirname, 'dist');
+        if (!existsSync(outDir)) {
+          mkdirSync(outDir, { recursive: true });
+        }
+        const writeStream = createWriteStream(resolve(outDir, 'sitemap.xml'));
+        sitemap.pipe(writeStream);
+        // 写入路由
+        routes.forEach((route) => {
+          sitemap.write({
+            url: route,
+            changefreq: 'daily',
+            priority: 0.8,
+          });
+        });
+        sitemap.end();
+        // 等待写入完成
+        await new Promise((r: any) => writeStream.on('finish', r));
+        
+        // 生成 sitemap_index.xml
+        const sitemapIndexContent = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://www.wondergate.io/sitemap.xml</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+  </sitemap>
+</sitemapindex>`;
+        writeFileSync(resolve(outDir, 'sitemap_index.xml'), sitemapIndexContent);
+      },
+    }
+  ],
   define: {
     __VUE_I18N_FULL_INSTALL__: true,
     __VUE_I18N_LEGACY_API__: true,
@@ -44,7 +102,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://172.20.0.14:8037',
+        target: 'https://dev-cms.wondergate.io',
         changeOrigin: true,
         // rewrite: (path) => {
         //   return path.replace(/^\/api/, '');

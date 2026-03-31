@@ -6,10 +6,16 @@
     title-description="moo.account.titleDescription"
     :image-path="TitleImage"
   ></Title>
-
-  <div
-    class="layout-content app-color-text-main layout-horizontal-equalization"
-  >
+  <meta name="title" content="Cross-Border Payment Collection & Multi-Currency Account Solutions" />
+  <meta
+    name="description"
+    content="Streamline your international revenues with Wondergate’s Global Collection Account. Experience secure payments, competitive FX rates, and faster settlement. Centralize your global payment aggregation in one integrated platform."
+  />
+  <meta
+    name="keywords"
+    content="Global Collection Account, Cross-Border Payment Collection, Multi-Currency, Payment Aggregation, Secure Payments"
+  />
+  <div class="layout-content app-color-text-main layout-horizontal-equalization">
     <ParagraphStructure
       :paragraph-array="wealthPartnerList"
       :image-path="WealthPartnerImage"
@@ -20,9 +26,7 @@
   </div>
 
   <div class="layout-background-3">
-    <div
-      class="layout-content app-color-text-main layout-horizontal-equalization"
-    >
+    <div class="layout-content app-color-text-main layout-horizontal-equalization">
       <ParagraphStructure
         :paragraph-array="whyChooseList"
         :image-path="WhyChooseImage"
@@ -31,9 +35,7 @@
       >
       </ParagraphStructure>
 
-      <div
-        class="layout-content layout-two-side-start-always layout-content-subspacing"
-      >
+      <div class="layout-content layout-two-side-start-always layout-content-subspacing">
         <div v-for="item in localList" class="data-item">
           <div class="app-title-font app-subtitle-text">
             {{ $t(String(item.title)) }}
@@ -46,11 +48,8 @@
     </div>
   </div>
 
-  <div
-    class="layout-content app-color-text-main layout-horizontal-equalization"
-  >
-    <StepComponents :step-list="stepList" title="moo.account.embarkTitle">
-    </StepComponents>
+  <div class="layout-content app-color-text-main layout-horizontal-equalization">
+    <StepComponents :step-list="stepList" title="moo.account.embarkTitle"> </StepComponents>
   </div>
 
   <Footer></Footer>
