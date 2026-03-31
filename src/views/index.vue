@@ -1,5 +1,14 @@
 <template>
   <Header></Header>
+  <meta name="title" content="Wondergate | Global Cross-Border Payment Gateway & API Integration" />
+  <meta
+    name="description"
+    content="The ultimate cross-border payment processing platform. Support local methods, issue virtual cards, and manage multi-currency wallets through one secure API. Enhance success rates with built-in fraud prevention."
+  />
+  <meta
+    name="keywords"
+    content="Payment Gateway, Global Payment Solutions, Cross-border Payment Processing, Fraud Prevention, Payment API Integration"
+  />
   <div class="layout-background-2 app-header-distance">
     <div class="structure-title-wrap">
       <div class="layout-content layout-two-side-center">
@@ -8,15 +17,15 @@
             <star-filled class="structure-title-notes-text" />
             <span class="structure-title-notes-text app-detail-font">{{ $t('moo.home.labels') }}</span>
           </div>
-          <div class="app-title-text app-title-font home-title-padding-top app-color-text">
+          <h1 class="app-title-text app-title-font home-title-padding-top app-color-text">
             {{ $t('moo.home.title') }}
-          </div>
-          <div class="app-title-text app-title-font home-title-padding-bottom app-color-white">
+          </h1>
+          <h1 class="app-title-text app-title-font home-title-padding-bottom app-color-white">
             {{ $t('moo.home.titleMain') }}
-          </div>
-          <div class="app-description-text-small app-detail-font home-title-padding app-color-white">
+          </h1>
+          <p class="app-description-text-small app-detail-font home-title-padding app-color-white">
             {{ $t('moo.home.titleExplanation') }}
-          </div>
+          </p>
           <div class="title-button">
             <Button :is-dark="true"></Button>
           </div>
@@ -41,20 +50,20 @@
   <!-- 图文说明 -->
   <div class="layout-background-3">
     <div class="layout-content app-color-text-main app-text-font">
-      <div class="app-title-text home-suite-title-padding">
+      <h2 class="app-title-text home-suite-title-padding">
         {{ $t('moo.home.suite') }}
-      </div>
+      </h2>
       <div class="app-description-text home-suite-tip-padding app-detail-font" v-html="$t('moo.home.suiteDescription')"></div>
 
       <div class="home-card-wrap layout-content layout-two-side-start app-detail-font">
         <div class="home-card-content" v-for="item in cardList">
           <div><img :src="item.path" alt="" /></div>
-          <div class="home-card-title app-subtitle-text">
+          <h3 class="home-card-title app-subtitle-text">
             {{ $t(String(item.title)) }}
-          </div>
-          <div class="app-description-text-small">
+          </h3>
+          <p class="app-description-text-small">
             {{ $t(String(item.description)) }}
-          </div>
+          </p>
         </div>
       </div>
     </div>
@@ -63,9 +72,9 @@
   <div>
     <div class="layout-content app-color-text-main layout-two-side-end">
       <div class="layout-horizontal-equalization">
-        <div class="app-title-text-small home-suite-title-padding app-text-font">
+        <h2 class="app-title-text-small home-suite-title-padding app-text-font">
           {{ $t('moo.home.convenientSystemTitle') }}
-        </div>
+        </h2>
         <div class="app-description-text-small app-detail-font" v-html="$t('moo.home.convenientSystemDescription')"></div>
       </div>
       <div class="layout-horizontal-equalization">
@@ -159,8 +168,8 @@ const organizationList = ref(
   Object.values(
     import.meta.glob('../assets/images/home/organization/*', {
       eager: true,
-    })
-  ).map((module: any) => module.default)
+    }),
+  ).map((module: any) => module.default),
 );
 </script>
 

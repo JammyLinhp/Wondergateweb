@@ -1,11 +1,20 @@
 <template>
   <Header></Header>
+  <meta name="title" content="Payment Security & AML Compliance | Wondergate Risk Management" />
+  <meta
+    name="description"
+    content="Wondergate provides a robust risk management framework featuring real-time transaction monitoring, AML compliance, and customer identity verification. Ensure payment security and full traceability for every global transaction."
+  />
+  <meta
+    name="keywords"
+    content="Payment Security, Risk Management, AML Compliance, Transaction Monitoring, Chargeback Management, payment processing security, Payment Solutions for Global Industries"
+  />
   <div class="layout-background-2 app-header-distance">
     <div class="security-title-wrap">
       <div class="layout-content">
-        <div class="app-title-text app-title-font app-color-text">
+        <h1 class="app-title-text app-title-font app-color-text">
           {{ $t('moo.security.title') }}
-        </div>
+        </h1>
         <div
           class="app-description-text app-detail-font app-text-font app-color-text security-title-content-description"
           v-html="$t('moo.security.titleDescription')"
@@ -49,9 +58,9 @@
   </div> -->
 
   <div class="layout-content layout-horizontal-equalization">
-    <div class="app-title-text-small app-text-font">
+    <h2 class="app-title-text-small app-text-font">
       {{ $t('moo.security.riskControl') }}
-    </div>
+    </h2>
     <div class="app-description-text-small app-detail-font" v-html="$t('moo.security.riskControlDescription')"></div>
     <HalfStructure alignment-mode="top">
       <template #left>
@@ -105,9 +114,9 @@
         />
       </template>
       <template #right>
-        <div class="app-title-text-small app-text-font layout-content-subspacing-small">
+        <h2 class="app-title-text-small app-text-font layout-content-subspacing-small">
           {{ $t('moo.security.chargebackAlerts') }}
-        </div>
+        </h2>
         <div
           class="app-description-text-small app-detail-font security-chargeback-alerts-description"
           v-html="$t('moo.security.chargebackAlertsDescription')"
@@ -127,9 +136,9 @@
           />
         </template>
         <template #right>
-          <div class="app-title-text-small app-text-font layout-content-subspacing-small">
+          <h2 class="app-title-text-small app-text-font layout-content-subspacing-small">
             {{ $t('moo.security.customerService') }}
-          </div>
+          </h2>
           <div
             class="app-description-text-small app-detail-font security-chargeback-alerts-description"
             v-html="$t('moo.security.customerServiceDescription')"
@@ -142,9 +151,9 @@
   <div class="app-color-text-main app-clean-float">
     <FloatStructure height="38rem" :image-path="BusinessImage" :is-left="true">
       <template #content>
-        <div class="app-title-text-small app-text-font">
+        <h2 class="app-title-text-small app-text-font">
           {{ $t('moo.security.business') }}
-        </div>
+        </h2>
         <div
           class="app-description-text-small app-detail-font security-chargeback-alerts-description"
           v-html="$t('moo.security.businessDescription')"

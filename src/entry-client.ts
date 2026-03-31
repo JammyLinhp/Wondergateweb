@@ -5,6 +5,11 @@ const { app } = createApp();
 
 app.mount('#app');
 
+// 触发预渲染事件
+if (import.meta.env.PROD) {
+  window.dispatchEvent(new Event('prerender-ready'));
+}
+
 // 适配屏幕大小
 const reSize = () => {
   let baseFontSize = 8;

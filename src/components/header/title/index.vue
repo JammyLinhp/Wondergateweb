@@ -8,12 +8,12 @@
             <star-filled class="structure-title-notes-text" />
             <span class="structure-title-notes-text app-detail-font">{{ $t(notes) }}</span>
           </div>
-          <div class="app-title-text app-title-font home-title-padding-top app-color-text">
+          <h1 class="app-title-text app-title-font home-title-padding-top app-color-text">
             {{ $t(title) }}
-          </div>
-          <div class="app-title-text app-title-font home-title-padding-bottom app-color-white">
+          </h1>
+          <h1 class="app-title-text app-title-font home-title-padding-bottom app-color-white">
             {{ $t(titleMain) }}
-          </div>
+          </h1>
           <div class="app-description-text-small app-detail-font home-title-padding app-color-white">
             {{ $t(titleDescription) }}
           </div>

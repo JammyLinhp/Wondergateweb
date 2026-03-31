@@ -1,35 +1,38 @@
 <template>
-  <Title notes="moo.menu.issuingVirtualCards"
-         title="moo.cards.enjoy"
-         title-main="moo.cards.experience"
-         title-description="moo.cards.titleDescription" :image-path="TitleImage"></Title>
-
+  <Title
+    notes="moo.menu.issuingVirtualCards"
+    title="moo.cards.enjoy"
+    title-main="moo.cards.experience"
+    title-description="moo.cards.titleDescription"
+    :image-path="TitleImage"
+  ></Title>
+  <meta name="title" content="Instant Virtual Card Issuing & Global Multi-Currency Payments" />
+  <meta
+    name="description"
+    content="Scale your business with our global virtual card solutions. Create cards instantly, manage spending limits with advanced card controls, and reduce operational costs. No physical cards required."
+  />
+  <meta
+    name="keywords"
+    content="Virtual Card Issing, Global Virtual Cards, Multi-Currency Payments, Secure Digital Payments, Advanced Card Controls"
+  />
   <div class="layout-content app-color-text-main layout-horizontal-equalization">
-    <ParagraphStructure :paragraph-array="digitalList"
-                        :image-path="DigitalImage"
-                        title="moo.cards.digitalSolution">
+    <ParagraphStructure :paragraph-array="digitalList" :image-path="DigitalImage" title="moo.cards.digitalSolution">
     </ParagraphStructure>
   </div>
 
   <div class="layout-background-3">
     <div class="layout-content app-color-text-main layout-horizontal-equalization">
-      <ParagraphStructure :paragraph-array="virtualCardsList"
-                          :image-path="VirtualCardsImage"
-                          title="moo.cards.virtualCards">
+      <ParagraphStructure :paragraph-array="virtualCardsList" :image-path="VirtualCardsImage" title="moo.cards.virtualCards">
       </ParagraphStructure>
     </div>
   </div>
 
   <div class="layout-content app-color-text-main layout-horizontal-equalization">
-    <StepComponents :step-list="stepList"
-                    title="moo.cards.embarkTitle"
-                    description="moo.cards.embarkDescription">
-
+    <StepComponents :step-list="stepList" title="moo.cards.embarkTitle" description="moo.cards.embarkDescription">
     </StepComponents>
   </div>
 
   <Footer></Footer>
-
 </template>
 <script setup lang="ts">
 import Title from '@/components/header/title/index.vue';
@@ -58,7 +61,6 @@ const virtualCardsList = ref<ICard[]>([
   { title: 'moo.cards.supportTitle', description: 'moo.cards.supportDescription' },
 ]);
 
-
 const stepList = ref<ICard[]>([
   {
     title: 'moo.home.stepOne',
@@ -76,11 +78,8 @@ const stepList = ref<ICard[]>([
     path: StepThreeImage,
   },
 ]);
-
 </script>
 
 <style scoped lang="less">
 @import '@/styles/base';
-
-
 </style>

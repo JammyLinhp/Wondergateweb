@@ -6,7 +6,9 @@
     title-description="moo.product.titleDescription"
     :image-path="TitleImage"
   ></Title>
-
+  <meta name="title" content="Global Payment Solution & Cross-Border Acquiring | Wondergate" />
+  <meta name="description" content="Empower your business with a secure payment infrastructure. Our global payment solution supports multi-currency settlement, PCI-compliant connectivity, and advanced fraud prevention across 200+ regions." />
+  <meta name="keywords" content="Global Payment Solution, Cross-Border Payments, Global Acquiring, Multi-Currency Settlement, Secure Payment Infrastructure" />
   <div class="layout-content app-color-text-main layout-horizontal-equalization">
     <ParagraphStructure :paragraph-array="crossBorderList" :image-path="CrossBorderImage" title="moo.product.crossBorder">
     </ParagraphStructure>
@@ -18,9 +20,9 @@
 
   <div class="layout-background-3">
     <div class="layout-content layout-horizontal-equalization">
-      <div class="app-subtitle-text app-text-font">
+      <h2 class="app-subtitle-text app-text-font">
         {{ $t('moo.product.globalTitle') }}
-      </div>
+      </h2>
       <div class="app-description-text-small app-detail-font">
         {{ $t('moo.product.globalDescription') }}
       </div>
@@ -31,9 +33,9 @@
             <template #title>
               <img :src="item.path" alt="product" />
             </template>
-            <div class="app-color-text-main app-description-text-small app-detail-font app-text-description-title">
+            <h3 class="app-color-text-main app-description-text-small app-detail-font app-text-description-title">
               {{ $t(String(item.title)) }}
-            </div>
+            </h3>
             <div class="app-color-text-main app-detail-font app-text-description-spacing-top app-description-text-smaller">
               {{ $t(String(item.description)) }}
             </div>
@@ -86,12 +88,12 @@
 
   <div class="layout-background-3">
     <div class="layout-content product-settlement-wrap">
-      <div class="app-description-text-small app-text-font">
+      <!-- <div class="app-description-text-small app-text-font">
         {{ $t('moo.product.settlementTitle') }}
-      </div>
-      <div class="app-title-text-small app-text-font">
+      </div> -->
+      <h2 class="app-title-text-small app-text-font">
         {{ $t('moo.product.settlementPayment') }}
-      </div>
+      </h2>
       <div
         class="app-description-text-small app-detail-font product-settlement-description"
         v-html="$t('moo.product.settlementDescription')"
@@ -103,12 +105,12 @@
   <div class="layout-content app-color-text-main layout-two-side-end layout-horizontal-equalization">
     <HalfStructure alignment-mode="top">
       <template #left>
-        <div class="app-description-text-small app-text-font" layout-content-subspacing-small>
+        <!-- <div class="app-description-text-small app-text-font" layout-content-subspacing-small>
           {{ $t('moo.product.virtuallyPaymentTitle') }}
-        </div>
-        <div class="app-title-text-small app-text-font">
+        </div> -->
+        <h2 class="app-title-text-small app-text-font">
           {{ $t('moo.product.virtuallyPayment') }}
-        </div>
+        </h2>
         <div
           class="app-description-text-small app-detail-font product-virtually-payment-description"
           v-html="$t('moo.product.virtuallyPaymentDescription')"
@@ -160,8 +162,8 @@ const scopeList = ref(
   Object.values(
     import.meta.glob('../../assets/images/product/scope/*', {
       eager: true,
-    })
-  ).map((module: any) => module.default)
+    }),
+  ).map((module: any) => module.default),
 );
 
 const globalList = ref<ICard[]>([

@@ -1,8 +1,8 @@
 <template>
   <div class="paragraph-title">
-    <div class="app-subtitle-text app-text-font" v-if="title">
+    <h2 class="app-subtitle-text app-text-font" v-if="title">
       {{ $t(title) }}
-    </div>
+    </h2>
     <div class="app-description-text-small app-detail-font" v-if="description">
       {{ $t(description) }}
     </div>
@@ -19,11 +19,11 @@
           </div>
         </div>
         <div class="paragraph-text-warp">
-          <div
+          <h3
             class="app-color-text-main app-description-text-small app-detail-font app-text-description-title"
           >
             {{ $t(String(item.title)) }}
-          </div>
+          </h3>
           <div
             class="app-color-text-main app-detail-font app-text-description-spacing-top app-description-text-smaller"
           >
