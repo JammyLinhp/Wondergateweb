@@ -25,6 +25,6 @@ export function getPostList(categoryId: any) {
 }
 
 // 获取博客文章详情
-export function getPostDetail(id: any) {
-  return http.get(`/client/posts/show?id=${id}`);
+export function getPostDetail(slug: any) {
+  return http.get(`/client/posts/show?slug=${slug}`);
 }

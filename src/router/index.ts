@@ -3,7 +3,7 @@ import BaseLayout from '@/layout/base/index.vue';
 import Product from '@/router/config/product';
 import Policy from '@/router/config/policy';
 import Security from './config/security';
-import About from './config/about';
+import Blog from './config/blog';
 
 export const createRouter = (): Router =>
   _createRouter({
@@ -58,7 +58,7 @@ export const createRouter = (): Router =>
           ...Product,
           ...Policy,
           ...Security,
-          ...About,
+          ...Blog,
         ]
       }
     ]

@@ -6,7 +6,7 @@ import { useLangStore } from '@/stores/lang';
 import qs from 'qs';
 
 const http = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
+  baseURL: import.meta.env.VITE_HTTP_BASE,
   headers: {
     'Content-Type': 'application/json;charset=UTF-8',
   },
