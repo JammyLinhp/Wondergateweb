@@ -1,5 +1,5 @@
+import http from 'node:http';
 import fs from 'node:fs/promises';
-import express from 'express';
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production';
@@ -10,9 +10,6 @@ const base = process.env.BASE || '/';
 const templateHtml = isProduction
   ? await fs.readFile('./dist/client/index.html', 'utf-8')
   : '';
-
-// Create http server
-const app = express();
 
 // Add Vite or respective production middlewares
 /** @type {import('vite').ViteDevServer | undefined} */
@@ -32,23 +29,70 @@ if (!isProduction) {
     appType: 'custom',
     base,
   });
-  app.use(vite.middlewares);
-} else {
-  const compression = (await import('compression')).default;
-  const sirv = (await import('sirv')).default;
-  app.use(compression());
-  app.use(base, sirv('./dist/client', { extensions: [] }));
 }
 
-// Serve HTML
-app.use('*all', async (req, res) => {
-  try {
-    const url = req.originalUrl.replace(base, '');
+// Create http server
+const server = http.createServer(async (req, res) => {
+  // 处理 Vite 开发服务器的请求
+  if (!isProduction && vite) {
+    const viteMiddleware = vite.middlewares;
+    const next = () => {
+      handleRequest(req, res);
+    };
+    viteMiddleware(req, res, next);
+  } else {
+    handleRequest(req, res);
+  }
+});
 
+// 处理请求
+async function handleRequest(req, res) {
+  try {
+    // 只处理 GET 请求
+    if (req.method !== 'GET') {
+      res.statusCode = 405;
+      res.end('Method Not Allowed');
+      return;
+    }
+    
+    // 处理静态文件请求
+    if (isProduction) {
+      const sirv = (await import('sirv')).default;
+      const staticHandler = sirv('./dist/client', { 
+        extensions: [],
+        setHeaders: (res, pathname) => {
+          // 设置缓存头
+          if (pathname.includes('assets/')) {
+            res.setHeader('Cache-Control', 'public, max-age=31536000');
+          }
+        }
+      });
+      
+      const next = () => {
+        serveHtml(req, res);
+      };
+      
+      staticHandler(req, res, next);
+    } else {
+      // 开发环境，直接处理 HTML 请求
+      serveHtml(req, res);
+    }
+  } catch (e) {
+    res.statusCode = 500;
+    res.end(e.stack);
+  }
+}
+
+// 提供 HTML
+async function serveHtml(req, res) {
+  try {
+    const url = req.url?.replace(base, '') || '';
+    
     /** @type {string} */
     let template;
     /** @type {import('./src/entry-server.ts').render} */
     let render;
+    
     if (!isProduction) {
       // Always read fresh template in development
       template = await fs.readFile('./index.html', 'utf-8');
@@ -65,15 +109,16 @@ app.use('*all', async (req, res) => {
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '');
 
-    res.status(200).set({ 'Content-Type': 'text/html' }).send(html);
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+    res.end(html);
   } catch (e) {
-    vite?.ssrFixStacktrace(e);
-    // console.log(e.stack)
-    res.status(500).end(e.stack);
+    res.statusCode = 500;
+    res.end(e.stack);
   }
-});
+}
 
 // Start http server
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`);
 });

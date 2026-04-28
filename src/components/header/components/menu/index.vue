@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, reactive, getCurrentInstance } from 'vue';
+import { ref, watch, reactive, getCurrentInstance, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { IMenu } from '@/interface/menu';
 import { geHeaderKeyValue, jumpToPage, menuList } from '@/components/header/tools';
@@ -98,10 +98,12 @@ const expandMenu = () => {
   });
 };
 
-document.addEventListener('click', function() {
-  if (!isPhone.value) {
-    closeMenu();
-  }
+onMounted(() => {
+  document.addEventListener('click', function() {
+    if (!isPhone.value) {
+      closeMenu();
+    }
+  });
 });
 
 watch(

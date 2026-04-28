@@ -13,8 +13,8 @@ export const saveHeaderKeyValue = (item: any) => {
     SAVE_KEY,
     JSON.stringify({
       currentKey: item.currentKey,
-      openKeys: item.openKeys
-    })
+      openKeys: item.openKeys,
+    }),
   );
 };
 
@@ -43,27 +43,27 @@ export const menuList: IMenu[] = [
         name: 'moo.menu.globalPayments',
         currentKey: 'moo.menu.globalPayments',
         path: '/product-center/global-payments',
-        hash: '#header'
+        hash: '#header',
       },
       {
         name: 'moo.menu.collectionAccount',
         currentKey: 'moo.menu.collectionAccount',
         path: '/product-center/global-collection-account',
-        hash: '#header'
+        hash: '#header',
       },
       {
         name: 'moo.menu.issuingVirtualCards',
         currentKey: 'moo.menu.issuingVirtualCards',
         path: '/product-center/issuing-virtual-cards',
-        hash: '#header'
+        hash: '#header',
       },
       {
         name: 'moo.menu.paymentSolutions',
         currentKey: 'moo.menu.paymentSolutions',
         path: '/product-center/payment-solutions',
-        hash: '#header'
-      }
-    ]
+        hash: '#header',
+      },
+    ],
   },
   {
     name: 'moo.menu.securityCenter',
@@ -75,40 +75,32 @@ export const menuList: IMenu[] = [
         name: 'moo.menu.securityCenter',
         currentKey: 'moo.menu.securityCenterSub',
         path: '/security-center',
-        hash: '#header'
+        hash: '#header',
       },
       {
         name: 'moo.menu.TermsAndPolicies',
         currentKey: 'moo.menu.TermsAndPolicies',
         path: '/security-center/terms-and-policies/agreement',
-        hash: '#header'
-      }
-    ]
+        hash: '#header',
+      },
+    ],
   },
   {
     name: 'moo.menu.aboutUs',
     currentKey: 'moo.menu.aboutUs',
     path: '/about-us',
     hash: '#header',
-    menus: [
-      {
-        name: 'moo.menu.aboutUs',
-        currentKey: 'moo.menu.aboutUsSub',
-        path: '/about-us',
-        hash: '#header'
-      },
-      {
-        name: 'moo.menu.blogBanner',
-        currentKey: 'moo.menu.blogBanner',
-        path: '/about-us/blog-banner',
-        hash: '#header'
-      }
-    ]
   },
   {
     name: 'moo.menu.contactUs',
     currentKey: 'moo.menu.contactUs',
     path: '/contact-us',
-    hash: '#header'
-  }
+    hash: '#header',
+  },
+  {
+    name: 'moo.menu.blogBanner',
+    currentKey: 'moo.menu.blogBanner',
+    path: '/blog',
+    hash: '#header',
+  },
 ];
