@@ -10,7 +10,8 @@
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
-    "preview": "cross-env NODE_ENV=production node server"
+    "preview": "yarn run build:client && wrangler dev",
+    "deploy": "yarn run build:client && wrangler deploy"
   },
   "browserslist": [
     "> 0.5%",
