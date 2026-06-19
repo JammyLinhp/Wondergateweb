@@ -8,9 +8,9 @@
   <div class="layout-background-2 app-header-distance">
     <div class="about-title-wrap">
       <div class="layout-content">
-        <div class="app-title-text app-title-font app-color-text">
+        <h1 class="app-title-text app-title-font app-color-text">
           {{ $t('moo.about.title') }}
-        </div>
+        </h1>
         <div
           class="app-description-text app-detail-font app-text-font app-color-text about-title-description"
           v-html="$t('moo.about.titleDescription')"
@@ -20,11 +20,11 @@
   </div>
 
   <div class="layout-background-3">
-    <FloatStructure height="38rem" :image-path="CompanyProfile">
+    <FloatStructure height="38rem" :image-path="CompanyProfile" alt="Wondergate cross-border payment platform and global acquiring network">
       <template #content>
-        <div class="app-title-text-small app-text-font">
+        <h2 class="app-title-text-small app-text-font">
           {{ $t('moo.about.companyProfile') }}
-        </div>
+        </h2>
         <div
           class="app-description-text-small app-detail-font about-company-profile-description"
           v-html="$t('moo.about.companyProfileDescription')"
@@ -35,9 +35,9 @@
 
   <div class="about-provide-wrap">
     <div class="layout-content">
-      <div class="app-title-text-small app-text-font">
+      <h2 class="app-title-text-small app-text-font">
         {{ $t('moo.about.provide') }}
-      </div>
+      </h2>
       <div
         class="app-description-text app-text-font about-company-profile-description"
         v-html="$t('moo.about.provideDescription')"
@@ -46,11 +46,11 @@
   </div>
 
   <div class="about-logo-image layout-content">
-    <img src="../../assets/images/about-us/logo_platform.png" alt="platform" />
+    <img src="../../assets/images/about-us/logo_platform.png" alt="Wondergate global payment platform and infrastructure" />
   </div>
 
   <div class="layout-content about-logo-image">
-    <img src="../../assets/images/about-us/img_provide.png" alt="provide" />
+    <img src="../../assets/images/about-us/img_provide.png" alt="Wondergate provides cross-border payment and virtual card solutions" />
   </div>
 
   <Footer></Footer>

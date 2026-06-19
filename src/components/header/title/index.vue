@@ -8,11 +8,9 @@
             <star-filled class="structure-title-notes-text" />
             <span class="structure-title-notes-text app-detail-font">{{ $t(notes) }}</span>
           </div>
-          <h1 class="app-title-text app-title-font home-title-padding-top app-color-text">
-            {{ $t(title) }}
-          </h1>
-          <h1 class="app-title-text app-title-font home-title-padding-bottom app-color-white">
-            {{ $t(titleMain) }}
+          <h1 class="app-title-text app-title-font app-color-text">
+            <div class="home-title-padding-top">{{ $t(title) }}</div>
+            <div class="home-title-padding-bottom app-color-white">{{ $t(titleMain) }}</div>
           </h1>
           <div class="app-description-text-small app-detail-font home-title-padding app-color-white">
             {{ $t(titleDescription) }}
@@ -22,7 +20,7 @@
           </div>
         </div>
         <div class="structure-title-right" :class="assemblingClass()" v-if="imagePath">
-          <img :src="imagePath" alt="payment" />
+          <img :src="imagePath" alt="Wondergate cross-border payment solutions banner" />
         </div>
       </div>
     </div>

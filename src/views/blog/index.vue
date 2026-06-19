@@ -6,11 +6,12 @@
     </div>
   </div>
   <div class="news-section">
+    <h1 class="app-title-text-small app-text-font layout-content">{{ $t('moo.menu.blogBanner') }}</h1>
     <div class="news-tabs">
       <a-tabs v-model:activeKey="activeTab" @change="handleTabChange" size="large">
         <a-tab-pane v-for="tab in tabs" :key="tab.key" :tab="tab.title">
           <div class="news-list">
-            <div v-if="loading" class="loading-container">
+            <div v-if="loading && !isSSRReady" class="loading-container">
               <a-spin tip="Loading..." />
             </div>
             <div v-else-if="newsList.length === 0" class="empty-container">
@@ -19,20 +20,20 @@
             </div>
             <div class="news-item" v-for="news in newsList" :key="news.id" @click="handleDetail(news.slug)">
               <div class="news-image">
-                <img :src="news.image" :alt="news.title" />
+                <img :src="news.coverImage || news.image" :alt="news.title" loading="lazy" />
               </div>
               <div class="news-content">
                 <h3 class="news-item-title">{{ news.title }}</h3>
-                <p class="news-item-desc">{{ news.description }}</p>
+                <p class="news-item-desc">{{ news.summary || news.description }}</p>
                 <div class="news-item-footer">
-                  <span class="news-date">{{ news.date }}</span>
+                  <span class="news-date">{{ news.publishedAt || news.date }}</span>
                   <a-button type="link" size="small" @click.stop="handleDetail(news.slug)">
                     {{ $t('moo.about.detail') }}
                   </a-button>
                 </div>
               </div>
             </div>
-            <!-- 分页组件 -->
+            <!-- Pagination -->
             <div v-if="total > pageSize" class="pagination-container">
               <a-pagination
                 v-model:current="currentPage"
@@ -56,24 +57,14 @@
 import Header from '@/components/header/index.vue';
 import Footer from '@/components/footer/index.vue';
 import Carousel from '@/components/carousel/index.vue';
-import { ref, onMounted, getCurrentInstance } from 'vue';
+import { ref, onMounted, inject, computed, getCurrentInstance } from 'vue';
 import { getPostList, getPostCategories } from '@/utils/api';
 import { message } from 'ant-design-vue';
 const { proxy } = getCurrentInstance() as any;
 
-interface NewsItem {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  date: string;
-  slug: string;
-}
-
-interface Tab {
-  key: string;
-  title: string;
-}
+// SSR data
+const ssrData = inject<any>('ssrData', {});
+const isSSRReady = computed(() => !!(ssrData.categories?.length && ssrData.posts?.length));
 
 const emit = defineEmits<{
   (e: 'tabChange', key: string): void;
@@ -81,21 +72,39 @@ const emit = defineEmits<{
   (e: 'seeMore'): void;
 }>();
 
-// 标签页数据
-const tabs = ref<Tab[]>([]);
-const activeTab = ref('');
-const loading = ref(false);
-const newsList = ref<NewsItem[]>([]);
+// Init from SSR data
+const tabs = ref<any[]>(
+  ssrData.categories?.map((item: any) => ({
+    key: item.id?.toString(),
+    title: item.name,
+  })) || []
+);
+const activeTab = ref(ssrData.activeCategoryId || '');
+const loading = ref(!ssrData.categories?.length);
+const newsList = ref<any[]>([]);
 
-// 分页相关
+// Pagination
 const currentPage = ref(1);
 const pageSize = ref(5);
 const total = ref(0);
+const originalNewsList = ref<any[]>([]);
 
-// 原始新闻数据
-const originalNewsList = ref<NewsItem[]>([]);
+// Init from SSR data if available
+if (ssrData.posts?.length) {
+  originalNewsList.value = ssrData.posts.map((item: any) => ({
+    id: item.id,
+    title: item.title,
+    summary: item.summary,
+    coverImage: item.coverImage,
+    publishedAt: item.publishedAt,
+    slug: item.slug,
+  }));
+  total.value = originalNewsList.value.length;
+  updateCurrentPageData();
+  loading.value = false;
+}
 
-// 获取新闻数据
+// Fetch news data
 const fetchNewsData = async (tabKey: string) => {
   loading.value = true;
   newsList.value = [];
@@ -105,13 +114,12 @@ const fetchNewsData = async (tabKey: string) => {
       originalNewsList.value = res.map((item: any) => ({
         id: item.id,
         title: item.title,
-        description: item.summary,
-        image: item.coverImage,
-        date: item.publishedAt,
+        summary: item.summary,
+        coverImage: item.coverImage,
+        publishedAt: item.publishedAt,
         slug: item.slug,
       }));
       total.value = originalNewsList.value.length;
-      // 计算当前页的数据
       updateCurrentPageData();
       emit('tabChange', tabKey);
     });
@@ -125,44 +133,41 @@ const fetchNewsData = async (tabKey: string) => {
   }
 };
 
-// 更新当前页数据
-const updateCurrentPageData = () => {
+function updateCurrentPageData() {
   const start = (currentPage.value - 1) * pageSize.value;
   const end = start + pageSize.value;
   newsList.value = originalNewsList.value.slice(start, end);
-};
+}
 
-// 处理分页变化
 const handlePageChange = (page: number) => {
   currentPage.value = page;
   updateCurrentPageData();
 };
 
-// 处理标签页切换
 const handleTabChange = (key: string) => {
   activeTab.value = key;
   fetchNewsData(key);
 };
 
-// 处理详情点击
 const handleDetail = (slug: string) => {
   emit('detail', slug);
-  // 在新窗口打开详情页面
   window.open(`/blog/detail/${slug}`, '_blank');
 };
 
-// 初始加载数据
 onMounted(async () => {
   try {
-    await getPostCategories().then((res: any) => {
-      tabs.value = res.map((item: any) => ({
-        key: item.id.toString(),
-        title: item.name,
-      }));
-    });
-    // 设置默认激活的标签页
-    if (tabs.value.length > 0) {
+    if (!tabs.value.length) {
+      await getPostCategories().then((res: any) => {
+        tabs.value = res.map((item: any) => ({
+          key: item.id?.toString(),
+          title: item.name,
+        }));
+      });
+    }
+    if (tabs.value.length > 0 && !activeTab.value) {
       activeTab.value = tabs.value[0].key;
+    }
+    if (!originalNewsList.value.length && activeTab.value) {
       await fetchNewsData(activeTab.value);
     }
   } catch (error) {
@@ -192,29 +197,6 @@ onMounted(async () => {
     font-size: 1.2rem;
     margin-right: 1rem;
     font-weight: 600 !important;
-  }
-
-  .news-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-
-    .news-title {
-      font-size: 2rem;
-      font-weight: 600;
-      color: @color-text-1;
-      margin: 0;
-    }
-
-    .see-more-btn {
-      color: @color-bg;
-      font-size: 1rem;
-
-      &:hover {
-        color: darken(@color-bg, 10%);
-      }
-    }
   }
 
   .news-tabs {
@@ -247,7 +229,6 @@ onMounted(async () => {
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-
         .news-image {
           flex: 0 0 200px;
           margin-right: 1.5rem;
@@ -259,10 +240,7 @@ onMounted(async () => {
             height: 160px;
             object-fit: cover;
             transition: transform 0.3s ease;
-
-            &:hover {
-              transform: scale(1.05);
-            }
+            &:hover { transform: scale(1.05); }
           }
         }
 
@@ -275,10 +253,7 @@ onMounted(async () => {
             color: @color-text-1;
             margin: 0 0 0.75rem;
             transition: color 0.3s ease;
-
-            &:hover {
-              color: @color-bg;
-            }
+            &:hover { color: @color-bg; }
           }
 
           .news-item-desc {
@@ -313,48 +288,19 @@ onMounted(async () => {
   .product-settlement-wrap {
     padding-top: 6rem;
     padding-bottom: 6rem;
-
-    .product-settlement-description {
-      padding: 3rem 0;
-    }
   }
 }
 @media (max-width: 770px) {
   .news-section {
     padding: 0 1rem;
-
-    .news-header {
+    .news-tabs .news-list .news-item {
       flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
-
-      .news-title {
-        font-size: 1.5rem;
-      }
-    }
-
-    .news-tabs {
-      .news-list {
-        .news-item {
-          flex-direction: column;
-
-          .news-image {
-            flex: 0 0 auto;
-            margin-right: 0;
-            margin-bottom: 1rem;
-            width: 100%;
-
-            img {
-              height: 200px;
-            }
-          }
-
-          .news-content {
-            .news-item-title {
-              font-size: 1.125rem;
-            }
-          }
-        }
+      .news-image {
+        flex: 0 0 auto;
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 100%;
+        img { height: 200px; }
       }
     }
   }

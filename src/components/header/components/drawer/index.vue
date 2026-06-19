@@ -1,7 +1,7 @@
 <template>
   <a-drawer width="75%" placement="left" :closable="false" :visible="visible" @close="closeDrawer">
     <div>
-      <img src="@/assets/images/logo_dark.png" alt="logo" class="drawer-logo" />
+      <img src="@/assets/images/logo_dark.png" alt="Wondergate — Cross-Border Payment Gateway" class="drawer-logo" />
       <Menus ref="menus" mode="inline" class="is-phone-menu"></Menus>
     </div>
   </a-drawer>

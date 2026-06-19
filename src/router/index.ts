@@ -13,16 +13,15 @@ export const createRouter = (): Router =>
         path: '/',
         name: 'base layout',
         component: BaseLayout,
-        redirect: '/home',
         children: [
           {
-            path: '/home',
+            path: '',
             name: 'home',
             component: () => import('@/views/index.vue'),
             meta: {
               key: 'home',
               code: 'home',
-              activeMenu: '/home'
+              activeMenu: '/'
             }
           },
           {

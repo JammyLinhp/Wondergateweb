@@ -1,7 +1,7 @@
 <template>
   <div class="app-color-text-main app-clean-float">
     <img class="structure-percentage-width-50" :class="{'float-img-left':isLeft,'float-img-right':!isLeft}"
-         :style="{height}" :src="imagePath" alt="security">
+         :style="{height}" :src="imagePath" :alt="alt">
     <div class="layout-content" :style="{height}">
       <div class="structure-percentage-width-50 float-text-content">
         <slot name="content"></slot>
@@ -12,6 +12,10 @@
 
 <script setup lang="ts">
 defineProps({
+  alt: {
+    type: String,
+    default: '',
+  },
   imagePath: {
     type: String,
     default: '',

@@ -1,27 +1,38 @@
 import { renderToString } from 'vue/server-renderer';
 import { createApp } from './main';
+import type { Router } from 'vue-router';
 
-export async function render(_url: string) {
+interface SSRData {
+  post?: any;
+  categories?: any[];
+  posts?: any[];
+  activeCategoryId?: string;
+  slug?: string;
+  categoryName?: string;
+}
+
+export async function render(_url: string, ssrContextData: SSRData = {}) {
   const { app, router } = createApp();
-  
-  // 移除URL中的哈希部分，只使用路径部分进行路由处理
+
+  // Inject SSR data into app for components to access
+  app.provide('ssrData', ssrContextData);
+  app.provide('isSSR', true);
+
+  // Remove hash from URL, use path only
   let pathWithoutHash = _url.split('#')[0];
-  
-  // 处理根路径重定向，确保与路由配置一致
-  if (pathWithoutHash === '/' || pathWithoutHash === '') {
-    pathWithoutHash = '/home';
+
+  // Handle root path normalization
+  if (pathWithoutHash === '') {
+    pathWithoutHash = '/';
   }
-  
-  // 设置路由位置
+
+  // Set router location
   router.push(pathWithoutHash);
   await router.isReady();
 
-  // passing SSR context object which will be available via useSSRContext()
-  // @vitejs/plugin-vue injects code into a component's setup() that registers
-  // itself on ctx.modules. After the render, ctx.modules would contain all the
-  // components that have been instantiated during this render call.
+  // SSR context for renderToString
   const ctx = {};
 
   const html = await renderToString(app, ctx);
-  return { html };
+  return { html, head: '' };
 }

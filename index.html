@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preconnect to third-party origins for CWV -->
+    <link rel="preconnect" href="https://cms.wondergate.io" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cms.wondergate.io" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+    <!-- Font loading: swap to prevent FOIT -->
     <link
       rel="preload"
       as="font"
@@ -24,28 +32,22 @@
       type="font/ttf"
       crossorigin="anonymous"
     />
+
     <link
       rel="icon"
       type="image/vnd.microsoft.icon"
       href="/src/assets/favicon.ico"
     />
-    <title>Wondergate</title>
-    <meta
-      name="description"
-      content="Payment service solutions,Connect To Any Payment Service.Don't let tedious payment issues trouble your business anymore, choose our service products to make your capital flow boundless! Contact us now and embark on your global wealth journey!"
-    />
-    <meta
-      name="Keywords"
-      content="cross-border, Global payments, Global collection account, Issuing virtual cards, Payment solutions, Security Center"
-    />
-    <meta name="robots" content="index, follow" />
+
+    <!-- Static meta: replaced by SSR at runtime -->
     <meta
       name="google-site-verification"
       content="wP2PT3B_dcWgTir5gol3z44KVrqUNsiCWjBPMkxvL54"
     />
     <!--preload-links-->
     <!--app-head-->
-    <!-- Google tag (gtag.js) -->
+
+    <!-- Google tag (gtag.js) — deferred for CWV -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-4B73R444SF"
@@ -56,7 +58,6 @@
         dataLayer.push(arguments);
       }
       gtag('js', new Date());
-
       gtag('config', 'G-4B73R444SF');
     </script>
   </head>
@@ -64,7 +65,7 @@
     <div id="app"><!--app-html--></div>
     <div id="loading" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #022233; display: flex; justify-content: center; align-items: center; z-index: 9999;">
       <div style="text-align: center;">
-        <img src="/src/assets/images/logo_light.png" alt="Loading" style="width: 200px; margin-bottom: 20px;" />
+        <img src="/src/assets/images/logo_light.png" alt="Wondergate - Loading" width="200" height="auto" style="margin-bottom: 20px;" />
         <div style="color: white; font-size: 18px; font-family: titleFont, serif;">Loading...</div>
       </div>
     </div>

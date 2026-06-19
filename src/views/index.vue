@@ -17,11 +17,9 @@
             <star-filled class="structure-title-notes-text" />
             <span class="structure-title-notes-text app-detail-font">{{ $t('moo.home.labels') }}</span>
           </div>
-          <h1 class="app-title-text app-title-font home-title-padding-top app-color-text">
-            {{ $t('moo.home.title') }}
-          </h1>
-          <h1 class="app-title-text app-title-font home-title-padding-bottom app-color-white">
-            {{ $t('moo.home.titleMain') }}
+          <h1 class="app-title-text app-title-font app-color-text">
+            <div class="home-title-padding-top">{{ $t('moo.home.title') }}</div>
+            <div class="home-title-padding-bottom app-color-white">{{ $t('moo.home.titleMain') }}</div>
           </h1>
           <p class="app-description-text-small app-detail-font home-title-padding app-color-white">
             {{ $t('moo.home.titleExplanation') }}
@@ -31,7 +29,7 @@
           </div>
         </div>
         <div class="structure-title-right">
-          <img src="../assets/images/home/img_title_payment_detail.png" alt="payment" />
+          <img src="../assets/images/home/img_title_payment_detail.png" alt="Wondergate global payment gateway infrastructure overview" loading="eager" fetchpriority="high" width="2036" height="1100" />
         </div>
       </div>
 
@@ -57,7 +55,7 @@
 
       <div class="home-card-wrap layout-content layout-two-side-start app-detail-font">
         <div class="home-card-content" v-for="item in cardList">
-          <div><img :src="item.path" alt="" /></div>
+          <div><img :src="item.path" :alt="$t(String(item.title))" /></div>
           <h3 class="home-card-title app-subtitle-text">
             {{ $t(String(item.title)) }}
           </h3>
@@ -78,11 +76,11 @@
         <div class="app-description-text-small app-detail-font" v-html="$t('moo.home.convenientSystemDescription')"></div>
       </div>
       <div class="layout-horizontal-equalization">
-        <img src="../assets/images/home/img_convenient_system.png" alt="payment" />
+        <img src="../assets/images/home/img_convenient_system.png" alt="Wondergate integrated cross-border payment management system" />
       </div>
     </div>
     <div class="layout-all-center layout-content home-logo-organization-wrap" v-if="organizationList.length != 0">
-      <img class="home-logo-organization" :src="item" alt="logo" v-for="item in organizationList" />
+      <img class="home-logo-organization" :src="item" alt="Wondergate certified partner payment network" v-for="item in organizationList" />
     </div>
     <div class="layout-content home-rapid-transaction">
       <StepComponents

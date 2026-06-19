@@ -32,7 +32,7 @@
             <img
               class="security-compliance-img"
               src="../../assets/images/security/img_security_compliance.png"
-              alt="security&compliance"
+              alt="Wondergate security compliance and international regulatory certifications"
             />
           </div>
         </div>
@@ -98,7 +98,7 @@
         <img
           class="security-chargeback-alerts-description"
           src="@/assets/images/security/img_risk_control.png"
-          alt="security"
+          alt="Wondergate AI-powered risk control and transaction monitoring dashboard"
         />
       </template>
     </HalfStructure>
@@ -110,7 +110,7 @@
         <img
           class="layout-content-subspacing-small"
           src="../../assets/images/security/img_chargeback_alerts.png"
-          alt="security"
+          alt="Real-time chargeback alerts and fraud detection system"
         />
       </template>
       <template #right>
@@ -132,7 +132,7 @@
           <img
             class="layout-content-subspacing-small"
             src="../../assets/images/home/img_convenient_system.png"
-            alt="security"
+            alt="Wondergate 24/7 global payment customer support and service"
           />
         </template>
         <template #right>
@@ -149,7 +149,7 @@
   </div>
 
   <div class="app-color-text-main app-clean-float">
-    <FloatStructure height="38rem" :image-path="BusinessImage" :is-left="true">
+    <FloatStructure height="38rem" :image-path="BusinessImage" :is-left="true" alt="Wondergate global payment security and compliance infrastructure">
       <template #content>
         <h2 class="app-title-text-small app-text-font">
           {{ $t('moo.security.business') }}

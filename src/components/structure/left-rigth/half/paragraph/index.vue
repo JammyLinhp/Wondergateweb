@@ -33,7 +33,7 @@
       </div>
     </template>
     <template #right>
-      <img :src="imagePath" alt="WONDERGATE" class="paragraph-spacing" />
+      <img :src="imagePath" :alt="alt" class="paragraph-spacing" />
     </template>
   </HalfStructure>
 </template>
@@ -49,6 +49,10 @@ defineProps({
   imagePath: {
     type: String,
     default: '',
+  },
+  alt: {
+    type: String,
+    default: 'Wondergate cross-border payment solution feature',
   },
   title: {
     type: String,

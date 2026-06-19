@@ -15,9 +15,9 @@
   >
     <div class="about-title-wrap contact-title-wrap">
       <div class="layout-content">
-        <div class="app-title-text app-title-font app-color-text contact-main-title">
+        <h1 class="app-title-text app-title-font app-color-text contact-main-title">
           {{ $t('moo.contact.title') }}
-        </div>
+        </h1>
         <div
           class="app-description-text app-detail-font app-text-font app-color-text about-title-description contact-main-description"
           v-html="$t('moo.contact.toBegin')"

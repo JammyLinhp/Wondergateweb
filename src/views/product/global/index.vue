@@ -15,7 +15,7 @@
   </div>
 
   <div class="layout-all-center" v-if="scopeList.length != 0">
-    <img class="product-scope-logo" :src="item" alt="logo" v-for="item in scopeList" />
+    <img class="product-scope-logo" :src="item" alt="Wondergate global payment scope and coverage" v-for="item in scopeList" />
   </div>
 
   <div class="layout-background-3">
@@ -31,7 +31,7 @@
         <a-col :span="8" v-for="item in globalList">
           <a-card :bordered="false" style="border-radius: 15px">
             <template #title>
-              <img :src="item.path" alt="product" />
+              <img :src="item.path" :alt="$t(String(item.title))" />
             </template>
             <h3 class="app-color-text-main app-description-text-small app-detail-font app-text-description-title">
               {{ $t(String(item.title)) }}
@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <FloatStructure :image-path="CardImage">
+  <FloatStructure :image-path="CardImage" alt="Wondergate virtual card issuing and global payment collection solutions">
     <template #content>
       <div class="app-subtitle-text app-text-font">
         {{ $t('moo.product.paymentMethodTitle') }}
@@ -59,21 +59,21 @@
       <div class="layout-background-3 product-card-wrap">
         <a-row class="layout-all-center">
           <a-col :span="8" class="product-card-item-spacing">
-            <img src="../../../assets/images/product/img_product_mastercard.png" alt="card" />
+            <img src="../../../assets/images/product/img_product_mastercard.png" alt="Mastercard cross-border payment network partner" />
           </a-col>
           <a-col :span="8" class="product-card-item-spacing">
-            <img src="../../../assets/images/product/img_product_visa.png" alt="card" />
+            <img src="../../../assets/images/product/img_product_visa.png" alt="Visa global payment processing network" />
           </a-col>
           <a-col :span="8" class="product-card-item-spacing">
-            <img src="../../../assets/images/product/img_product_dc.png" alt="card" />
+            <img src="../../../assets/images/product/img_product_dc.png" alt="Diners Club International B2B payment support" />
           </a-col>
         </a-row>
         <a-row class="layout-content-subspacing layout-all-center" style="justify-content: left">
           <a-col :span="8" class="product-card-item-spacing">
-            <img src="../../../assets/images/product/img_product_ae.png" alt="card" />
+            <img src="../../../assets/images/product/img_product_ae.png" alt="American Express corporate payment solutions" />
           </a-col>
           <a-col :span="8" class="product-card-item-spacing">
-            <img src="../../../assets/images/product/img_product_discover.png" alt="card" />
+            <img src="../../../assets/images/product/img_product_discover.png" alt="Discover Global Network cross-border payments" />
           </a-col>
         </a-row>
       </div>
@@ -81,7 +81,7 @@
         {{ $t('moo.product.local') }}
       </div>
       <div class="layout-background-3 product-card-wrap">
-        <img src="../../../assets/images/product/img_product_local.png" alt="card" />
+        <img src="../../../assets/images/product/img_product_local.png" alt="Local payment methods and alternative global payment options" />
       </div>
     </template>
   </FloatStructure>
@@ -98,7 +98,7 @@
         class="app-description-text-small app-detail-font product-settlement-description"
         v-html="$t('moo.product.settlementDescription')"
       ></div>
-      <img src="../../../assets/images/product/img_settlement.png" alt="product" />
+      <img src="../../../assets/images/product/img_settlement.png" alt="Cross-border payment settlement and multi-currency clearing process" />
     </div>
   </div>
 
@@ -120,7 +120,7 @@
         <img
           class="layout-content-subspacing-small"
           src="../../../assets/images/product/img_virtually_payment.png"
-          alt="product"
+          alt="Wondergate virtual payment API and global B2B payment integration"
         />
       </template>
     </HalfStructure>
