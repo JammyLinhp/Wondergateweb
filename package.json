@@ -37,6 +37,7 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.42.1",
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.4",
     "@types/qs": "^6.9.11",
@@ -50,9 +51,15 @@
     "typescript": "~5.7.3",
     "vite": "^6.1.1",
     "vite-plugin-prerender": "^1.0.8",
-    "vue-tsc": "^2.2.2"
+    "vue-tsc": "^2.2.2",
+    "wrangler": "^4.103.0"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "core-js", "puppeteer", "vue-demi"]
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "core-js",
+      "puppeteer",
+      "vue-demi"
+    ]
   }
 }
