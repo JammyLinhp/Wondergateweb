@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="structure-title-right">
-          <img src="../assets/images/home/img_title_payment_detail.png" alt="Wondergate global payment gateway infrastructure overview" loading="eager" fetchpriority="high" width="2036" height="1100" />
+          <img src="../assets/images/home/img_title_payment_detail.webp" alt="Wondergate global payment gateway infrastructure overview" loading="eager" fetchpriority="high" width="2036" height="1100" />
         </div>
       </div>
 
@@ -76,7 +76,7 @@
         <div class="app-description-text-small app-detail-font" v-html="$t('moo.home.convenientSystemDescription')"></div>
       </div>
       <div class="layout-horizontal-equalization">
-        <img src="../assets/images/home/img_convenient_system.png" alt="Wondergate integrated cross-border payment management system" />
+        <img src="../assets/images/home/img_convenient_system.webp" alt="Wondergate integrated cross-border payment management system" />
       </div>
     </div>
     <div class="layout-all-center layout-content home-logo-organization-wrap" v-if="organizationList.length != 0">
@@ -99,9 +99,9 @@ import Header from '@/components/header/index.vue';
 import Footer from '@/components/footer/index.vue';
 import Button from '@/components/button/index.vue';
 import StepComponents from '@/components/step/index.vue';
-import globalAcquiringImg from '@/assets/images/home/img_global_acquiring.png';
-import revenueRecognitionImg from '@/assets/images/home/img_revenue_recognition.png';
-import globalIssuingImg from '@/assets/images/home/img_global_issuing.png';
+import globalAcquiringImg from '@/assets/images/home/img_global_acquiring.webp';
+import revenueRecognitionImg from '@/assets/images/home/img_revenue_recognition.webp';
+import globalIssuingImg from '@/assets/images/home/img_global_issuing.webp';
 import stepOne from '@/assets/images/home/img_step_one.png';
 import stepTwo from '@/assets/images/home/img_step_two.png';
 import stepThree from '@/assets/images/home/img_step_three.png';
