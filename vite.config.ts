@@ -36,15 +36,30 @@ export default defineConfig({
         }),
       ],
     }),
-    {
-      name: 'preload-css',
+{
+      name: 'preload-assets',
       transformIndexHtml(html, ctx) {
-        // Preload entry CSS to break critical request chain
         const cssFiles = Object.keys(ctx.bundle || {}).filter(k => k.endsWith('.css'));
         const preloads = cssFiles
           .map(f => `    <link rel="preload" as="style" href="/${f}">`)
           .join('\n');
         return html.replace('</head>', `${preloads}\n  </head>`);
+      },
+      writeBundle(options, bundle) {
+        // Preload LCP hero image so the browser discovers it from the initial HTML
+        const heroKey = Object.keys(bundle).find(k => k.startsWith('assets/img_title_payment_detail'));
+        if (heroKey) {
+          const outDir = options.dir || 'dist/client';
+          import('node:fs').then(fs => {
+            const indexPath = outDir + '/index.html';
+            if (fs.existsSync(indexPath)) {
+              let html = fs.readFileSync(indexPath, 'utf-8');
+              html = html.replace('</head>',
+                `    <link rel="preload" as="image" href="/${heroKey}" fetchpriority="high">\n  </head>`);
+              fs.writeFileSync(indexPath, html);
+            }
+          });
+        }
       },
     },
     {
