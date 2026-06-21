@@ -7,7 +7,7 @@
     "dev": "node server",
     "start": "PORT=5172 node server.js",
     "verify-seo": "bash scripts/verify-seo.sh",
-    "build": "npm run build:client && npm run build:server",
+    "build": "vite build --ssrManifest --outDir dist/client && node scripts/defer-css.js",
     "build:client": "vite build --ssrManifest --outDir dist/client && node scripts/defer-css.js",
     "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
     "preview": "cross-env NODE_ENV=production node server",
@@ -63,5 +63,6 @@
       "puppeteer",
       "vue-demi"
     ]
-  }
+  },
+  "packageManager": "pnpm@10.31.0"
 }
