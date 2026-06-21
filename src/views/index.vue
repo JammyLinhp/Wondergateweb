@@ -55,7 +55,7 @@
 
       <div class="home-card-wrap layout-content layout-two-side-start app-detail-font">
         <div class="home-card-content" v-for="item in cardList">
-          <div><img :src="item.path" :width="item.width" :height="item.height" :alt="$t(String(item.title))" /></div>
+          <div><img :src="item.path" :alt="$t(String(item.title))" /></div>
           <h3 class="home-card-title app-subtitle-text">
             {{ $t(String(item.title)) }}
           </h3>
@@ -130,17 +130,17 @@ const cardList: ICard[] = [
   {
     title: 'moo.home.globalAcquiring',
     description: 'moo.home.globalAcquiringDescription',
-    path: globalAcquiringImg, width: 632, height: 662,
+    path: globalAcquiringImg,
   },
   {
     title: 'moo.home.revenueRecognition',
     description: 'moo.home.revenueRecognitionDescription',
-    path: revenueRecognitionImg, width: 632, height: 662,
+    path: revenueRecognitionImg,
   },
   {
     title: 'moo.home.globalIssuing',
     description: 'moo.home.globalIssuingDescription',
-    path: globalIssuingImg, width: 632, height: 662,
+    path: globalIssuingImg,
   },
 ];
 
