@@ -164,7 +164,7 @@ const stepList: ICard[] = [
 
 const organizationList = ref(
   Object.values(
-    import.meta.glob('../assets/images/home/organization/*.webp', {
+    import.meta.glob('../assets/images/home/organization/*', {
       eager: true,
     }),
   ).map((module: any) => module.default),
@@ -188,6 +188,12 @@ const organizationList = ref(
 
   .home-card-content {
     width: 14.7rem;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
 
     .home-card-title {
       padding: 1.1rem 0 0.8rem;
