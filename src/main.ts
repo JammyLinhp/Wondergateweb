@@ -1,20 +1,4 @@
 import { createSSRApp } from 'vue';
-import {
-  Button,
-  Card,
-  Col,
-  ConfigProvider,
-  Divider,
-  Drawer,
-  Empty,
-  Form,
-  Input,
-  Pagination,
-  Row,
-  Select,
-  Spin,
-  Tabs,
-} from 'ant-design-vue';
 import App from './App.vue';
 import http from './utils/http';
 import './styles/main.less';
@@ -37,22 +21,6 @@ export const createApp = () => {
   app.use((vue) => {
     vue.config.globalProperties.$http = http;
   });
-
-  // 按需引入 ant-design-vue 组件
-  app.use(Button);
-  app.use(Card);
-  app.use(Col);
-  app.use(ConfigProvider);
-  app.use(Divider);
-  app.use(Drawer);
-  app.use(Empty);
-  app.use(Form);
-  app.use(Input);
-  app.use(Pagination);
-  app.use(Row);
-  app.use(Select);
-  app.use(Spin);
-  app.use(Tabs);
 
   const router = createRouter();
   app.use(router);
