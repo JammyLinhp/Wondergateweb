@@ -55,7 +55,7 @@
 
       <div class="home-card-wrap layout-content layout-two-side-start app-detail-font">
         <div class="home-card-content" v-for="item in cardList">
-          <div><img :src="item.path" :alt="$t(String(item.title))" /></div>
+          <div><img :src="item.path" :width="item.width" :height="item.height" :alt="$t(String(item.title))" /></div>
           <h3 class="home-card-title app-subtitle-text">
             {{ $t(String(item.title)) }}
           </h3>
@@ -130,17 +130,17 @@ const cardList: ICard[] = [
   {
     title: 'moo.home.globalAcquiring',
     description: 'moo.home.globalAcquiringDescription',
-    path: globalAcquiringImg,
+    path: globalAcquiringImg, width: 632, height: 662,
   },
   {
     title: 'moo.home.revenueRecognition',
     description: 'moo.home.revenueRecognitionDescription',
-    path: revenueRecognitionImg,
+    path: revenueRecognitionImg, width: 632, height: 662,
   },
   {
     title: 'moo.home.globalIssuing',
     description: 'moo.home.globalIssuingDescription',
-    path: globalIssuingImg,
+    path: globalIssuingImg, width: 632, height: 662,
   },
 ];
 
@@ -148,17 +148,17 @@ const stepList: ICard[] = [
   {
     title: 'moo.home.stepOne',
     description: 'moo.home.stepOneDescription',
-    path: stepOne,
+    path: stepOne, width: 136, height: 160,
   },
   {
     title: 'moo.home.stepTow',
     description: 'moo.home.stepTowDescription',
-    path: stepTwo,
+    path: stepTwo, width: 136, height: 160,
   },
   {
     title: 'moo.home.stepThree',
     description: 'moo.home.stepThreeDescription',
-    path: stepThree,
+    path: stepThree, width: 136, height: 160,
   },
 ];
 

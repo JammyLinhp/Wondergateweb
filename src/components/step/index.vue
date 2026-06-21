@@ -10,7 +10,7 @@
   <div class="step-wrap layout-two-side-center app-detail-font">
     <div class="layout-all-center step-content" v-for="(item, index) in stepList">
       <div class="step-line" v-if="index !== stepList.length - 1"></div>
-      <div><img :src="item.path" :alt="$t(String(item.title))" /></div>
+      <div><img :src="item.path" :width="item.width" :height="item.height" :alt="$t(String(item.title))" /></div>
       <div class="app-description-text step-text">
         {{ $t(String(item.title)) }}
       </div>
