@@ -79,6 +79,7 @@ export default defineConfig({
     __VUE_I18N_LEGACY_API__: true,
     __INTLIFY_PROD_DEVTOOLS__: false,
     __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: false,
+    __VUE_SSR_AUTO_LAZY__: false,
   },
   resolve: {
     alias: {
