@@ -27,7 +27,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <RouterView />
+  <main><RouterView /></main>
   <div class="cookies-modal" v-if="visible">
     <a-drawer
       placement="bottom"
@@ -79,6 +79,15 @@ onMounted(() => {
 
     &:last-child {
       margin-left: 20px;
+    }
+  }
+
+  .ant-btn-primary.cookies-modal-button {
+    color: #022233;
+    background: #00bbd8;
+    border-color: #00bbd8;
+    &:hover, &:focus {
+      color: #022233;
     }
   }
 
