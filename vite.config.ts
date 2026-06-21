@@ -119,7 +119,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist',
+    cssCodeSplit: false,    outDir: 'dist',
     sourcemap: false,
     minify: 'terser',
     chunkSizeWarningLimit: 3500,

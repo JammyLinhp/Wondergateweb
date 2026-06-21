@@ -32,10 +32,12 @@ export async function loadLocaleMessages(
   locale: string
 ): Promise<any> {
   // load locale messages with dynamic import
-  const messages = await import(`@/lang/locales/${locale}.ts`);
+  const modules = import.meta.glob("./locales/*.ts", { eager: true });
+  const key = `./locales/${locale}.ts`;
+  const messages = (modules[key] as any).default;
 
   // set locale and locale message
-  i18n.global.setLocaleMessage(locale, messages.default);
+  i18n.global.setLocaleMessage(locale, messages);
 
   return nextTick();
 }
