@@ -164,7 +164,7 @@ const stepList: ICard[] = [
 
 const organizationList = ref(
   Object.values(
-    import.meta.glob('../assets/images/home/organization/*', {
+    import.meta.glob('../assets/images/home/organization/*.webp', {
       eager: true,
     }),
   ).map((module: any) => module.default),
