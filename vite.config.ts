@@ -37,6 +37,17 @@ export default defineConfig({
       ],
     }),
     {
+      name: 'preload-css',
+      transformIndexHtml(html, ctx) {
+        // Preload entry CSS to break critical request chain
+        const cssFiles = Object.keys(ctx.bundle || {}).filter(k => k.endsWith('.css'));
+        const preloads = cssFiles
+          .map(f => `    <link rel="preload" as="style" href="/${f}">`)
+          .join('\n');
+        return html.replace('</head>', `${preloads}\n  </head>`);
+      },
+    },
+    {
       name: 'generate-sitemap',
       // 在构建结束时执行
       buildEnd: async () => {
