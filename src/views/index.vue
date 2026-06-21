@@ -79,7 +79,7 @@
         <img src="../assets/images/home/img_convenient_system.webp" alt="Wondergate integrated cross-border payment management system" width="1200" height="800" style="max-width:100%;height:auto" />
       </div>
     </div>
-    <div class="layout-all-center layout-content home-logo-organization-wrap" v-if="organizationList.length != 0">
+    <div class="layout-all-center layout-content home-logo-organization-wrap">
       <img class="home-logo-organization" :src="item" alt="Wondergate certified partner payment network" v-for="item in organizationList" />
     </div>
     <div class="layout-content home-rapid-transaction">
@@ -162,13 +162,15 @@ const stepList: ICard[] = [
   },
 ];
 
-const organizationList = ref(
-  Object.values(
-    import.meta.glob('../assets/images/home/organization/*', {
-      eager: true,
-    }),
-  ).map((module: any) => module.default),
-);
+import logo0 from '@/assets/images/home/organization/logo_organization_0.webp';
+import logo1 from '@/assets/images/home/organization/logo_organization_1.webp';
+import logo2 from '@/assets/images/home/organization/logo_organization_2.webp';
+import logo3 from '@/assets/images/home/organization/logo_organization_3.webp';
+import logo4 from '@/assets/images/home/organization/logo_organization_4.webp';
+import logo5 from '@/assets/images/home/organization/logo_organization_5.webp';
+import logo6 from '@/assets/images/home/organization/logo_organization_6.webp';
+
+const organizationList = ref([logo0, logo1, logo2, logo3, logo4, logo5, logo6]);
 </script>
 
 <style lang="less">
