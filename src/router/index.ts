@@ -1,3 +1,4 @@
+import HomeView from '@/views/index.vue';
 import { createMemoryHistory, createRouter as _createRouter, createWebHistory, Router } from 'vue-router';
 import BaseLayout from '@/layout/base/index.vue';
 import Product from '@/router/config/product';
@@ -17,7 +18,8 @@ export const createRouter = (): Router =>
           {
             path: '',
             name: 'home',
-            component: () => import('@/views/index.vue'),
+            // static import so home page renders immediately (no lazy chunk for LCP)
+            component: HomeView,
             meta: {
               key: 'home',
               code: 'home',
