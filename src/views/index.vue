@@ -76,7 +76,7 @@
         <div class="app-description-text-small app-detail-font" v-html="$t('moo.home.convenientSystemDescription')"></div>
       </div>
       <div class="layout-horizontal-equalization">
-        <img src="../assets/images/home/img_convenient_system.webp" alt="Wondergate integrated cross-border payment management system" />
+        <img src="../assets/images/home/img_convenient_system.webp" alt="Wondergate integrated cross-border payment management system" width="1200" height="800" style="max-width:100%;height:auto" />
       </div>
     </div>
     <div class="layout-all-center layout-content home-logo-organization-wrap" v-if="organizationList.length != 0">
@@ -198,6 +198,9 @@ const organizationList = ref(
 .home-logo-organization {
   max-width: 180px;
   max-height: 120px;
+  width: auto;
+  height: auto;
+  aspect-ratio: attr(width) / attr(height);
   padding: 0 1.9rem;
 
   &:first-child {
