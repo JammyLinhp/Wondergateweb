@@ -3,7 +3,7 @@
     <div class="header-inner layout-content layout-two-side-center-always">
       <div class="header-logo" @click="onLogoClick">
         <img v-if="isDark" src="../../assets/images/logo_dark.png" alt="Wondergate — Cross-Border Payment Gateway" />
-        <img v-if="!isDark" src="../../assets/images/logo_light.png" alt="Wondergate — Cross-Border Payment Gateway" />
+        <img v-if="!isDark" src="../../assets/images/logo_light.png" alt="Wondergate — Cross-Border Payment Gateway" width="200" height="54" />
       </div>
       <div class="header-title" :class="{ 'dark-logo': isDark }">
         <Menus v-if="!isPhone" ref="menus" class="is-pc-menu" mode="horizontal"></Menus>
