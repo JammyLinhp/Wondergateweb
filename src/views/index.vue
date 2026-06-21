@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="structure-title-right">
-          <img src="../assets/images/home/img_title_payment_detail.webp" alt="Wondergate global payment gateway infrastructure overview" loading="eager" fetchpriority="high" width="2036" height="1100" />
+          <img src="../assets/images/home/img_title_payment_detail.webp" alt="Wondergate global payment gateway infrastructure overview" loading="eager" fetchpriority="high" width="1018" height="550" />
         </div>
       </div>
 
@@ -76,7 +76,7 @@
         <div class="app-description-text-small app-detail-font" v-html="$t('moo.home.convenientSystemDescription')"></div>
       </div>
       <div class="layout-horizontal-equalization">
-        <img src="../assets/images/home/img_convenient_system.webp" alt="Wondergate integrated cross-border payment management system" width="1200" height="800" style="max-width:100%;height:auto" />
+        <img src="../assets/images/home/img_convenient_system.webp" alt="Wondergate integrated cross-border payment management system" width="1200" height="800" />
       </div>
     </div>
     <div class="layout-all-center layout-content home-logo-organization-wrap">
