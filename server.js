@@ -262,6 +262,18 @@ async function getPageMeta(url) {
 const server = http.createServer(async (req, res) => {
   const url = (req.url || '/').split('?')[0];
 
+  // Proxy /api requests directly to CMS (before Vite/SSR handling)
+  if (url.startsWith('/api') && req.method === 'GET') {
+    try {
+      const proxyTarget = `https://cms.wondergate.io${url}`;
+      const proxyRes = await fetch(proxyTarget, { headers: { 'User-Agent': 'Wondergate-SSR/1.0' } });
+      const body = await proxyRes.text();
+      res.writeHead(proxyRes.status, { 'Content-Type': proxyRes.headers.get('content-type') || 'application/json' });
+      res.end(body);
+      return;
+    } catch (e) { console.error('[API Proxy] Error:', e.message); }
+  }
+
   // --- Top-level routes: redirects, robots.txt, sitemap.xml (before Vite/prod branching) ---
   if (req.method === 'GET' || req.method === 'HEAD') {
     // 301 redirects
@@ -362,6 +374,15 @@ async function handleRequest(req, res) {
 
       staticHandler(req, res, next);
     } else {
+      const url = (req.url || '/').split('?')[0];
+      if (url.startsWith('/api')) {
+        const proxyTarget = `https://cms.wondergate.io${url}`;
+        const proxyRes = await fetch(proxyTarget, { headers: { 'User-Agent': 'Wondergate-SSR/1.0' } });
+        const body = await proxyRes.text();
+        res.writeHead(proxyRes.status, { 'Content-Type': proxyRes.headers.get('content-type') || 'application/json' });
+        res.end(body);
+        return;
+      }
       serveHtml(req, res);
     }
   } catch (e) {
