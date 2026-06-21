@@ -1,6 +1,6 @@
 <template>
   <div :style="{ 'text-align': isCenter ? 'center' : 'left', padding: '.5rem 0' }">
-    <a
+    <a href="/contact-us"
       :class="{
         'button-bg': !isDark,
         'button-dark-bg ': isDark,
