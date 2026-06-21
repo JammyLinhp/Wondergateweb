@@ -110,7 +110,7 @@ watch(
 }
 
 .footer-launch-wrap {
-  background-image: url('@/assets/images/footer/bg_launch.png');
+  background-image: url('@/assets/images/footer/bg_launch.webp');
   height: 23rem;
   text-align: center;
 
