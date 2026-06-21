@@ -76,7 +76,7 @@
         <div class="app-description-text-small app-detail-font" v-html="$t('moo.home.convenientSystemDescription')"></div>
       </div>
       <div class="layout-horizontal-equalization">
-        <img src="../assets/images/home/img_convenient_system.webp" alt="Wondergate integrated cross-border payment management system" width="1200" height="800" />
+        <img src="../assets/images/home/img_convenient_system.webp" alt="Wondergate integrated cross-border payment management system" width="1200" height="800" style="max-width: 100%; height: auto;" />
       </div>
     </div>
     <div class="layout-all-center layout-content home-logo-organization-wrap">
@@ -162,15 +162,10 @@ const stepList: ICard[] = [
   },
 ];
 
-import logo0 from '@/assets/images/home/organization/logo_organization_0.png';
-import logo1 from '@/assets/images/home/organization/logo_organization_1.png';
-import logo2 from '@/assets/images/home/organization/logo_organization_2.png';
-import logo3 from '@/assets/images/home/organization/logo_organization_3.png';
-import logo4 from '@/assets/images/home/organization/logo_organization_4.png';
-import logo5 from '@/assets/images/home/organization/logo_organization_5.png';
-import logo6 from '@/assets/images/home/organization/logo_organization_6.png';
 
-const organizationList = ref([logo0, logo1, logo2, logo3, logo4, logo5, logo6]);
+// Use glob import to keep all org logos in one chunk
+const logoModules = import.meta.glob('@/assets/images/home/organization/*.webp', { eager: true, import: 'default' });
+const organizationList = Object.values(logoModules);
 </script>
 
 <style lang="less">
