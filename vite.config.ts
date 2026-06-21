@@ -46,21 +46,49 @@ export default defineConfig({
         return html.replace('</head>', `${preloads}\n  </head>`);
       },
       writeBundle(options, bundle) {
-        // Preload LCP hero image so the browser discovers it from the initial HTML
         const heroKey = Object.keys(bundle).find(k => k.startsWith('assets/img_title_payment_detail'));
-        if (heroKey) {
-          const outDir = options.dir || 'dist/client';
-          import('node:fs').then(fs => {
-            const indexPath = outDir + '/index.html';
-            if (fs.existsSync(indexPath)) {
-              let html = fs.readFileSync(indexPath, 'utf-8');
-              html = html.replace('</head>',
-                `    <link rel="preload" as="image" href="/${heroKey}" fetchpriority="high">\n  </head>`);
-              fs.writeFileSync(indexPath, html);
+        const outDir = options.dir || 'dist/client';
+        import('node:fs').then(fs => {
+          const indexPath = outDir + '/index.html';
+          if (!fs.existsSync(indexPath)) return;
+          let html = fs.readFileSync(indexPath, 'utf-8');
+          
+          // Preload critical chunks so they download in parallel with main JS
+          const preloads = [];
+          if (heroKey) {
+            preloads.push('<link rel="preload" as="image" href="/' + heroKey + '" fetchpriority="high">');
+          }
+          // Preload language bundle (en-*.js)
+          const langChunk = Object.keys(bundle).find(k => k.startsWith('assets/en-') && k.endsWith('.js'));
+          if (langChunk) {
+            preloads.push('<link rel="preload" as="script" href="/' + langChunk + '">');
+          }
+          // Preload home page chunk (largest non-main index-*.js)
+          const homeChunks = Object.keys(bundle).filter(k => /^assets\/index-[A-Za-z0-9_-]+\.js$/.test(k));
+          homeChunks.sort((a, b) => (bundle[b].code?.length || 0) - (bundle[a].code?.length || 0));
+          const homeChunk = homeChunks.find(k => !k.includes('BclhQ') && !k.includes('BPZP'));
+          if (homeChunk) {
+            preloads.push('<link rel="preload" as="script" href="/' + homeChunk + '">');
+          }
+          // Inline tiny CSS files (< 1KB gzip) to eliminate round trips
+          const tinyCss = Object.keys(bundle).filter(k => k.endsWith('.css'));
+          let inlineStyles = '';
+          for (const cssKey of tinyCss) {
+            const chunk = bundle[cssKey];
+            const source = chunk.source || (chunk.code || '').toString();
+            if (source.length < 1500) {
+              inlineStyles += source;
+              html = html.replace('<link rel="preload" as="style" href="/' + cssKey + '">', '');
             }
-          });
-        }
+          }
+          if (inlineStyles) {
+            html = html.replace('</head>', '<style>' + inlineStyles + '</style>\n  </head>');
+          }
+          html = html.replace('</head>', preloads.join('\n    ') + '\n  </head>');
+          fs.writeFileSync(indexPath, html);
+        });
       },
+
     },
     {
       name: 'generate-sitemap',
