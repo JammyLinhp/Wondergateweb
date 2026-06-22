@@ -12,10 +12,3 @@
   font-family: detailFont;
   src: url('@/assets/iconfont/Poppins-Bold.ttf');
 }
-
-/* Responsive font-size via CSS (replaces JS reSize to avoid forced reflow) */
-html { font-size: 12px; }
-@media (min-width: 771px)  { html { font-size: calc(100vw / 900 * 11); } }
-@media (min-width: 1351px) { html { font-size: calc(100vw / 900 * 10.6); } }
-@media (min-width: 1601px) { html { font-size: calc(100vw / 900 * 9); } }
-@media (min-width: 2001px) { html { font-size: calc(100vw / 900 * 8); } }
