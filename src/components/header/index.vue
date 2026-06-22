@@ -2,7 +2,7 @@
   <div id="header" class="header-wrap layout-content">
     <div class="header-inner layout-content layout-two-side-center-always">
       <div class="header-logo" @click="onLogoClick">
-        <img v-if="isDark" src="../../assets/images/logo_dark.png" alt="Wondergate — Cross-Border Payment Gateway" />
+        <img v-if="isDark" src="../../assets/images/logo_dark.png" width="200" height="54" alt="Wondergate — Cross-Border Payment Gateway" />
         <img v-if="!isDark" src="../../assets/images/logo_light.webp" alt="Wondergate — Cross-Border Payment Gateway" width="200" height="54" />
       </div>
       <div class="header-title" :class="{ 'dark-logo': isDark }">
@@ -131,7 +131,7 @@ onUnmounted(() => {
 
       img {
         width: 150px;
-        max-height: 70%;
+        height: auto;        max-height: 70%;
       }
     }
 
