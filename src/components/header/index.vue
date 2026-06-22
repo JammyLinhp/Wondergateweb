@@ -131,7 +131,7 @@ onUnmounted(() => {
 
       img {
         width: 150px;
-        height: auto;        max-height: 70%;
+        height: auto !important; max-height: 70%;
       }
     }
 
