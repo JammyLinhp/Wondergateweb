@@ -57,7 +57,7 @@
 import Header from '@/components/header/index.vue';
 import Footer from '@/components/footer/index.vue';
 import Carousel from '@/components/carousel/index.vue';
-import { ref, onMounted, inject, computed, getCurrentInstance } from 'vue';
+import { ref, onMounted, inject, computed, getCurrentInstance, onServerPrefetch } from 'vue';
 import { getPostList, getPostCategories } from '@/utils/api';
 import { message } from 'ant-design-vue';
 const { proxy } = getCurrentInstance() as any;
@@ -102,6 +102,38 @@ if (ssrData.posts?.length) {
   total.value = originalNewsList.value.length;
   updateCurrentPageData();
   loading.value = false;
+
+// SSR data prefetch: fetch blog categories and posts on server
+onServerPrefetch(async () => {
+  try {
+    const categories = await getPostCategories();
+    tabs.value = categories.map((item: any) => ({
+      key: item.id?.toString(),
+      title: item.name,
+    }));
+    if (tabs.value.length > 0 && !activeTab.value) {
+      activeTab.value = tabs.value[0].key;
+    }
+    if (activeTab.value) {
+      const res = await getPostList(activeTab.value);
+      originalNewsList.value = res.map((item: any) => ({
+        id: item.id,
+        title: item.title,
+        summary: item.summary,
+        coverImage: item.coverImage,
+        publishedAt: item.publishedAt,
+        slug: item.slug,
+      }));
+      total.value = originalNewsList.value.length;
+      updateCurrentPageData();
+    }
+  } catch (e) {
+    // Silently fail on SSR — client will retry in onMounted
+  } finally {
+    loading.value = false;
+  }
+});
+
 }
 
 // Fetch news data
