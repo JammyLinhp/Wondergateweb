@@ -118,7 +118,7 @@ watch(
     padding: 3.6rem 0 4.3rem;
 
     .footer-launch-title {
-      padding-bottom: 1rem;
+      max-width: 90vw;      padding-bottom: 1rem;
     }
   }
 }
