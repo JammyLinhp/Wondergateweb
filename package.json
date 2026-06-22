@@ -10,8 +10,9 @@
     "build": "vite build --ssrManifest --outDir dist/client && node scripts/defer-css.js",
     "build:client": "vite build --ssrManifest --outDir dist/client && node scripts/defer-css.js",
     "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
-    "preview": "cross-env NODE_ENV=production node server",
-    "defer-css": "node scripts/defer-css.js"
+    "preview": "pnpm run build && wrangler dev",
+    "defer-css": "node scripts/defer-css.js",
+    "deploy": "pnpm run build && wrangler deploy"
   },
   "browserslist": [
     "> 0.5%",
