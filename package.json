@@ -39,7 +39,6 @@
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.42.1",
-    "@fullhuman/postcss-purgecss": "^8.0.0",
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.4",
     "@types/qs": "^6.9.11",
