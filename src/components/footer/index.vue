@@ -104,13 +104,13 @@ watch(
 @import '@/styles/base.less';
 
 .footer-wrap {
+  width: 100%;
   color: @color-white;
   background-size: cover;
 }
 
 .footer-launch-wrap {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 500px;  background-image: url('@/assets/images/footer/bg_launch.webp');
+  background-image: url('@/assets/images/footer/bg_launch.webp');
   height: 23rem;
   text-align: center;
 
